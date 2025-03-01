@@ -1,0 +1,9 @@
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Git
+.git/rebase-merge/
