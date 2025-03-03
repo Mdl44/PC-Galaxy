@@ -1,6 +1,6 @@
 # PC Galaxy
 
-## Proiect Tehnici Web 2024
+## Proiect Tehnici Web 2024-2025
 
 Online store for PC components and hardware
 
