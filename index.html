@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <!--formatul de codificare a caracterelor-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
-    <meta name="keywords" content="magazin, online, componente, gaming, pc, calculatoare, 
+    <meta name="keywords"
+        content="magazin, online, componente, gaming, pc, calculatoare, 
     pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licente software, placi video rtx, procesoare amd ryzen, gaming pc romania, configuratie pc gaming, sisteme gaming complete, pc gaming custom">
     <!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
     <meta name="description"
@@ -22,19 +23,31 @@
     <meta name="apple-mobile-web-app-title" content="PC Galaxy">
     <meta name="msapplication-TileColor" content="#2b5797">
     <link rel="manifest" href="/Resurse/Imagini/favicon/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="./Resurse/css/general.css">
+    <!--
+    <style>
+        p{
+            color:green;
+            font-style:italic;
+        }
+        p{
+            color:blueviolet;
+        }
+    </style>
+    -->
 </head>
 
 <body>
 
     <header>
-        <h1>PC Galaxy - Magazin Online Componente PC și Gaming</h1>
+        <h1>PC Galaxy - Tehnologia Viitorului, Disponibilă Astăzi</h1>
         <nav class="meniu">
             <ul>
                 <li><a href="#acasa">Acasă</a>
                     <ul>
-                        <li><a href="#oferte">Oferte Speciale</a></li>
-                        <li><a href="#noutati">Noutăți</a></li>
-                        <li><a href="#populare">Produse populare</a></li>
+                        <li><a href="#oferte">Reduceri & Promoții</a></li>
+                        <li><a href="#noutati">Lansări Noi</a></li>
+                        <li><a href="#populare">Produse Populare</a></li>
                     </ul>
                 </li>
                 <li><a href="#produse">Catalog Produse</a>
@@ -48,9 +61,9 @@
                         <li><a href="#componente">Componente</a>
                             <ul>
                                 <li><a href="#procesoare">Procesoare</a></li>
-                                <li><a href="#placi-baza">Plăci de bază</a></li>
+                                <li><a href="#placi-baza">Plăci de Bază</a></li>
+                                <li><a href="#placi-video">Plăci Video</a></li>
                                 <li><a href="#ram">RAM</a></li>
-                                <li><a href="#placi-video">Plăci video</a></li>
                                 <li><a href="#stocare">Stocare</a></li>
                                 <li><a href="#surse">Surse</a></li>
                                 <li><a href="#carcase">Carcase</a></li>
@@ -61,21 +74,33 @@
                             <ul>
                                 <li><a href="#tastaturi">Tastaturi</a></li>
                                 <li><a href="#mouse">Mouse</a></li>
+                                <li><a href="#mousepad">Mousepad</a></li>
                                 <li><a href="#monitoare">Monitoare</a></li>
                                 <li><a href="#casti">Căști</a></li>
                             </ul>
                         </li>
                         <li><a href="#software">Software</a>
                             <ul>
-                                <li><a href="#sisteme-operare">Sisteme de operare</a></li>
+                                <li><a href="#sisteme-operare">Sisteme de Operare</a></li>
                                 <li><a href="#licente">Licențe software</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="#despre">Despre noi & Contact</a></li>
+                <li><a href="#tutoriale-resurse">Tutoriale și Resurse</a>
+                    <ul>
+                        <li><a href="#video-tutorials">Ghiduri Video</a></li>
+                        <li><a href="#downloads">Documentație</a></li>
+                    </ul>
+                </li>
                 <li><a href="#cos">Coș de cumpărături</a></li>
                 <li><a href="#wishlist">Wishlist</a></li>
+                <li><a href="#informatii">Informații</a>
+                    <ul>
+                        <li><a href="#faq">Întrebări Frecvente</a></li>
+                        <li><a href="#despre">Despre noi</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -83,27 +108,63 @@
     <main>
         <section id="acasa">
             <h2>Bine ați venit la PC Galaxy</h2>
-            <p>Explorați universul performanței cu PC Galaxy! Suntem destinația ideală pentru pasionații de tehnologie,
-                oferind cele mai noi componente hardware, sisteme gaming puternice și periferice premium. Găsiți tot ce
-                aveți nevoie pentru un setup de top!</p>
+            <p>Pregătit să-ți construiești setupul perfect? La PC Galaxy, pasiunea pentru tehnologie se întâlnește cu
+                expertiza!
+                Descoperă cele mai noi componente hardware, sisteme gaming ultra-performante și periferice premium,
+                toate
+                atent selectate pentru tine.</p>
 
-            <p class="external-links"> Află mai multe despre performanțele componentelor pe<a
-                    href="https://www.userbenchmark.com/" target="_blank"> UserBenchmark </a> </p>
+            <p class="external-links">Vrei să compari performanțele? Verifică benchmark-urile pe
+                <a href="https://www.userbenchmark.com/" target="_blank">UserBenchmark</a></p>
 
-            <p>Cu o experiență de peste 10 ani în domeniul <strong>calculatoarelor gaming</strong> și al
-                <strong>componentelor PC</strong>, suntem alegerea numărul 1 pentru configurații personalizate și
-                <strong>sisteme PC complete</strong>.</p>
+            <p>De peste <strong>10 ani</strong> suntem partenerul de încredere al gamerilor și profesioniștilor din
+                România.
+                Fiecare <strong>sistem PC</strong> asamblat de noi este o poveste unică de performanță și fiabilitate.
+            </p>
+
+            <section id="quick-navigation">
+                <h3>Navigare Rapidă</h3>
+                <figure>
+                    <img src="./Resurse/Imagini/imagine_harta.png" alt="Setup PC" usemap="#quick-navigation-map"
+                        width="768" height="434">
+
+                    <map name="quick-navigation-map">
+                        <!-- Casti -->
+                        <area shape="rect" coords="87,184,156,336" href="#casti" alt="Căști" title="Vezi Căști">
+
+                        <!-- Monitor -->
+                        <area shape="rect" coords="160,72,457,298" href="#monitoare" alt="Monitor"
+                            title="Vezi Monitoare">
+
+                        <!-- Tastatura -->
+                        <area shape="rect" coords="159,338,415,409" href="#tastaturi" alt="Tastatură"
+                            title="Vezi Tastaturi">
+
+                        <!-- Mouse -->
+                        <area shape="rect" coords="438,304,513,347" href="#mouse" alt="Mouse" title="Vezi Mouse-uri">
+
+                        <!-- Mouse-Pad -->
+                        <area shape="poly" coords="476,299,529,369,601,354,523,293" href="#mousepad" alt="Mousepad"
+                            title="Vezi Mousepad-uri">
+
+                        <!-- PC -->
+                        <area shape="rect" coords="495,55,721,284" href="#pc" alt="PC" title="Vezi PC-uri">
+                    </map>
+
+                    <figcaption>
+                        Click pe componente pentru a naviga la secțiunea dorită
+                    </figcaption>
+                </figure>
+            </section>
 
             <section id="oferte">
                 <h3>Oferte Speciale</h3>
-                <p>Descoperă cele mai atractive <strong>oferte</strong> pentru <strong>componente PC</strong> și
-                    <strong>sisteme gaming</strong>:</p>
+                <p>Nu rata cele mai tari <strong>reduceri</strong> ale momentului:</p>
                 <ul>
-                    <li><strong>Reduceri</strong> de până la <s>30%</s> <ins>40%</ins> la <strong>plăci video
-                            gaming</strong></li>
-                    <li><strong>Pachete promoționale</strong> pentru <strong>sisteme PC complete</strong></li>
-                    <li><strong>Oferte speciale</strong> la <strong>periferice gaming</strong></li>
-                    <li>Transport gratuit pentru comenzi peste <s>1000 RON</s> <ins>500 RON</ins></li>
+                    <li>🔥 Economisești până la <s>30%</s> <ins>40%</ins> la <strong>plăci video gaming</strong></li>
+                    <li>⭐ <strong>Pachete gaming complete</strong> cu economii de până la 2000 RON</li>
+                    <li>🎮 Extra reduceri la <strong>periferice gaming</strong> premium</li>
+                    <li>🚚 Transport GRATUIT la comenzi peste <s>1000 RON</s> <ins>500 RON</ins></li>
                 </ul>
             </section>
 
@@ -111,32 +172,46 @@
                 <h3>Detalii Oferte</h3>
                 <div class="oferte-speciale">
                     <details>
-                        <summary>Economisește până la 2000 RON la seria RTX 4000!</summary>
+                        <summary>🎮 Economisește până la 2000 RON la seria RTX 4000!</summary>
                         <ul>
-                            <li>RTX 4090 24GB - Reducere 1500 RON</li>
-                            <li>RTX 4080 16GB - Reducere 1200 RON</li>
-                            <li>RTX 4070Ti 12GB - Reducere 800 RON</li>
+                            <li>RTX 4090 24GB - Reducere 1500 RON + Joc AAA la alegere</li>
+                            <li>RTX 4080 16GB - Reducere 1200 RON + 3 luni GeForce NOW</li>
+                            <li>RTX 4070Ti 12GB - Reducere 800 RON + Mouse Gaming Cadou</li>
+                            <li>✨ Extra: Cod 10% reducere la următoarea achiziție</li>
                             <li>*Ofertă valabilă în limita stocului disponibil</li>
                         </ul>
                     </details>
 
                     <details>
-                        <summary>Upgradează-ți PC-ul cu un pachet de gaming complet și economisește 15%!</summary>
+                        <summary>🌟 Pachet Gaming Pro - Economisește 15% + Cadouri</summary>
                         <ul>
-                            <li>PC Gaming + Monitor 240Hz</li>
-                            <li>Tastatură Mecanică + Mouse Gaming</li>
-                            <li>Căști Gaming + Microfon Studio</li>
+                            <li>PC Gaming + Monitor 240Hz IPS</li>
+                            <li>Tastatură Mecanică RGB + Mouse 16K DPI</li>
+                            <li>Căști Gaming 7.1 + Microfon Studio</li>
                             <li>Windows 11 Pro inclus gratuit</li>
+                            <li>✨ Bonus: Mousepad XL RGB + Stand Căști</li>
                         </ul>
                     </details>
 
                     <details>
-                        <summary>Servicii Premium Incluse</summary>
+                        <summary>🛠️ Servicii Premium Incluse</summary>
                         <ul>
-                            <li>Asamblare gratuită</li>
-                            <li>Cable management profesional</li>
-                            <li>Testare completă sistem</li>
-                            <li>Garanție extinsă 3 ani</li>
+                            <li>Asamblare gratuită de experți certificați</li>
+                            <li>Cable management profesional + iluminare RGB</li>
+                            <li>Testare 48h în condiții de gaming intens</li>
+                            <li>Garanție extinsă 3 ani cu înlocuire instant</li>
+                            <li>✨ Suport tehnic prioritar 24/7</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>💎 Program Loialitate VIP</summary>
+                        <ul>
+                            <li>5% credit bonus la fiecare comandă</li>
+                            <li>Acces prioritar la lansări noi</li>
+                            <li>Upgrade gratuit la livrare express</li>
+                            <li>Invitații la evenimente exclusive gaming</li>
+                            <li>✨ Consultanță tehnică personalizată</li>
                         </ul>
                     </details>
                 </div>
@@ -174,7 +249,7 @@
                 <p>Descoperă cele mai căutate <strong>produse</strong> și <strong>componente</strong> din catalogul
                     nostru:</p>
                 <ul>
-                    <li><strong>Sisteme gaming</strong> personalizate cu RTX 4090</li>
+                    <li><strong>Sisteme gaming</strong> personalizate cu RTX 5090</li>
                     <li><strong>Procesoare</strong> AMD Ryzen și Intel de ultimă generație</li>
                     <li><strong>Monitoare gaming</strong> cu rată de refresh ridicată</li>
                     <li><strong>Periferice gaming</strong> premium pentru profesioniști</li>
@@ -183,350 +258,543 @@
         </section>
 
         <section id="produse">
-            <h2>Catalog Produse</h2>
-            <p>Descoperiți gama noastră variată de <b>produse</b> și <b>componente</b> pentru PC.</p>
+            <h2> Catalog Produse</h2>
+            <p>Explorează universul nostru de <b>componente</b> și <b>sisteme</b> atent selectate pentru tine:</p>
+
             <section id="pc">
-                <h3>PC-uri</h3>
-                <p>Descoperiți gama noastră variată de <b>PC-uri</b> pentru toate nevoile și bugetele.</p>
+                <h3> Sisteme Complete</h3>
+                <p>Fiecare sistem este asamblat cu grijă pentru performanță maximă:</p>
+
                 <section id="gaming">
-                    <h4>PC-uri Gaming</h4>
-                    <p>Descoperă cele mai puternice <strong>calculatoare gaming</strong> și <strong>componente
-                            PC</strong> pentru gaming de ultimă generație. Sistemele noastre sunt optimizate pentru
-                        performanță maximă în cele mai noi jocuri, folosind <strong>componente hardware</strong> premium
-                        și <strong>periferice gaming</strong> de top, precum și tehnologii precum <abbr
-                            title="Ray Tracing">RT</abbr> și <abbr title="Deep Learning Super Sampling">DLSS</abbr> </p>
-                    <!-- de adaugat mai tarziu-->
-                </section>
-                <section id="office">
-                    <h4>PC-uri Office și Stații de Lucru</h4>
-                    <p>Descoperă gama noastră de <strong>calculatoare office</strong> și <strong>stații de
-                            lucru</strong> optimizate pentru productivitate. Oferim sisteme complete cu:</p>
+                    <h4> PC-uri Gaming - Domină în orice joc</h4>
+                    <p>Pregătit să domini competiția? Sistemele noastre <strong>gaming</strong> oferă:</p>
                     <ul>
-                        <li><strong>Procesoare</strong> multi-core pentru multitasking eficient</li>
-                        <li><strong>Memorii RAM</strong> de mare capacitate</li>
-                        <li><strong>SSD-uri rapide</strong> pentru performanță optimă</li>
-                        <li><strong>Sisteme de operare</strong> licențiate</li>
+                        <li>🚀 Performanță de top cu <strong>RTX 4000</strong> și <strong>RX 7000</strong></li>
+                        <li>💪 Procesoare multi-core pentru gaming și streaming</li>
+                        <li>⚡ RAM DDR5 ultra-rapid și SSD-uri PCIe 4.0</li>
+                        <li>❄️ Răcire optimizată pentru sesiuni intense</li>
+                        <li>✨ Setup RGB personalizabil</li>
+                    </ul>
+                </section>
+
+                <section id="office">
+                    <h4> Stații de Lucru Profesionale</h4>
+                    <p>Maximizează-ți productivitatea cu sistemele noastre <strong>office și workstation</strong>:</p>
+                    <ul>
+                        <li>📊 Procesare multi-task eficientă</li>
+                        <li>🚀 SSD-uri NVMe pentru încărcare instant</li>
+                        <li>🔧 Configurații optimizate pentru aplicații profesionale</li>
+                        <li>🤫 Design silent pentru medii de lucru</li>
                     </ul>
                 </section>
             </section>
 
             <section id="componente">
-                <h3>Componente PC și Hardware</h3>
-                <p>Magazinul nostru online oferă o gamă completă de <strong>componente PC</strong> și
-                    <strong>hardware</strong> de la branduri premium. Găsești tot ce ai nevoie pentru upgrade-ul perfect
-                    al calculatorului tău:</p>
-                <ul>
-                    <li><strong>Procesoare</strong> de ultimă generație pentru gaming și productivitate</li>
-                    <li><strong>Plăci video</strong> pentru gaming și aplicații profesionale</li>
-                    <li><strong>Memorii RAM DDR7</strong> pentru performanță maximă</li>
-                    <li><strong>Plăci de bază</strong> cu suport pentru cele mai noi tehnologii</li>
-                    <!-- de adaugat mai tarziu-->
-                </ul>
-            </section>
+                <h3>Componente</h3>
+                <p>Alege dintre cele mai performante <strong>componente</strong> de la branduri de top:</p>
 
-            <section id="procesoare">
-                <h4>Procesoare</h4>
-                <p>Explorează gama noastră de <strong>procesoare</strong> de ultimă generație pentru orice necesitate:</p>
-                <ul>
-                    <li><strong>AMD Ryzen</strong> - Seria 7000 cu arhitectura Zen 4</li>
-                    <li><strong>Intel Core</strong> - Generația a 13-a și 14-a</li>
-                    <li>Soluții optimizate pentru <strong>gaming</strong> și <strong>productivitate</strong></li>
-                    <li>Suport pentru cele mai noi tehnologii precum <abbr title="Peripheral Component Interconnect Express">PCIe</abbr> 5.0</li>
-                </ul>
-                <p>Toate procesoarele vin cu garanție extinsă și suport pentru overclocking pe modelele deblocate.</p>
-            </section>
 
-            <section id="placi-baza">
-                <h4>Plăci de bază</h4>
-                <p>Descoperă cele mai performante <strong>plăci de bază</strong> pentru sistemul tău. Oferim o gamă
-                    completă de la producători de top precum ASUS, MSI și Gigabyte, cu suport pentru cele mai noi
-                    <strong>procesoare</strong> și <strong>memorii RAM</strong>. Alege placa potrivită pentru
-                    <strong>gaming</strong> sau <strong>stații de lucru</strong>.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="ram">
-                <h4>RAM</h4>
-                <p>Explorează gama noastră de <strong>memorii RAM DDR4 și DDR5</strong> de la branduri premium. Oferim
-                    module de memorie optimizate pentru <strong>gaming</strong> și <strong>aplicații
-                        profesionale</strong>, cu frecvențe înalte și latențe reduse pentru performanță maximă.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="placi-video">
-                <h4>Plăci video</h4>
-                <p>Alege din cea mai mare selecție de <strong>plăci video gaming</strong> din România. De la seria
-                    NVIDIA RTX și AMD Radeon, oferim <strong>plăci grafice</strong> pentru orice buget și necesitate,
-                    perfecte pentru <strong>gaming</strong>, rendering și aplicații creative.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="stocare">
-                <h4>Soluții de Stocare</h4>
-                <p>Oferim o gamă completă de <strong>soluții de stocare</strong> pentru toate nevoile:</p>
-                <ul>
-                    <li><strong>SSD-uri NVMe</strong> pentru performanță maximă</li>
-                    <li><strong>SSD-uri SATA</strong> pentru upgrade-uri accesibile</li>
-                    <li><strong>HDD-uri</strong> de mare capacitate pentru stocare</li>
-                    <li><strong>Sisteme RAID</strong> pentru siguranța datelor</li>
-                </ul>
-            </section>
-            <section id="surse">
-                <h4>Surse</h4>
-                <p>Descoperă gama noastră de <strong>surse de alimentare</strong> certificate 80 Plus. Oferim surse de
-                    la branduri de încredere, cu puteri între 500W și 1600W, ideale pentru sisteme
-                    <strong>gaming</strong> și <strong>stații de lucru</strong> performante.</p>
-                
-                <div class="psu-calculator">
-                    <p>Formula recomandată pentru calculul puterii sursei (PSU):</p>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-                        <mrow>
-                            <msub><mi>P</mi><mtext>PSU</mtext></msub>
-                            <mo>=</mo>
-                            <mfenced>
-                                <mrow>
-                                    <msub><mi>P</mi><mtext>CPU</mtext></msub>
-                                    <mo>+</mo>
-                                    <msub><mi>P</mi><mtext>GPU</mtext></msub>
-                                    <mo>+</mo>
-                                    <mn>100</mn>
-                                </mrow>
-                            </mfenced>
-                            <mo>x</mo>
-                            <mn>1.3</mn>
-                        </mrow>
-                    </math>
-                    <p>Unde:</p>
+                <section id="procesoare">
+                    <h4>Procesoare</h4>
+                    <p>Explorează gama noastră de <strong>procesoare</strong> de ultimă generație:</p>
                     <ul>
-                        <li>P<sub>PSU</sub> = Puterea recomandată a sursei (W)</li>
-                        <li>P<sub>CPU</sub> = Consumul procesorului (TDP)</li>
-                        <li>P<sub>GPU</sub> = Consumul plăcii video</li>
-                        <li>100W = Consum de bază pentru alte componente</li>
-                        <li>1.3 = Factor de siguranță (+30%)</li>
+                        <li>⚡ <strong>AMD Ryzen</strong> - Seria 7000 cu arhitectura Zen 4</li>
+                        <li>🔥 <strong>Intel Core</strong> - Generația a 14-a cu suport DDR5</li>
+                        <li>Procesoare specializate pentru <strong>gaming</strong> și <strong>workstation</strong></li>
+                        <li>Tehnologii avansate: <abbr title="Peripheral Component Interconnect Express">PCIe</abbr>
+                            5.0, DDR5</li>
                     </ul>
+                    <p>Include garanție extinsă și suport pentru overclocking pe modelele deblocate.</p>
+                </section>
+
+                <section id="placi-baza">
+                    <h4>Plăci de bază</h4>
+                    <p>Descoperă plăcile de bază premium pentru sistemul tău:</p>
+                    <ul>
+                        <li>Modele ROG, AORUS și MEG pentru gaming extrem</li>
+                        <li>Plăci ProArt și Creator pentru workstation</li>
+                        <li>VRM robust pentru overclocking în siguranță</li>
+                        <li>Suport pentru memorii DDR5 până la 8000MHz</li>
+                    </ul>
+                </section>
+
+                <section id="placi-video">
+                    <h4>Plăci video</h4>
+                    <p>Cele mai noi plăci grafice pentru gaming și creație:</p>
+                    <ul>
+                        <li>NVIDIA RTX 4090, 4080 și 4070 pentru gaming și AI</li>
+                        <li>AMD RX 7900, 7800 și 7700 pentru performanță</li>
+                        <li>DLSS 3.0 și FSR pentru gaming la rezoluție 4K</li>
+                        <li>Suport pentru Ray Tracing și encoding video</li>
+                    </ul>
+                </section>
+
+                <section id="ram">
+                    <h4>Memorii RAM</h4>
+                    <p>Module de memorie optimizate pentru performanță:</p>
+                    <ul>
+                        <li>DDR5 cu frecvențe până la 7200MHz</li>
+                        <li>Kit-uri Dual Channel și Quad Channel</li>
+                        <li>Profiluri XMP pentru overclocking simplu</li>
+                        <li>Design-uri cu RGB sincronizabil</li>
+                    </ul>
+                </section>
+
+                <section id="stocare">
+                    <h4>Soluții de Stocare</h4>
+                    <ul>
+                        <li>SSD-uri PCIe 4.0 cu viteze până la 7000MB/s</li>
+                        <li>SSD-uri SATA pentru upgrade accesibil</li>
+                        <li>HDD-uri de mare capacitate (până la 20TB)</li>
+                        <li>Soluții RAID pentru redundanță date</li>
+                    </ul>
+                </section>
+
+
+                <section id="surse">
+                    <h4>Surse de alimentare</h4>
+                    <p>Surse certificate 80 Plus pentru fiabilitate maximă:</p>
+                    <ul>
+                        <li>Modele 80 Plus Gold și Platinum</li>
+                        <li>Puteri între 500W și 1600W</li>
+                        <li>Cabluri modulare pentru cable management</li>
+                        <li>Protecții multiple pentru siguranță</li>
+                    </ul>
+
+                    <div class="psu-calculator">
+                        <p>Formula recomandată pentru calculul puterii sursei (PSU):</p>
+                        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                            <mrow>
+                                <msub>
+                                    <mi>P</mi>
+                                    <mtext>PSU</mtext>
+                                </msub>
+                                <mo>=</mo>
+                                <mfenced>
+                                    <mrow>
+                                        <msub>
+                                            <mi>P</mi>
+                                            <mtext>CPU</mtext>
+                                        </msub>
+                                        <mo>+</mo>
+                                        <msub>
+                                            <mi>P</mi>
+                                            <mtext>GPU</mtext>
+                                        </msub>
+                                        <mo>+</mo>
+                                        <mn>100</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>x</mo>
+                                <mn>1.3</mn>
+                            </mrow>
+                        </math>
+                        <p>Unde:</p>
+                        <ul>
+                            <li>P<sub>PSU</sub> = Puterea recomandată a sursei (W)</li>
+                            <li>P<sub>CPU</sub> = Consumul procesorului (TDP)</li>
+                            <li>P<sub>GPU</sub> = Consumul plăcii video</li>
+                            <li>100W = Consum de bază pentru alte componente</li>
+                            <li>1.3 = Factor de siguranță (+30%)</li>
+                        </ul>
+                    </div>
+                </section>
+                <section id="carcase">
+                    <h4>Carcase PC</h4>
+                    <ul>
+                        <li>Design-uri optimizate pentru airflow</li>
+                        <li>Suport pentru radiator până la 360mm</li>
+                        <li>Filtre de praf ușor de curățat</li>
+                        <li>Management modern al cablurilor</li>
+                    </ul>
+                </section>
+                <section id="coolere">
+                    <h4>Sisteme de răcire</h4>
+                    <ul>
+                        <li>Răcire cu lichid AIO până la 360mm</li>
+                        <li>Coolere tower cu performanță ridicată</li>
+                        <li>Ventilatoare silențioase cu RGB</li>
+                        <li>Paste termice premium incluse</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section id="periferice">
+                <h3>Periferice Gaming și Accesorii PC</h3>
+                <p>Descoperă gama noastră completă de <strong>periferice gaming</strong> și <strong>accesorii
+                        PC</strong>. Oferim:</p>
+                <ul>
+                    <li><strong>Tastaturi mecanice gaming</strong> pentru precizie și viteză</li>
+                    <li><strong>Mouse-uri gaming</strong> cu senzori de înaltă precizie</li>
+                    <li><strong>Mousepad-uri gaming</strong> pentru control maxim</li> <!-- Add this line -->
+                    <li><strong>Monitoare gaming</strong> cu rată de refresh ridicată</li>
+                    <li><strong>Căști gaming</strong> cu sunet surround pentru imersie totală</li>
+                </ul>
+
+                <section id="tastaturi">
+                    <h4>Tastaturi</h4>
+                    <p>Descoperă colecția noastră de <strong>tastaturi mecanice gaming</strong>:</p>
+                    <ul>
+                        <li>Switch-uri Cherry MX Red, Blue și Brown pentru preferințe diferite</li>
+                        <li>Iluminare RGB per-key programabilă</li>
+                        <li>Construcție din aluminiu cu durabilitate ridicată</li>
+                        <li>Modele TKL și full-size disponibile</li>
+                        <li>Memorii integrate pentru profile și macro-uri</li>
+                        <li>Suport pentru anti-ghosting și N-key rollover</li>
+                    </ul>
+                </section>
+
+                <section id="mouse">
+                    <h4>Mouse</h4>
+                    <p>Alege din gama noastră de <strong>mouse-uri gaming</strong> profesionale:</p>
+                    <ul>
+                        <li>Senzori optici de până la 30000 DPI</li>
+                        <li>Switch-uri Omron cu durabilitate de 70 milioane de click-uri</li>
+                        <li>Design ergonomic pentru sesiuni lungi de gaming</li>
+                        <li>Greutate ajustabilă pentru control perfect</li>
+                        <li>Memorie onboard pentru setări și macro-uri</li>
+                        <li>Picioare PTFE pentru alunecare perfectă</li>
+                    </ul>
+                </section>
+
+                <section id="mousepad">
+                    <h4>Mousepad-uri Gaming</h4>
+                    <p>Descoperă colecția noastră de <strong>mousepad-uri gaming</strong> profesionale:</p>
+                    <ul>
+                        <li>Suprafețe optimizate pentru senzori optici și laser</li>
+                        <li>Dimensiuni XL și XXL pentru setup-uri complete</li>
+                        <li>Modele cu iluminare RGB personalizabilă</li>
+                        <li>Materiale premium cu margini cusute</li>
+                        <li>Bază anti-alunecare din cauciuc natural</li>
+                        <li>Variante impermeabile și ușor de curățat</li>
+                    </ul>
+                </section>
+
+                <section id="monitoare">
+                    <h4>Monitoare</h4>
+                    <p>Explorează selecția noastră de <strong>monitoare gaming</strong>:</p>
+                    <ul>
+                        <li>Panouri IPS, VA și TN pentru nevoi diferite</li>
+                        <li>Rate de refresh de la 144Hz până la 360Hz</li>
+                        <li>Tehnologii G-Sync și FreeSync Premium Pro</li>
+                        <li>Rezoluții 1440p și 4K cu HDR</li>
+                        <li>Timp de răspuns de până la 0.5ms GtG</li>
+                        <li>Suport pentru HDMI 2.1 și DisplayPort 1.4</li>
+                    </ul>
+                </section>
+
+                <section id="casti">
+                    <h4>Căști</h4>
+                    <p>Descoperă gama completă de <strong>căști gaming</strong>:</p>
+                    <ul>
+                        <li>Sunet surround 7.1 pentru poziționare precisă</li>
+                        <li>Drivere de 50mm cu magneți din neodim</li>
+                        <li>Microfon detașabil cu anulare zgomot</li>
+                        <li>Pernuțe cu memory foam și material respirabil</li>
+                        <li>Compatibilitate multi-platformă</li>
+                        <li>Certificare Discord și TeamSpeak</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section id="software">
+                <h3>Software și Licențe</h3>
+                <p>Oferim <strong>soluții software complete</strong> pentru sistemul tău:</p>
+                <ul>
+                    <li><strong>Sisteme de operare</strong> Windows 10/11</li>
+                    <li><strong>Suite office</strong> pentru productivitate</li>
+                    <li><strong>Antivirus</strong> pentru protecție completă</li>
+                    <li><strong>Software specializat</strong> pentru gaming și productivitate</li>
+                </ul>
+
+                <section id="sisteme-operare">
+                    <h4>Sisteme de operare</h4>
+                    <p>Oferim <strong>licențe Windows</strong> originale pentru sistemul tău:</p>
+                    <ul>
+                        <li>Windows 11 Pro cu activare digitală instant</li>
+                        <li>Windows 10 Pro cu upgrade gratuit la Windows 11</li>
+                        <li>Suport pentru configurare și personalizare</li>
+                        <li>Actualizări automate și securitate avansată</li>
+                        <li>Compatibilitate DirectStorage pentru gaming</li>
+                        <li>Windows Hello și funcții biometrice</li>
+                    </ul>
+                </section>
+
+                <section id="licente">
+                    <h4>Licențe software</h4>
+                    <p>Descoperă gama noastră de <strong>licențe software</strong> pentru productivitate și securitate:
+                    </p>
+
+                    <section id="productivitate">
+                        <h5>Software Productivitate</h5>
+                        <ul>
+                            <li>Microsoft 365 cu aplicații complete Office</li>
+                            <li>Adobe Creative Cloud pentru design</li>
+                            <li>AutoCAD pentru proiectare</li>
+                            <li>Suite complete pentru dezvoltare software</li>
+                        </ul>
+                    </section>
+
+                    <section id="securitate">
+                        <h5>Soluții Securitate</h5>
+                        <ul>
+                            <li>Antivirus premium cu protecție în timp real</li>
+                            <li>VPN pentru conexiune securizată</li>
+                            <li>Backup automat în cloud</li>
+                            <li>Firewall avansat și anti-malware</li>
+                        </ul>
+                    </section>
+
+                    <section id="software-gaming">
+                        <h5>Software Gaming</h5>
+                        <ul>
+                            <li>Game Pass PC cu acces la peste 100 jocuri</li>
+                            <li>Software optimizare gaming</li>
+                            <li>Utilitare pentru streaming și captură</li>
+                            <li>Discord Nitro pentru comunicare avansată</li>
+                        </ul>
+                    </section>
+
+                    <section id="beneficii">
+                        <h5>Beneficii incluse</h5>
+                        <ul>
+                            <li>Activare și setare gratuită la livrare</li>
+                            <li>Suport tehnic dedicat 24/7</li>
+                            <li>Actualizări și upgrade-uri incluse</li>
+                            <li>Garanție de autenticitate și conformitate</li>
+                        </ul>
+                    </section>
+                </section>
+            </section>
+
+        </section>
+
+        <section id="tutoriale-resurse">
+            <h2>Tutoriale și Resurse</h2>
+
+            <section id="video-tutorials">
+                <h3>Ghiduri Video</h3>
+                <p>Descoperă colecția noastră de <strong>tutoriale</strong> pentru configurarea sistemului tău:</p>
+
+                <div class="tutorial-main">
+                    <iframe name="video-tutorial" width="560" height="315"
+                        src="https://www.youtube.com/embed/v7MYOpFONCU" title="Tutorial asamblare PC"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <nav class="video-links">
+                    <h4>Playlist Tutoriale</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/embed/v7MYOpFONCU" target="video-tutorial">
+                                Tutorial asamblare PC - Ghid Complet</a></li>
+                        <li><a href="https://www.youtube.com/embed/QXjTKVv_1OU" target="video-tutorial">
+                                Cum să alegi componentele potrivite</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section id="downloads">
+                <h3>Resurse și Documentație</h3>
+                <div class="download-resources">
+                    <p>Materiale utile pentru configurarea și întreținerea sistemului tău:</p>
+                    <ul>
+                        <li>
+                            <a href="./Resurse/Documente/ghid-configurare-pc.pdf"
+                                download="Ghid-Configurare-PC-Gaming.pdf">
+                                📥 Ghid Configurare PC Gaming (PDF)
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="preview-container">
+                        <p>Previzualizare document:</p>
+                        <embed src="./Resurse/Documente/ghid-configurare-pc.pdf" width="800" height="600"
+                            type="application/pdf">
+                    </div>
                 </div>
             </section>
-            <section id="carcase">
-                <h4>Carcase</h4>
-                <p>Explorează colecția noastră de <strong>carcase PC</strong> moderne și funcționale. De la carcase
-                    compacte până la full-tower, oferim soluții pentru orice tip de build, cu accent pe airflow optim și
-                    compatibilitate cu <strong>componente gaming</strong> de ultimă generație.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="coolere">
-                <h4>Coolere</h4>
-                <p>Menține temperatura optimă cu gama noastră de <strong>sisteme de răcire</strong>. Oferim cooler-e
-                    CPU, ventilatoare și sisteme de răcire cu lichid pentru maximizarea performanței sistemului tău
-                    <strong>gaming</strong> sau a <strong>stației de lucru</strong>.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
         </section>
 
-        <section id="periferice">
-            <h3>Periferice Gaming și Accesorii PC</h3>
-            <p>Descoperă gama noastră completă de <strong>periferice gaming</strong> și <strong>accesorii PC</strong>.
-                Oferim:</p>
-            <ul>
-                <li><strong>Tastaturi mecanice gaming</strong> pentru precizie și viteză</li>
-                <li><strong>Mouse-uri gaming</strong> cu senzori de înaltă precizie</li>
-                <li><strong>Monitoare gaming</strong> cu rată de refresh ridicată</li>
-                <li><strong>Căști gaming</strong> cu sunet surround pentru imersie totală</li>
-            </ul>
-            <section id="tastaturi">
-                <h4>Tastaturi</h4>
-                <p>Descoperă colecția noastră de <strong>tastaturi mecanice gaming</strong> de la cei mai buni
-                    producători. Oferim modele cu switch-uri Cherry MX, RGB și funcții avansate pentru cea mai bună
-                    experiență de <strong>gaming</strong>.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="mouse">
-                <h4>Mouse</h4>
-                <p>Alege din gama noastră de <strong>mouse-uri gaming</strong> profesionale. Cu senzori optici de înaltă
-                    precizie și design ergonomic, acestea sunt perfecte pentru <strong>gaming competitiv</strong> și
-                    productivitate crescută.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="monitoare">
-                <h4>Monitoare</h4>
-                <p>Explorează selecția noastră de <strong>monitoare gaming</strong> de înaltă performanță. De la modele
-                    144Hz până la 360Hz, oferim monitoare cu G-Sync și FreeSync pentru cea mai fluidă experiență de
-                    <strong>gaming</strong>.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-            <section id="casti">
-                <h4>Căști</h4>
-                <p>Descoperă gama completă de <strong>căști gaming</strong> cu sunet surround 7.1. Oferim modele premium
-                    cu microfon detașabil și confort sporit pentru sesiuni lungi de <strong>gaming</strong>.</p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-        </section>
-
-        <section id="software">
-            <h3>Software și Licențe</h3>
-            <p>Oferim <strong>soluții software complete</strong> pentru sistemul tău:</p>
-            <ul>
-                <li><strong>Sisteme de operare</strong> Windows 10/11</li>
-                <li><strong>Suite office</strong> pentru productivitate</li>
-                <li><strong>Antivirus</strong> pentru protecție completă</li>
-                <li><strong>Software specializat</strong> pentru gaming și productivitate</li>
-            </ul>
-            <section id="sisteme-operare">
-                <h4>Sisteme de operare</h4>
-                <p>Oferim <strong>licențe Windows</strong> originale pentru sistemul tău. Alege între Windows 10 și
-                    Windows 11, în versiunile Home sau Pro, cu activare instantanee și suport tehnic inclus.</p>
-            </section>
-            <section id="licente">
-                <h4>Licențe software</h4>
-                <p>Descoperă gama noastră de <strong>licențe software</strong> pentru productivitate și securitate. De
-                    la suite Office până la antiviruși și software specializat pentru <strong>gaming</strong> și design.
-                </p>
-                <!-- de adaugat mai tarziu-->
-            </section>
-        </section>
-
-        <section id="despre">
-            <h2>Despre noi & Contact</h2>
-
-            <blockquote cite="https://pcgalaxy.ro/about">
-                <p>De peste 10 ani, PC Galaxy este alegerea numărul 1 pentru pasionații de tehnologie. Ne dedicăm
-                    oferirii celor mai performante componente, suport tehnic specializat și garanție extinsă pentru
-                    fiecare produs!</p>
-            </blockquote>
-
-            <h3>De ce să alegeți PC Galaxy?</h3>
-            <ol>
-                <li>Experiență dovedită în asamblare PC</li>
-                <li>Suport tehnic specializat</li>
-                <li>Garanție extinsă pentru toate produsele</li>
-                <li>Livrare rapidă în toată țara</li>
-            </ol>
-
-
-            <figure class="about-image">
-                <picture>
-                    <source media="(min-width: 1024px)" srcset="Resurse/Imagini/despre/headquarter-large.jpg">
-                    <source media="(min-width: 768px)" srcset="Resurse/Imagini/despre/headquarter-medium.jpg">
-                    <img src="Resurse/Imagini/despre/headquarter-small.jpg" alt="Sediul PC Galaxy">
-                </picture>
-                <figcaption>Sediul nostru central din București - locul unde tehnologia prinde viață</figcaption>
-            </figure>
-
-            <h3>Termeni importanți</h3>
-            <dl>
-                <dt><dfn>Build personalizat</dfn></dt>
-                <dd>Configurație PC creată conform specificațiilor și cerințelor clientului</dd>
-
-                <dt><dfn>Overclocking</dfn></dt>
-                <dd>Procesul de creștere a frecvenței componentelor peste specificațiile din fabrică pentru performanță
-                    sporită</dd>
-
-                <dt><dfn>Cable management</dfn></dt>
-                <dd>Organizarea și ascunderea cablurilor în interiorul carcasei pentru un aspect estetic și airflow
-                    îmbunătățit</dd>
-            </dl>
-            <!-- de adaugat mai tarziu-->
-        </section>
 
         <section id="cos">
             <h2>Coș de cumpărături</h2>
-            <p>Adaugă <strong>componente PC</strong>, <strong>periferice gaming</strong> și <strong>sisteme
-                    complete</strong> în coșul tău. Beneficiezi de:</p>
-            <ul>
-                <li>Prețuri competitive pentru toate produsele</li>
-                <li>Livrare rapidă în toată țara</li>
-                <li>Garanție extinsă pentru componente</li>
-                <li>Suport tehnic specializat</li>
-            </ul>
+            <p>Adaugă <strong>componente PC</strong>, <strong>periferice gaming</strong> și
+                <strong>sisteme complete</strong> în coșul tău.</p>
+
+            <div class="beneficii-cos">
+                <h3>Beneficii Comandă</h3>
+                <ul>
+                    <li>🏷️ Prețuri competitive pentru toate produsele</li>
+                    <li>🚚 Livrare rapidă în toată țara (1-3 zile lucrătoare)</li>
+                    <li>🛡️ Garanție extinsă pentru componente (până la 36 luni)</li>
+                    <li>🔧 Suport tehnic specializat pre și post-vânzare</li>
+                    <li>💳 Plată în rate fără dobândă până la 24 luni</li>
+                    <li>🎁 Puncte bonus pentru programul de loialitate</li>
+                </ul>
+            </div>
+
+            <div class="garantii-cos">
+                <h3>Garanții Cumpărare</h3>
+                <ul>
+                    <li>✅ Produse 100% originale cu certificat de conformitate</li>
+                    <li>🔄 Retur gratuit în 30 de zile</li>
+                    <li>🛠️ Service autorizat pentru toate mărcile</li>
+                    <li>💰 Garanția celui mai bun preț</li>
+                </ul>
+            </div>
         </section>
 
         <section id="wishlist">
             <h2>Wishlist</h2>
-            <p>Adaugă produsele favorite în <strong>lista ta de dorințe</strong>. Beneficiezi de:</p>
-            <ul>
-                <li>Notificări când produsele intră la <strong>oferte speciale</strong></li>
-                <li>Alertă când produsele revin în stoc</li>
-                <li>Comparație facilă între <strong>componente similare</strong></li>
-                <li>Organizare ușoară a viitoarelor <strong>upgrade-uri PC</strong></li>
-            </ul>
-        </section>
+            <p>Adaugă produsele favorite în <strong>lista ta de dorințe</strong> pentru:</p>
 
-
-        <a href="./Resurse/Imagini/favicon/web-app-manifest-192x192.png" download="logo-pcgalaxy.png">Descarcă logo-ul
-            PC Galaxy</a>
-        <section id="video-tutorials">
-            <h2>Tutoriale și Ghiduri Video</h2>
-            <iframe name="video-tutorial" width="560" height="315" src="https://www.youtube.com/embed/v7MYOpFONCU"
-                title="Tutorial asamblare PC"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <nav class="video-links">
+            <div class="beneficii-wishlist">
                 <ul>
-                    <li><a href="https://www.youtube.com/embed/v7MYOpFONCU" target="video-tutorial">Tutorial asamblare
-                            PC</a></li>
-                    <li><a href="https://www.youtube.com/embed/QXjTKVv_1OU" target="video-tutorial">Tutorial alegere
-                            componente PC</a></li>
+                    <li>🔔 Notificări instant când produsele intră la <strong>oferte speciale</strong></li>
+                    <li>📦 Alertă când produsele revin în stoc</li>
+                    <li>📊 Comparație facilă între <strong>componente similare</strong></li>
+                    <li>📝 Organizare ușoară a viitoarelor <strong>upgrade-uri PC</strong></li>
+                    <li>💰 Urmărire evoluție prețuri</li>
+                    <li>🎯 Setare target de preț cu notificare automată</li>
                 </ul>
-            </nav>
+            </div>
+
+            <div class="functii-wishlist">
+                <h3>Funcționalități</h3>
+                <ul>
+                    <li>Organizare produse pe categorii</li>
+                    <li>Partajare listă cu prietenii</li>
+                    <li>Configurator de build PC</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="downloads">
-            <h2>Resurse și Documentație</h2>
-            <p>
-                <a href="./Resurse/Documente/ghid-configurare-pc.pdf" download="Ghid-Configurare-PC-Gaming.pdf">
-                    Descarcă ghidul nostru de configurare PC Gaming (PDF)
-                </a>
-            </p>
-        </section>
+        <section id="informatii">
+            <h2>Informații Generale</h2>
+            <section id="termeni">
+                <h2>Termeni importanți</h2>
+                <dl>
+                    <dt><dfn>Build personalizat</dfn></dt>
+                    <dd>Configurație PC creată conform specificațiilor și cerințelor clientului, optimizată pentru
+                        performanță și buget</dd>
 
-        <section id="faq">
-            <h2>Întrebări Frecvente</h2>
+                    <dt><dfn>Overclocking</dfn></dt>
+                    <dd>Procesul de creștere a frecvenței componentelor peste specificațiile din fabrică pentru
+                        performanță sporită, realizat în condiții controlate și monitorizate</dd>
 
-            <details>
-                <summary>Care este timpul de livrare pentru un PC Gaming personalizat?</summary>
-                <div>
-                    <p>Timpul standard de procesare pentru un PC Gaming personalizat este de 2-3 zile lucrătoare pentru
-                        asamblare și testare, plus 1-2 zile pentru livrare. Pentru configurații complexe sau componente
-                        la comandă,
-                        timpul poate fi de până la 5-7 zile lucrătoare.</p>
-                </div>
-            </details>
+                    <dt><dfn>Cable management</dfn></dt>
+                    <dd>Organizarea și ascunderea cablurilor în interiorul carcasei pentru un aspect estetic și airflow
+                        îmbunătățit</dd>
 
-            <details>
-                <summary>Ce garanție oferă PC Galaxy pentru sistemele asamblate?</summary>
-                <div>
-                    <p>Toate sistemele PC Galaxy beneficiază de:</p>
+                    <dt><dfn>TDP (Thermal Design Power)</dfn></dt>
+                    <dd>Cantitatea maximă de căldură generată de o componentă în condiții normale de funcționare</dd>
+
+                    <dt><dfn>RGB Sync</dfn></dt>
+                    <dd>Sincronizarea iluminării RGB între toate componentele sistemului pentru efecte vizuale
+                        coordonate</dd>
+                </dl>
+            </section>
+
+            <section id="faq">
+                <h2>Întrebări Frecvente</h2>
+
+                <details>
+                    <summary>Care este timpul de livrare pentru un PC Gaming personalizat?</summary>
+                    <div>
+                        <p>Timpul standard de procesare pentru un PC Gaming personalizat este:</p>
+                        <ul>
+                            <li>2-3 zile lucrătoare pentru asamblare și testare</li>
+                            <li>1-2 zile pentru livrare în orașe principale</li>
+                            <li>2-3 zile pentru livrare în restul țării</li>
+                            <li>5-7 zile lucrătoare pentru configurații complexe sau componente la comandă</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Ce garanție oferă PC Galaxy pentru sistemele asamblate?</summary>
+                    <div>
+                        <p>Toate sistemele PC Galaxy beneficiază de:</p>
+                        <ul>
+                            <li>Garanție standard 24 luni pentru toate componentele</li>
+                            <li>Garanție extinsă 36 luni pentru surse și plăci de bază</li>
+                            <li>Suport tehnic gratuit pe toată durata garanției</li>
+                            <li>Service în regim de urgență în primele 30 de zile</li>
+                            <li>Înlocuire instant în caz de defecte în primele 72 ore</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Cum procedez pentru upgrade-ul unui sistem existent?</summary>
+                    <div>
+                        <p>Pentru upgrade-uri, urmăm următorul proces:</p>
+                        <ol>
+                            <li>Evaluare gratuită a sistemului actual</li>
+                            <li>Recomandări personalizate pentru upgrade</li>
+                            <li>Verificare compatibilitate componente</li>
+                            <li>Instalare și testare în service</li>
+                            <li>Optimizare sistem post-upgrade</li>
+                            <li>Backup date (opțional)</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Care sunt modalitățile de plată acceptate?</summary>
+                    <div>
+                        <p>Acceptăm următoarele modalități de plată:</p>
+                        <ul>
+                            <li>Card credit/debit online (Visa, Mastercard)</li>
+                            <li>Transfer bancar</li>
+                            <li>Rate fără dobândă până la 24 luni</li>
+                            <li>Plata la livrare (ramburs)</li>
+                            <li>Crypto (Bitcoin, Ethereum)</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
+
+            <section id="despre">
+                <h2>Despre noi & Contact</h2>
+
+                <blockquote cite="https://pcgalaxy.ro/about">
+                    <p>De peste 10 ani, PC Galaxy este alegerea numărul 1 pentru pasionații de tehnologie. Ne dedicăm
+                        oferirii celor mai performante componente, suport tehnic specializat și garanție extinsă pentru
+                        fiecare produs!</p>
+                </blockquote>
+
+                <h3>De ce să alegeți PC Galaxy?</h3>
+                <ol>
+                    <li>Experiență dovedită în asamblare PC cu peste 10.000 de sisteme livrate</li>
+                    <li>Suport tehnic specializat disponibil 24/7</li>
+                    <li>Garanție extinsă pentru toate produsele</li>
+                    <li>Livrare rapidă în toată țara</li>
+                    <li>Cel mai mare showroom de componente din România</li>
+                    <li>Program buy-back pentru upgrade-uri</li>
+                </ol>
+
+                <figure class="about-image">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="Resurse/Imagini/despre/headquarter-large.jpg">
+                        <source media="(min-width: 480px)" srcset="Resurse/Imagini/despre/headquarter-medium.jpg">
+                        <img src="Resurse/Imagini/despre/headquarter-small.jpg" alt="Sediul PC Galaxy">
+                    </picture>
+                    <figcaption>Sediul nostru central din București - locul unde tehnologia prinde viață</figcaption>
+                </figure>
+
+                <section id="certificari">
+                    <h3>Certificări și Parteneriate</h3>
                     <ul>
-                        <li>Garanție standard 24 luni pentru toate componentele</li>
-                        <li>Garanție extinsă 36 luni pentru surse și plăci de bază</li>
-                        <li>Suport tehnic gratuit pe toată durata garanției</li>
-                        <li>Service în regim de urgență în primele 30 de zile</li>
+                        <li>Partener Oficial NVIDIA, AMD și Intel</li>
+                        <li>Certificare ISO 9001 pentru management al calității</li>
+                        <li>Membru ARMO (Asociația Retailerilor de Monitoare)</li>
+                        <li>Certificare Microsoft Partner</li>
                     </ul>
-                </div>
-            </details>
-
-            <details>
-                <summary>Cum procedez pentru upgrade-ul unui sistem existent?</summary>
-                <div>
-                    <p>Pentru upgrade-uri, urmăm următorul proces:</p>
-                    <ol>
-                        <li>Evaluare gratuită a sistemului actual</li>
-                        <li>Recomandări personalizate pentru upgrade</li>
-                        <li>Verificare compatibilitate componente</li>
-                        <li>Instalare și testare în service</li>
-                    </ol>
-                </div>
-            </details>
-
-            <details>
-                <summary>Care sunt modalitățile de plată acceptate?</summary>
-                <div>
-                    <p>Acceptăm următoarele modalități de plată:</p>
-                    <ul>
-                        <li>Card credit/debit online</li>
-                        <li>Transfer bancar</li>
-                        <li>Rate fără dobândă până la 24 luni</li>
-                        <li>Plata la livrare (ramburs)</li>
-                    </ul>
-                </div>
-            </details>
+                </section>
+            </section>
         </section>
 
     </main>
@@ -536,29 +804,55 @@
             <h3>Contact PC Galaxy</h3>
             <address>
                 <ul>
+                    <li>
+                        <a href="tel:+40712345678">
+                            📞 +40 712 345 678
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@pcgalaxy.ro">
+                            ✉️ contact@pcgalaxy.ro
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/maps/place/Faculty+of+Mathematics+and+Computer+Science/@44.4355355,26.0970118,17z"
+                            target="_blank" rel="noopener noreferrer">
+                            📍 Facultatea de Matematică și Informatică, București
+                        </a>
+                    </li>
+                    <li>
 
-                    <li><a href="tel:+40712345678">+40 712 345 678</a></li>
-
-
-                    <li><a href="mailto:contact@pcgalaxy.ro">contact@pcgalaxy.ro</a></li>
-
-
-                    <li><a href="https://www.google.com/maps/place/Faculty+of+Mathematics+and+Computer+Science/@44.4355355,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
-                            target="_blank">Facultatea de Matematică și Informatică, București</a></li>
-
-
-                    <li><a href="https://wa.me/40712345678" target="_blank">WhatsApp</a></li>
+                        <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.8844286095376!2d26.094823376537713!3d44.43553547899371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFaculty%20of%20Mathematics%20and%20Computer%20Science!5e0!3m2!1sen!2sro!4v1685963720005!5m2!1sen!2sro">
+                        </iframe>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/40712345678" target="_blank" rel="noopener noreferrer">
+                            💬 WhatsApp
+                        </a>
+                    </li>
                 </ul>
             </address>
         </div>
 
-        <nav class="footer-links">
-            <a href="#acasa">Înapoi sus</a>
-            <a href="https://www.google.com">Alta pagina</a>
+        <div class="footer-brand">
+            <a href="./Resurse/Imagini/favicon/web-app-manifest-192x192.png" download="logo-pcgalaxy.png">Descarcă
+                logo-ul
+                PC Galaxy</a>
+        </div>
 
+        <nav class="footer-links">
+            <ul>
+                <li><a href="#acasa">Înapoi sus</a></li>
+                <li><a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Alta pagina</a></li>
+            </ul>
         </nav>
 
-        <small>&copy; <time datetime="2025-03-02">2 martie 2025</time> PC Galaxy. Toate drepturile rezervate.</small>
+        <small>
+            &copy; <time datetime="2025-03-02">2 martie 2025</time> PC Galaxy.
+            Toate drepturile rezervate.
+        </small>
     </footer>
 
 </body>
