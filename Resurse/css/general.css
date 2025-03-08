@@ -20,7 +20,6 @@ body {
     padding-right: var(--spatiere-mare);
     background-color: var(--main-background);
     color: var(--text);
-
 }
 
 .grid-container {
@@ -39,14 +38,6 @@ body {
         grid-gap: var(--spatiere-medie);
         grid-template-columns: 1fr;
     }
-
-    img,
-    video,
-    iframe,
-    embed {
-        max-width: 600px;
-        min-width: 200px;
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -58,14 +49,6 @@ body {
     .grid-container {
         grid-gap: var(--spatiere-mica);
         grid-template-columns: 1fr;
-    }
-
-    img,
-    video,
-    iframe,
-    embed {
-        max-width: 400px;
-        min-width: 100px;
     }
 }
 
@@ -105,12 +88,39 @@ a {
     color: var(--text_hyperlink);
 }
 
-img,
-video,
-iframe,
-embed {
-    width: 100%;
+img, video {
+    width: auto;
     max-width: 800px;
     min-width: 200px;
     height: auto;
+}
+
+iframe, embed, object {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+}
+
+@media screen and (max-width: 768px) {
+    img, video {
+        max-width: 600px;
+        min-width: 200px;
+    }
+    
+    iframe, embed, object {
+        max-width: 600px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    img, video {
+        max-width: 400px;
+        min-width: 100px;
+    }
+    
+    iframe, embed, object {
+        max-width: 400px;
+        height: auto;
+    }
 }
