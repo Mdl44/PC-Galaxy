@@ -1,6 +1,116 @@
-/*
-p{
-    border:2px solid blue;
-    color:aqua;
+:root {
+    --spatiere-mare: 128px;
+    --spatiere-medie: 64px;
+    --spatiere-mica: 32px;
+    --spatiere-text: 20px;
+
+    --header: #18015d;
+    --footer: #130a2f;
+    --grid: #150152;
+    --text: #fff;
+    --text_hyperlink: #c2c2fa;
+    --main-background: #120543;
+    --border: 3px solid #3a1f99;
+
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
-*/
+
+body {
+    padding-left: var(--spatiere-mare);
+    padding-right: var(--spatiere-mare);
+    background-color: var(--main-background);
+    color: var(--text);
+
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: var(--spatiere-mare);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-left: var(--spatiere-medie);
+        padding-right: var(--spatiere-medie);
+    }
+
+    .grid-container {
+        grid-gap: var(--spatiere-medie);
+        grid-template-columns: 1fr;
+    }
+
+    img,
+    video,
+    iframe,
+    embed {
+        max-width: 600px;
+        min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding-left: var(--spatiere-mica);
+        padding-right: var(--spatiere-mica);
+    }
+
+    .grid-container {
+        grid-gap: var(--spatiere-mica);
+        grid-template-columns: 1fr;
+    }
+
+    img,
+    video,
+    iframe,
+    embed {
+        max-width: 400px;
+        min-width: 100px;
+    }
+}
+
+header {
+    background-color: var(--header);
+    color: var(--text);
+    padding: var(--spatiere-text);
+    margin-bottom: 20px;
+    border: var(--border);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+footer {
+    background-color: var(--footer);
+    color: var(--text);
+    padding: var(--spatiere-text);
+    margin-top: 20px;
+    border: var(--border);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+#pc,
+#componente,
+#periferice,
+#software {
+    background-color: var(--grid);
+    color: var(--text);
+    padding: var(--spatiere-text);
+    border: var(--border);
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+a {
+    color: var(--text_hyperlink);
+}
+
+img,
+video,
+iframe,
+embed {
+    width: 100%;
+    max-width: 800px;
+    min-width: 200px;
+    height: auto;
+}
