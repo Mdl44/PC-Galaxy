@@ -14,17 +14,19 @@ html {
     --border: 3px solid #3a1f99;
 
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    
+
     font-size: 18px;
 }
 
-
+/* Task a */
 body {
     padding-left: var(--spatiere-mare);
     padding-right: var(--spatiere-mare);
     background-color: var(--main-background);
     color: var(--text);
 }
+
+/* Task a */
 
 h2 {
     font-size: 1.4rem;
@@ -34,7 +36,7 @@ a {
     color: var(--text_hyperlink);
 }
 
-
+/* Task c */
 header {
     background-color: var(--header);
     color: var(--text);
@@ -55,47 +57,69 @@ footer {
     box-shadow: var(--box-shadow);
 }
 
+/* Task c */
+/* Task d */
 main {
     padding-left: var(--spatiere-pagina);
     padding-right: var(--spatiere-pagina);
 }
 
+/* Task d */
 
 #grid-pagina {
     display: grid;
     grid-template-areas: "acasa acasa acasa"
-                         "produse produse produse"
-                         "tutoriale-resurse tutoriale-resurse tutoriale-resurse"
-                         "cos cos cos"
-                         "wishlist wishlist wishlist"
-                         "informatii informatii informatii";
+        "produse produse produse"
+        "tutoriale-resurse tutoriale-resurse tutoriale-resurse"
+        "cos cos cos"
+        "wishlist wishlist wishlist"
+        "informatii informatii informatii";
 }
 
-#grid-pagina > * {
+#grid-pagina>* {
     outline: 1px solid #3a1f99;
     padding: 4px;
 }
 
-#grid-pagina > figure {
+#grid-pagina>figure {
     margin: 0;
 }
 
 
-#acasa { grid-area: acasa; }
-#produse { grid-area: produse; }
-#tutoriale-resurse { grid-area: tutoriale-resurse; }
-#cos { grid-area: cos; }
-#wishlist { grid-area: wishlist; }
-#informatii { grid-area: informatii; }
+#acasa {
+    grid-area: acasa;
+}
 
+#produse {
+    grid-area: produse;
+}
 
+#tutoriale-resurse {
+    grid-area: tutoriale-resurse;
+}
+
+#cos {
+    grid-area: cos;
+}
+
+#wishlist {
+    grid-area: wishlist;
+}
+
+#informatii {
+    grid-area: informatii;
+}
+
+/* Task b */
 .grid-container {
     display: grid;
     grid-gap: var(--spatiere-mare);
     grid-template-columns: repeat(2, 1fr);
 }
 
+/* Task b */
 
+/* Task c */
 #pc,
 #componente,
 #periferice,
@@ -108,19 +132,26 @@ main {
     box-shadow: var(--box-shadow);
 }
 
+/* Task c */
 
-img, video {
+/* Task e */
+img,
+video {
     width: auto;
     max-width: 800px;
     min-width: 200px;
     height: auto;
 }
 
-iframe, embed, object {
+iframe,
+embed,
+object {
     width: 100%;
     max-width: 800px;
     height: 450px;
 }
+
+/* Task e */
 
 figcaption {
     text-align: center;
@@ -130,65 +161,86 @@ figcaption {
 @media screen and (max-width: 768px) {
     html {
         font-size: 14px;
+        --spatiere-pagina: 40px;
     }
-    
+
+    /* Task a */
     body {
         padding-left: var(--spatiere-medie);
         padding-right: var(--spatiere-medie);
-        --spatiere-pagina: 40px;
-    }
-    
-    #grid-pagina {
-        grid-template-areas: "acasa acasa"
-                            "produse produse"
-                            "tutoriale-resurse tutoriale-resurse"
-                            "cos cos"
-                            "wishlist wishlist"
-                            "informatii informatii";
     }
 
+    /* Task a */
+    #grid-pagina {
+        grid-template-areas: "acasa acasa"
+            "produse produse"
+            "tutoriale-resurse tutoriale-resurse"
+            "cos cos"
+            "wishlist wishlist"
+            "informatii informatii";
+    }
+
+    /* Task b */
     .grid-container {
         grid-template-columns: 1fr;
         grid-gap: var(--spatiere-medie);
     }
-    
-    img, video {
+
+    /* Task b */
+    /* Task e */
+    img,
+    video {
+        width: 100%;
         max-width: 600px;
         min-width: 200px;
     }
-    
-    iframe, embed, object {
+
+    iframe,
+    embed,
+    object {
         max-width: 600px;
         height: auto;
     }
+
+    /* Task e */
 }
 
 @media screen and (max-width: 480px) {
     html {
         font-size: 10px;
+        --spatiere-pagina: 20px;
     }
-    
+
+    /* Task a */
     body {
         padding-left: var(--spatiere-mica);
         padding-right: var(--spatiere-mica);
-        --spatiere-pagina: 20px;
     }
-    
+
+    /* Task a */
     #grid-pagina {
         display: block;
     }
 
+    /* Task b */
     .grid-container {
         grid-gap: var(--spatiere-mica);
     }
-    
-    img, video {
+
+    /* Task b */
+    /* Task e */
+    img,
+    video {
         max-width: 400px;
         min-width: 100px;
     }
-    
-    iframe, embed, object {
+
+    iframe,
+    embed,
+    object {
         max-width: 400px;
         height: auto;
     }
+
+    /* Task e */
 }
