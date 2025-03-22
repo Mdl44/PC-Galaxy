@@ -1,27 +1,28 @@
-<!-- Cerinta 1-->
-<!DOCTYPE html> <!-- doctype -->
+<!DOCTYPE html>
 <html lang="ro">
-<!-- limba paginii -->
-<!-- /Cerinta 1-->
 
 <head>
-
-    <!-- Cerinta 2-->
+    <!------------------------------- Basic Meta Tags ------------------------------->
     <title>PC Galaxy - Ghidul tău în universul componentelor PC</title>
     <meta charset="UTF-8">
-    <!--formatul de codificare a caracterelor-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!------------------------------- SEO Meta Tags ------------------------------->
     <meta name="keywords"
         content="magazin, online, componente, gaming, pc, calculatoare, 
     pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licente software, placi video rtx, procesoare amd ryzen, gaming pc romania, configuratie pc gaming, sisteme gaming complete, pc gaming custom">
-    <!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
     <meta name="description"
         content="PC Galaxy - cel mai mare magazin online de componente PC și calculatoare gaming din România. Oferim componente hardware, periferice gaming și sisteme PC complete la cele mai bune prețuri. Livrare rapidă și garanție extinsă pentru toate produsele.">
-    <!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
-    <meta name="author" content="PC Galaxy SRL"> <!-- autorul/autoarea paginii-->
-    <!-- /Cerinta 2-->
+    <meta name="author" content="PC Galaxy SRL">
 
-    <!-- Cerinta 3 -->
+    <!------------------------------- Font resouces ------------------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+    <!------------------------------- Favicon ------------------------------->
     <link rel="icon" type="image/png" href="/Resurse/Imagini/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="/Resurse/Imagini/favicon/favicon.svg">
     <link rel="shortcut icon" href="/Resurse/Imagini/favicon/favicon.ico">
@@ -29,13 +30,16 @@
     <meta name="apple-mobile-web-app-title" content="PC Galaxy">
     <meta name="msapplication-TileColor" content="#2b5797">
     <link rel="manifest" href="/Resurse/Imagini/favicon/site.webmanifest">
+
+
+    <!------------------------------- CSS Links ------------------------------->
+    <link rel="stylesheet" type="text/css" href="./Resurse/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./Resurse/css/general.css">
-    <!-- /Cerinta 3 -->
 
 </head>
 
 <body>
-    <!-- Cerinta 6 -->
+    <!------------------------------- Navigation ------------------------------->
     <header>
         <h1>PC Galaxy - Tehnologia Viitorului, Disponibilă Astăzi</h1>
         <nav class="meniu">
@@ -101,10 +105,13 @@
             </ul>
         </nav>
     </header>
-    <!-- /Cerinta 6 -->
+
+
 
     <main>
+        <!------------------------------- Main Content Grid ------------------------------->
         <div id="grid-pagina">
+            <!------------------------------- Home Section ------------------------------->
             <section id="acasa">
                 <h2>Bine ați venit la PC Galaxy</h2>
                 <p>Pregătit să-ți construiești setupul perfect? La PC Galaxy, pasiunea pentru tehnologie se întâlnește
@@ -113,74 +120,56 @@
                     Descoperă cele mai noi componente hardware, sisteme gaming ultra-performante și periferice premium,
                     toate
                     atent selectate pentru tine.</p>
-                <!-- Cerinta 11 link extern-->
                 <p class="external-links">🔍 Vrei să compari performanțele? Verifică benchmark-urile pe
                     <a href="https://www.userbenchmark.com/" target="_blank">UserBenchmark</a>
                 </p>
-                <!-- /Cerinta 11-->
-                <!-- Cerinta 10 strong-->
                 <p>De peste <strong>10 ani</strong> suntem partenerul de încredere al gamerilor și profesioniștilor din
                     România.
                     Fiecare <strong>sistem PC</strong> asamblat de noi este o poveste unică de performanță și
                     fiabilitate.
                 </p>
-                <!-- /Cerinta 10-->
-                <!-- Task bonus harta de imagini-->
+
+                <!------------------------------- Quick Navigation Section ------------------------------->
                 <section id="quick-navigation">
                     <h3>Navigare Rapidă</h3>
                     <figure>
                         <img src="./Resurse/Imagini/imagine_harta.png" alt="Setup PC" usemap="#quick-navigation-map"
-                            width="768" height="434">
-
+                            width="766" height="430">
                         <map name="quick-navigation-map">
-                            <!-- Casti -->
                             <area shape="rect" coords="87,184,156,336" href="#casti" alt="Căști" title="Vezi Căști">
-
-                            <!-- Monitor -->
                             <area shape="rect" coords="160,72,457,298" href="#monitoare" alt="Monitor"
                                 title="Vezi Monitoare">
-
-                            <!-- Tastatura -->
                             <area shape="rect" coords="159,338,415,409" href="#tastaturi" alt="Tastatură"
                                 title="Vezi Tastaturi">
-
-                            <!-- Mouse -->
                             <area shape="rect" coords="438,304,513,347" href="#mouse" alt="Mouse"
                                 title="Vezi Mouse-uri">
-
-                            <!-- Mouse-Pad -->
                             <area shape="poly" coords="476,299,529,369,601,354,523,293" href="#mousepad" alt="Mousepad"
                                 title="Vezi Mousepad-uri">
-
-                            <!-- PC -->
                             <area shape="rect" coords="495,55,721,284" href="#pc" alt="PC" title="Vezi PC-uri">
                         </map>
-
                         <figcaption>
                             Click pe componente pentru a naviga la secțiunea dorită
                         </figcaption>
                     </figure>
                 </section>
-                <!-- /Task bonus harta de imagini-->
 
+                <!------------------------------- Special Offers Section ------------------------------->
                 <section id="oferte">
                     <h3>Oferte Speciale</h3>
                     <p>Nu rata cele mai tari <strong>reduceri</strong> ale momentului:</p>
                     <ul>
-                        <!-- Cerinta 10 s ins-->
                         <li>🔥 Economisești până la <s>30%</s> <ins>40%</ins> la <strong>plăci video gaming</strong>
                         </li>
                         <li>⭐ <strong>Pachete gaming complete</strong> cu economii de până la 2000 RON</li>
                         <li>🎮 Extra reduceri la <strong>periferice gaming</strong> premium</li>
                         <li>🚚 Transport GRATUIT la comenzi peste <s>1000 RON</s> <ins>500 RON</ins></li>
-                        <!-- /Cerinta 10 s ins -->
                     </ul>
                 </section>
 
+                <!------------------------------- Special Offers Details Section ------------------------------->
                 <section id="detalii-oferte">
                     <h3>Detalii Oferte</h3>
                     <div class="oferte-speciale">
-                        <!-- Cerinta 12 -->
                         <details>
                             <summary>🎮 Economisește până la 2000 RON la seria RTX 4000!</summary>
                             <ul>
@@ -225,14 +214,12 @@
                             </ul>
                         </details>
                     </div>
-                    <!-- /Cerinta 12 -->
                 </section>
 
+                <!------------------------------- News Section ------------------------------->
                 <section id="noutati">
                     <h3>Noutăți</h3>
-                    <!-- Cerinta 10 b-->
                     <p>Descoperiți cele mai noi <b>produse</b> și <b>componente</b> lansate pe piață.</p>
-                    <!-- /Cerinta 10 -->
                     <div class="noutati-container">
                         <article class="produs-nou">
                             <h4>PC Gaming High-End AMD Ryzen 9</h4>
@@ -258,12 +245,11 @@
                         </article>
                     </div>
                 </section>
-                <!--Cerinta 7 p, ul-->
+
+                <!------------------------------- Popular Products Section ------------------------------->
                 <section id="populare">
                     <h3>Produse Populare</h3>
-                    <!-- Cerinta 10 strong -->
                     <p>Descoperă cele mai căutate <strong>produse și componente</strong> din catalogul nostru:</p>
-                    <!-- /Cerinta 10 -->
                     <ul>
                         <li>🖥️ <strong>Sisteme gaming</strong> personalizate cu RTX 5090</li>
                         <li>🧠 <strong>Procesoare</strong> AMD Ryzen și Intel de ultimă generație</li>
@@ -271,9 +257,270 @@
                         <li>🎮 <strong>Periferice gaming</strong> premium pentru profesioniști</li>
                     </ul>
                 </section>
-                <!--/Cerinta 7-->
             </section>
 
+            <!------------------------------- Product Comparison ------------------------------->
+            <section id="product-comparison">
+                <h2>Configurații Recomandate 2025</h2>
+                <p>Selectate de experții noștri pentru performanță optimizată și zero bottleneck:</p>
+                <div class="table-container">
+                    <table class="comparison-table">
+                        <caption>Configurații PC recomandate pentru diferite nevoi și bugete</caption>
+                        <thead>
+                            <tr>
+                                <th>Categorie</th>
+                                <th>Componente Principale</th>
+                                <th>Preț</th>
+                                <th>Ideal Pentru</th>
+                                <th>Performanță</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Gaming Entry</strong><br><span class="budget-tag">Budget</span></td>
+                                <td>
+                                    <ul class="compact-list">
+                                        <li>Ryzen 5 7500X</li>
+                                        <li>RTX 4060 8GB</li>
+                                        <li>16GB DDR5 6000MHz</li>
+                                        <li>1TB NVMe SSD</li>
+                                    </ul>
+                                </td>
+                                <td>4,500 RON</td>
+                                <td>Gaming 1080p<br>Productivitate de bază<br>Streaming casual</td>
+                                <td>
+                                    <div class="rating">
+                                        <div class="bar" style="width:70%"></div>
+                                    </div>
+                                    <span>70%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Creator Budget</strong><br><span class="budget-tag">Mid-Range</span></td>
+                                <td>
+                                    <ul class="compact-list">
+                                        <li>Intel i5-14600K</li>
+                                        <li>RTX 4060 Ti 16GB</li>
+                                        <li>32GB DDR5 6000MHz</li>
+                                        <li>2TB NVMe Gen4</li>
+                                    </ul>
+                                </td>
+                                <td>7,200 RON</td>
+                                <td>Editare foto/video<br>Design grafic<br>Gaming 1440p</td>
+                                <td>
+                                    <div class="rating">
+                                        <div class="bar" style="width:80%"></div>
+                                    </div>
+                                    <span>80%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gaming Pro</strong><br><span class="budget-tag">High-End</span></td>
+                                <td>
+                                    <ul class="compact-list">
+                                        <li>Ryzen 7 7800X3D</li>
+                                        <li>RTX 4070 Ti Super 16GB</li>
+                                        <li>32GB DDR5 7200MHz</li>
+                                        <li>2TB NVMe PCIe 4.0</li>
+                                    </ul>
+                                </td>
+                                <td>9,800 RON</td>
+                                <td>Gaming 1440p/4K<br>Streaming profesional<br>Editare video</td>
+                                <td>
+                                    <div class="rating">
+                                        <div class="bar" style="width:90%"></div>
+                                    </div>
+                                    <span>90%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Workstation Ultra</strong><br><span class="budget-tag">Extreme</span></td>
+                                <td>
+                                    <ul class="compact-list">
+                                        <li>Ryzen 9 7950X3D</li>
+                                        <li>RTX 4090 24GB</li>
+                                        <li>64GB DDR5 7600MHz</li>
+                                        <li>4TB NVMe PCIe 5.0</li>
+                                    </ul>
+                                </td>
+                                <td>18,500 RON</td>
+                                <td>Gaming 4K/8K<br>Rendering profesional<br>Machine learning<br>Simulări complexe</td>
+                                <td>
+                                    <div class="rating">
+                                        <div class="bar" style="width:100%"></div>
+                                    </div>
+                                    <span>100%</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Toate configurațiile includ sursă, placă de bază și răcire de calitate
+                                </td>
+                                <td colspan="2">Disponibile în rate fără dobândă</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="config-info">
+                    <p><strong>Notă:</strong> Toate configurațiile includ componente complementare de calitate
+                        (sursă,
+                        placă de bază, carcasă, răcire) pentru a evita bottleneck-uri și a asigura stabilitate pe
+                        termen
+                        lung.</p>
+                    <p>Consultă unul dintre specialiștii noștri pentru personalizarea configurației exact pentru
+                        nevoile
+                        tale!</p>
+                </div>
+            </section>
+
+            <!------------------------------- Events Calendar Section ------------------------------->
+            <section id="events-calendar">
+                <h2><i class="fa-solid fa-calendar-days"></i> Calendar Evenimente Tech</h2>
+                <div class="calendar-container">
+                    <h3>Iunie 2025</h3>
+                    <table class="calendar">
+                        <thead>
+                            <tr>
+                                <th>Lu</th>
+                                <th>Ma</th>
+                                <th>Mi</th>
+                                <th>Jo</th>
+                                <th>Vi</th>
+                                <th>Sa</th>
+                                <th>Du</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>4</td>
+                                <td class="event">5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td class="event">11</td>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td class="event">20</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td>27</td>
+                                <td class="event">28</td>
+                                <td>29</td>
+                                <td>30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="event-list">
+                        <p><strong>5 Iunie:</strong> Lansare NVIDIA RTX 5000 Series</p>
+                        <p><strong>11 Iunie:</strong> AMD Ryzen 9000 Launch Event</p>
+                        <p><strong>20 Iunie:</strong> PC Galaxy Tech Workshop</p>
+                        <p><strong>28 Iunie:</strong> Summer Tech Sale</p>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------- Industry News Section ------------------------------->
+            <section id="industry-news">
+                <h2>Noutăți din Industrie</h2>
+                <article class="news-item">
+                    <h3>Intel lansează noua generație de procesoare</h3>
+                    <time datetime="2025-05-25">25 Mai 2025</time>
+                    <p>Intel a anunțat lansarea noii serii de procesoare Arrow Lake cu un salt de 15% în performanță
+                        single-core și 30% multi-core față de generația anterioară.</p>
+                </article>
+                <article class="news-item">
+                    <h3>NVIDIA introduce tehnologia AI-Boost pentru gaming</h3>
+                    <time datetime="2025-05-22">22 Mai 2025</time>
+                    <p>NVIDIA a dezvăluit noua tehnologie AI-Boost care utilizează inteligența artificială pentru a
+                        crește performanța în jocuri cu până la 40% fără upgrade hardware.</p>
+                </article>
+            </section>
+
+            <!------------------------------- Online Users Section ------------------------------->
+            <section id="online-users">
+                <h2>Utilizatori Online</h2>
+                <div class="online-counter">
+                    <p class="count">237</p>
+                    <p>utilizatori conectați acum</p>
+                </div>
+                <div class="user-list">
+                    <div class="user"><span class="avatar">🧑</span> Gamer_Pro1</div>
+                    <div class="user"><span class="avatar">👩</span> TechExpert22</div>
+                    <div class="user"><span class="avatar">👨</span> PCBuilder99</div>
+                    <div class="user-more">+ încă 234 utilizatori</div>
+                </div>
+            </section>
+
+            <!------------------------------- User Statistics Section ------------------------------->
+            <section id="user-statistics">
+                <h2>Statistici Utilizator</h2>
+                <div class="user-info">
+                    <h3>Profilul tău</h3>
+                    <div class="user-avatar"><i class="fa-solid fa-user fa-bounce fa-lg"></i></div>
+                    <p>Bine ai venit, Vizitator!</p>
+                </div>
+                <div class="statistics">
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Comenzi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Produse în coș</div>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------- Server Information Section ------------------------------->
+            <section id="server-info">
+                <h2>Informații Server</h2>
+                <div class="server-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Status Server:</div>
+                        <div class="stat-value"><span class="status-online">●</span> Online</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Uptime:</div>
+                        <div class="stat-value">99.98%</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Vizitatori Astăzi:</div>
+                        <div class="stat-value">1,245</div>
+                    </div>
+                </div>
+            </section>
+
+            <!------------------------------- Product Section ------------------------------->
             <section id="produse">
                 <h2> Catalog Produse</h2>
                 <p>Explorează universul nostru de <b>componente</b> și <b>sisteme</b> atent selectate pentru tine:</p>
@@ -312,7 +559,6 @@
                         <h3>Componente</h3>
                         <p>Alege dintre cele mai performante <strong>componente</strong> de la branduri de top:</p>
 
-
                         <section id="procesoare">
                             <h4>Procesoare</h4>
                             <p>Explorează gama noastră de <strong>procesoare</strong> de ultimă generație:</p>
@@ -322,11 +568,9 @@
                                 <li>Procesoare specializate pentru <strong>gaming</strong> și
                                     <strong>workstation</strong>
                                 </li>
-                                <!-- Cerinta 10 abbr-->
                                 <li>Tehnologii avansate: <abbr
                                         title="Peripheral Component Interconnect Express">PCIe</abbr>
                                     5.0, DDR5</li>
-                                <!-- /Cerinta 10 -->
                             </ul>
                             <p>Include garanție extinsă și suport pentru overclocking pe modelele deblocate.</p>
                         </section>
@@ -384,7 +628,6 @@
                                 <li>🔌 Cabluri modulare pentru cable management</li>
                                 <li>🛡️ Protecții multiple pentru siguranță</li>
                             </ul>
-                            <!-- Task bonus MathML-->
                             <div class="psu-calculator">
                                 <p>Formula recomandată pentru calculul puterii sursei (PSU):</p>
                                 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
@@ -422,7 +665,6 @@
                                     <li>1.3 = Factor de siguranță (+30%)</li>
                                 </ul>
                             </div>
-                            <!-- /Task bonus MathML-->
                         </section>
                         <section id="carcase">
                             <h4>Carcase PC</h4>
@@ -593,31 +835,27 @@
                 </div>
             </section>
 
+            <!------------------------------- Tutorials and Resources Section ------------------------------->
             <section id="tutoriale-resurse">
                 <h2>Tutoriale și Resurse</h2>
 
                 <section id="video-tutorials">
                     <h3>Ghiduri Video</h3>
                     <p>Descoperă colecția noastră de <strong>tutoriale</strong> pentru configurarea sistemului tău:</p>
-                    <!-- Cerinta 11 iframe-->
-                    <div class="tutorial-main">
-                        <iframe name="video-tutorial" width="560" height="315"
-                            src="https://www.youtube.com/embed/v7MYOpFONCU" title="Tutorial asamblare PC"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
 
-                    <nav class="video-links">
-                        <h4>Playlist Tutoriale</h4>
-                        <ul>
-                            <li><a href="https://www.youtube.com/embed/v7MYOpFONCU" target="video-tutorial">
-                                    Tutorial asamblare PC - Ghid Complet</a></li>
-                            <li><a href="https://www.youtube.com/embed/QXjTKVv_1OU" target="video-tutorial">
-                                    Cum să alegi componentele potrivite</a></li>
-                        </ul>
-                    </nav>
-                    <!-- /Cerinta 11 iframe -->
+                    <div class="container-iframe">
+                        <iframe name="ifr-video" src="https://www.youtube.com/embed/v7MYOpFONCU"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <div class="taburi-iframe">
+                            <a href="https://www.youtube.com/embed/v7MYOpFONCU" target="ifr-video"><span>Tutorial
+                                    asamblare PC</span></a>
+                            <a href="https://www.youtube.com/embed/QXjTKVv_1OU" target="ifr-video"><span>Cum să alegi
+                                    componentele</span></a>
+                            <a href="https://www.youtube.com/embed/SnUNRc5FXMk" target="ifr-video"><span>Optimizare
+                                    Windows 11</span></a>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="downloads">
@@ -625,27 +863,23 @@
                     <div class="download-resources">
                         <p>Materiale utile pentru configurarea și întreținerea sistemului tău:</p>
                         <ul>
-                            <!-- Cerinta 11 download-->
                             <li>
                                 <a href="./Resurse/Documente/ghid-configurare-pc.pdf"
                                     download="Ghid-Configurare-PC-Gaming.pdf">
                                     📥 Ghid Configurare PC Gaming (PDF)
                                 </a>
                             </li>
-                            <!-- /Cerinta 11 download-->
                         </ul>
-                        <!-- Task bonus pdf in pagina-->
                         <div class="preview-container">
                             <p>Previzualizare document:</p>
                             <embed src="./Resurse/Documente/ghid-configurare-pc.pdf" width="800" height="600"
                                 type="application/pdf">
                         </div>
-                        <!-- /Task bonus pdf in pagina-->
                     </div>
                 </section>
             </section>
 
-
+            <!------------------------------- Shopping Cart ------------------------------->
             <section id="cos">
                 <h2>Coș de cumpărături</h2>
                 <p>Adaugă <strong>componente PC</strong>, <strong>periferice gaming</strong> și
@@ -674,6 +908,7 @@
                 </div>
             </section>
 
+            <!------------------------------- Wishlist Section ------------------------------->
             <section id="wishlist">
                 <h2>Wishlist</h2>
                 <p>Adaugă produsele favorite în <strong>lista ta de dorințe</strong> pentru:</p>
@@ -699,13 +934,12 @@
                 </div>
             </section>
 
+            <!------------------------------- Information Section ------------------------------->
             <section id="informatii">
                 <h2>Informații Generale</h2>
                 <section id="termeni">
                     <h3>Termeni importanți</h3>
-                    <!-- Cerinta 7 dl-->
                     <dl>
-                        <!-- Cerinta 10 dfn-->
                         <dt><dfn>Build personalizat</dfn></dt>
                         <dd>Configurație PC creată conform specificațiilor și cerințelor clientului, optimizată pentru
                             performanță și buget</dd>
@@ -726,14 +960,11 @@
                         <dt><dfn>RGB Sync</dfn></dt>
                         <dd>Sincronizarea iluminării RGB între toate componentele sistemului pentru efecte vizuale
                             coordonate</dd>
-                        <!-- Cerinta 10 dfn-->
                     </dl>
-                    <!--/Cerinta 7-->
                 </section>
 
                 <section id="faq">
                     <h3>Întrebări Frecvente</h3>
-                    <!-- Cerinta 12-->
                     <details>
                         <summary>🚚 Care este timpul de livrare pentru un PC Gaming personalizat?</summary>
                         <div>
@@ -790,12 +1021,9 @@
                         </div>
                     </details>
                 </section>
-                <!-- /Cerinta 12 -->
 
                 <section id="despre">
                     <h3>Despre noi & Contact</h3>
-
-                    <!-- Cerinta 7 blockquote-->
                     <blockquote cite="https://pcgalaxy.ro/about">
                         <p>De peste 10 ani, PC Galaxy este alegerea numărul 1 pentru pasionații de tehnologie. Ne
                             dedicăm
@@ -803,8 +1031,6 @@
                             pentru
                             fiecare produs!</p>
                     </blockquote>
-                    <!--/Cerinta 7-->
-                    <!-- Cerinta 7 ol-->
                     <h4>De ce să alegeți PC Galaxy?</h4>
                     <ol>
                         <li>🏆 Experiență dovedită în asamblare PC cu peste 10.000 de sisteme livrate</li>
@@ -814,8 +1040,6 @@
                         <li>🏬 Cel mai mare showroom de componente din România</li>
                         <li>🔄 Program buy-back pentru upgrade-uri</li>
                     </ol>
-                    <!--/Cerinta 7-->
-                    <!-- Cerinta 8-->
                     <figure class="about-image">
                         <picture>
                             <source media="(min-width: 768px)" srcset="Resurse/Imagini/despre/headquarter-large.jpg">
@@ -825,7 +1049,6 @@
                         <figcaption>Sediul nostru central din București - locul unde tehnologia prinde viață
                         </figcaption>
                     </figure>
-                    <!--/Cerinta 8-->
 
                     <section id="certificari">
                         <h3>Certificări și Parteneriate</h3>
@@ -842,11 +1065,11 @@
     </main>
 
     <footer>
+        <!------------------------------- Contact Information Section ------------------------------->
         <div class="contact-info">
             <h3>Contact PC Galaxy</h3>
             <address>
                 <ul>
-                    <!-- Cerinta 13-->
                     <li>
                         <a href="tel:+40712345678">
                             📞 +40 712 345 678
@@ -864,19 +1087,16 @@
                         </a>
                     </li>
                     <li>
-                        <!-- Task bonus iframe locatie-->
-                        <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-                            referrerpolicy="no-referrer-when-downgrade"
+                        <iframe class="google-map" width="600" height="450" style="border:0" loading="lazy"
+                            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.8844286095376!2d26.094823376537713!3d44.43553547899371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFaculty%20of%20Mathematics%20and%20Computer%20Science!5e0!3m2!1sen!2sro!4v1685963720005!5m2!1sen!2sro">
                         </iframe>
-                        <!-- /Task bonus iframe locatie-->
                     </li>
                     <li>
                         <a href="https://wa.me/40712345678" target="_blank" rel="noopener noreferrer">
                             💬 WhatsApp
                         </a>
                     </li>
-                    <!-- /Cerinta 13-->
                 </ul>
             </address>
         </div>
@@ -886,22 +1106,20 @@
                 🔽 Descarcă logo-ul PC Galaxy
             </a>
         </div>
-        <!-- Cerinta 11 link footer-->
         <nav class="footer-links">
             <ul>
                 <li><a href="#acasa">⬆️ Înapoi sus</a></li>
                 <li><a href="https://www.google.com" target="_blank" rel="noopener noreferrer">🔗 Alta pagina</a></li>
             </ul>
         </nav>
-        <!-- /Cerinta 11-->
-        <!-- Cerinta 14-->
         <small>
             &copy; <time datetime="2025-03-02">2 martie 2025</time> PC Galaxy.
             Toate drepturile rezervate.
         </small>
-        <!-- /Cerinta 14-->
     </footer>
-
+    <a href="#" id="link-top" aria-label="Înapoi la începutul paginii">
+        <span>&#5123;</span>
+    </a>
 </body>
 
 </html>

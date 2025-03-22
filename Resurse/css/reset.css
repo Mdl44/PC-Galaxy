@@ -1,0 +1,390 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* block display for all elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+html {
+    --color-header: #3A0542;
+    --color-main: #051F42;
+    --color-footer: #260542;
+    --color-grid: #120543;
+    --color-text: #fff;
+    --color-text-hyperlink: #c2c2fa;
+    --color-accent: #3a1f99;
+    --color-highlight: rgba(160, 151, 255, 0.425);
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 2.5rem;
+    --spacing-xxl: 3.75rem;
+
+    --border-standard: 3px solid var(--color-accent);
+    --border-radius: 8px;
+    --box-shadow: 0 0 15px 6px var(--color-highlight);
+
+    --font-body: "Libre Franklin", sans-serif;
+    --font-heading: "Libre Baskerville", serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-main);
+    color: var(--color-text);
+    font-family: var(--font-body), serif;
+    line-height: var(--line-height-base);
+    padding: 20px 60px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading), serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+
+a {
+    color: var(--color-text-hyperlink);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+
+strong,
+b {
+    font-weight: 700;
+}
+
+em,
+i,
+dfn {
+    font-style: italic;
+}
+
+small {
+    font-size: 0.875rem;
+}
+
+mark {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0 0.25em;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+ul,
+ol {
+    margin: 0 0 1rem 1.5rem;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+dl {
+    margin-bottom: 1rem;
+}
+
+dt {
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+dd {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+caption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--color-text);
+    text-align: center;
+    padding: 0.5rem 0;
+    caption-side: bottom;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    border: 1px solid var(--color-accent);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    font-weight: 700;
+    background-color: rgba(26, 7, 105, 0.7);
+}
+
+blockquote {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-left: 0.25rem solid var(--color-accent);
+    font-style: italic;
+}
+
+code,
+pre {
+    font-family: monospace;
+    background-color: rgba(26, 7, 105, 0.7);
+    border-radius: 3px;
+}
+
+code {
+    padding: 0.2em 0.4em;
+}
+
+pre {
+    padding: 1rem;
+    overflow: auto;
+    margin-bottom: 1.5rem;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--color-accent);
+    margin: 2rem 0;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 0 0 1.5rem;
+}
+
+figcaption {
+    font-size: 0.875rem;
+    font-style: italic;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --font-size-base: 15px;
+    }
+
+    body {
+        padding: 15px 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --font-size-base: 14px;
+    }
+
+    body {
+        padding: 10px 20px;
+    }
+}
