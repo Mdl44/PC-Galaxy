@@ -1,0 +1,105 @@
+#link-top, img, video, iframe, figure, .google-map, .container-iframe, picture, .preview-container embed {
+    display: none;
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        overflow: visible !important;
+        color: black;
+        background: white;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .print-banner {
+        position: absolute;
+        top: 1cm;
+        right: 1cm;
+        width: 50%;
+        border: 3px double black;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        page-break-after: avoid;
+    }
+    
+    h1 {
+        page-break-after: always;
+        margin-top: 50%;
+        text-align: center;
+    }
+    
+    nav.meniu {
+        display: block;
+    }
+    
+    nav.meniu ul {
+        display: block;
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+    
+    nav.meniu ul ul {
+        margin-left: 40px;
+    }
+    
+    nav.meniu li {
+        display: list-item;
+        margin: 5px 0;
+    }
+    
+    #grid-pagina {
+        display: block;
+        background-color: white;
+        page-break-before: always;
+    }
+    
+    footer {
+        page-break-before: always;
+    }
+    
+    body::after {
+        content: "Mocanu\AMădălin-Eduard";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.3);
+        font-size: 24pt;
+        font-weight: bold;
+        white-space: pre;
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    * {
+        background-color: transparent !important;
+    }
+}
+
+@page {
+    size: A4 portrait;
+    margin-bottom: 2cm;
+    margin-top: 2cm;
+    counter-increment: page;
+}
+
+@page:left {
+    margin-left: 2cm;
+    margin-right: 1cm;
+}
+
+@page:right {
+    margin-right: 2cm;
+    margin-left: 1cm;
+}

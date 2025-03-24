@@ -35,6 +35,10 @@
     <!------------------------------- CSS Links ------------------------------->
     <link rel="stylesheet" type="text/css" href="./Resurse/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./Resurse/css/general.css">
+    <link rel="stylesheet" type="text/css" href="./Resurse/scss/nav.css">
+    <link rel="stylesheet" type="text/css" href="./Resurse/scss/nav1024.css">
+    <link rel="stylesheet" type="text/css" href="./Resurse/scss/nav480.css">
+    <link rel="stylesheet" type="text/css" href="./Resurse/css/print.css" media="print">
 
 </head>
 
@@ -42,9 +46,15 @@
     <!------------------------------- Navigation ------------------------------->
     <header>
         <h1>PC Galaxy - Tehnologia Viitorului, Disponibilă Astăzi</h1>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger-menu">
+            <span class="hamburger-line hamburger-line-top"></span>
+            <span class="hamburger-line hamburger-line-middle"></span>
+            <span class="hamburger-line hamburger-line-bottom"></span>
+        </label>
         <nav class="meniu">
             <ul>
-                <li><a href="#acasa">Acasă</a>
+                <li><a href="#acasa"><span>Acasă</span></a>
                     <ul>
                         <li><a href="#oferte">Reduceri & Promoții</a></li>
                         <li><a href="#noutati">Lansări Noi</a></li>
@@ -104,6 +114,7 @@
                 </li>
             </ul>
         </nav>
+
     </header>
 
 
@@ -440,12 +451,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="event-list">
-                        <p><strong>5 Iunie:</strong> Lansare NVIDIA RTX 5000 Series</p>
-                        <p><strong>11 Iunie:</strong> AMD Ryzen 9000 Launch Event</p>
-                        <p><strong>20 Iunie:</strong> PC Galaxy Tech Workshop</p>
-                        <p><strong>28 Iunie:</strong> Summer Tech Sale</p>
-                    </div>
                 </div>
             </section>
 
@@ -1116,6 +1121,9 @@
             &copy; <time datetime="2025-03-02">2 martie 2025</time> PC Galaxy.
             Toate drepturile rezervate.
         </small>
+
+        <p class="print-banner">Acesta este un proiect școlar!</p>
+
     </footer>
     <a href="#" id="link-top" aria-label="Înapoi la începutul paginii">
         <span>&#5123;</span>

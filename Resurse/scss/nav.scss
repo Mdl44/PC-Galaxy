@@ -1,0 +1,182 @@
+$menu-items: 6;
+$transition-base-time: 0.3s;
+$header-padding: 15px;
+
+$menu-text-color: var(--meniu-text);
+$submenu-bg-color: var(--submeniu-background);
+$hover-overlay-color: var(--meniu-hover-overlay);
+$menu-accent-color: var(--meniu-accent);
+$menu-highlight-shadow: var(--meniu-shadow);
+
+$hamburger-lines: 3;
+$hamburger-delay-base: 0.1s;
+$hamburger-delay-increment: 0.2s;
+
+#menu-toggle {
+  display: none;
+}
+
+@mixin transition($property: all, $time: $transition-base-time, $easing: ease-in-out) {
+  transition: $property $time $easing;
+}
+
+@mixin button-hover-effect {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $hover-overlay-color;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+    border-radius: 4px;
+  }
+  
+  &:hover::before {
+    transform: scale(1);
+  }
+}
+
+@mixin submenu-hover {
+  &:hover {
+    background-color: $hover-overlay-color;
+    color: $menu-accent-color;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 
+                 0 0 3px rgba(159, 151, 255, 0.8);
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  
+  h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: $header-padding;
+    padding-bottom: $header-padding;
+    border-bottom: 1px solid rgba(159, 151, 255, 0.3);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+nav.meniu {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  margin: 5px 0;
+  padding-top: 5px;
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    
+    ul {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 200px;
+      background-color: $submenu-bg-color;
+      display: flex;
+      flex-direction: column;
+      visibility: hidden;
+      opacity: 0;
+      transform-origin: top left;
+      transform: scale(0);
+      @include transition(transform);
+      box-shadow: $menu-highlight-shadow;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      z-index: 10;
+      
+      ul {
+        left: 100%;
+        top: 0;
+      }
+    }
+  }
+
+  > ul {
+    justify-content: center;
+  }
+  
+  ul li {
+    position: relative;
+    margin: 0;
+    
+    &:hover {
+      > ul {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: $menu-text-color;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      @include transition(color);
+      z-index: 2;
+    }
+  }
+  
+  > ul > li > a {
+    @include button-hover-effect;
+  }
+  
+  > ul > li:first-child > a:before {
+    font-family: "FontAwesome", serif;
+    content: "\f015";
+    margin-right: 8px;
+  }
+  
+  ul ul li a {
+    @include submenu-hover;
+  }
+}
+
+$i: 1;
+@while $i <= $menu-items {
+  nav.meniu > ul > li:nth-child(#{$i}) > a::before {
+    transition-delay: 0.05s * $i;
+  }
+  $i: $i + 1;
+}
+
+.hamburger-menu {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+@for $i from 1 through $hamburger-lines {
+  $position: "";
+  @if $i == 1 {
+    $position: "top";
+  } @else if $i == 2 {
+    $position: "middle";
+  } @else if $i == 3 {
+    $position: "bottom";
+  }
+  
+  .hamburger-line-#{$position} {
+    animation-delay: $hamburger-delay-base + ($hamburger-delay-increment * ($i - 1));
+  }
+}

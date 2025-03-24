@@ -86,7 +86,7 @@ video {
     vertical-align: baseline;
 }
 
-/* block display for all elements */
+
 article,
 aside,
 details,
@@ -111,6 +111,13 @@ html {
     --color-text-hyperlink: #c2c2fa;
     --color-accent: #3a1f99;
     --color-highlight: rgba(160, 151, 255, 0.425);
+
+    --meniu-text: #fff;
+    --submeniu-background: rgba(26, 7, 105, 0.9);
+    --meniu-hover-overlay: rgba(58, 31, 153, 0.3);
+    --meniu-accent: #9f97ff;
+    --meniu-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --transition-standard: 0.3s ease-in-out;
 
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
