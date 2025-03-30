@@ -5,4 +5,4 @@
 Online store for PC components and hardware
 
 ### Documentation:
-- [Documentație](https://docs.google.com/document/d/11tQehcrV1nI62iWSUkDlAlwvefkIwOvE/edit?usp=sharing&ouid=101553685361058608062&rtpof=true&sd=true)
+- [Documentation](https://docs.google.com/document/d/11tQehcrV1nI62iWSUkDlAlwvefkIwOvE/edit?usp=sharing&ouid=101553685361058608062&rtpof=true&sd=true)
