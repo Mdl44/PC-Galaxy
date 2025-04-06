@@ -5,8 +5,7 @@
 header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
+  position: relative; /* pentru mobile nu se aseza bine */
 }
 header h1 {
   width: 100%;
@@ -20,18 +19,17 @@ header h1 {
 nav.meniu {
   position: relative;
   width: 100%;
-  z-index: 100;
   margin: 5px 0;
   padding-top: 5px;
 }
 nav.meniu ul {
-  list-style-type: none;
+  list-style-type: none; /*pentru bullets*/
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
 }
 nav.meniu ul ul {
+  /*submeniu*/
   position: absolute;
   left: 0;
   top: 100%;
@@ -40,7 +38,6 @@ nav.meniu ul ul {
   display: flex;
   flex-direction: column;
   visibility: hidden;
-  opacity: 0;
   transform-origin: top left;
   transform: scale(0);
   transition: transform 0.3s ease-in-out;
@@ -76,6 +73,7 @@ nav.meniu ul li a {
   z-index: 2;
 }
 nav.meniu > ul > li > a::before {
+  /* dreptunghi la hover */
   content: "";
   position: absolute;
   top: 0;
@@ -91,39 +89,10 @@ nav.meniu > ul > li > a::before {
 nav.meniu > ul > li > a:hover::before {
   transform: scale(1);
 }
-nav.meniu > ul > li:first-child > a:before {
-  font-family: "FontAwesome", serif;
-  content: "\f015";
-  margin-right: 8px;
-}
 nav.meniu ul ul li a:hover {
   background-color: var(--meniu-hover-overlay);
   color: var(--meniu-accent);
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(159, 151, 255, 0.8);
-}
-
-nav.meniu > ul > li:nth-child(1) > a::before {
-  transition-delay: 0.05s;
-}
-
-nav.meniu > ul > li:nth-child(2) > a::before {
-  transition-delay: 0.1s;
-}
-
-nav.meniu > ul > li:nth-child(3) > a::before {
-  transition-delay: 0.15s;
-}
-
-nav.meniu > ul > li:nth-child(4) > a::before {
-  transition-delay: 0.2s;
-}
-
-nav.meniu > ul > li:nth-child(5) > a::before {
-  transition-delay: 0.25s;
-}
-
-nav.meniu > ul > li:nth-child(6) > a::before {
-  transition-delay: 0.3s;
 }
 
 .hamburger-menu {

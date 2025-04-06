@@ -1,4 +1,3 @@
-$menu-items: 6;
 $transition-base-time: 0.3s;
 $header-padding: 15px;
 
@@ -22,6 +21,7 @@ $hamburger-delay-increment: 0.2s;
 
 @mixin button-hover-effect {
   &::before {
+    /* dreptunghi la hover */
     content: '';
     position: absolute;
     top: 0;
@@ -52,8 +52,7 @@ $hamburger-delay-increment: 0.2s;
 header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
+  position: relative; /* pentru mobile nu se aseza bine */
   
   h1 {
     width: 100%;
@@ -68,18 +67,17 @@ header {
 nav.meniu {
   position: relative;
   width: 100%;
-  z-index: 100;
   margin: 5px 0;
   padding-top: 5px;
   
   ul {
-    list-style-type: none;
+    list-style-type: none; /*pentru bullets*/
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
     
-    ul {
+    ul { 
+      /*submeniu*/
       position: absolute;
       left: 0;
       top: 100%;
@@ -88,7 +86,6 @@ nav.meniu {
       display: flex;
       flex-direction: column;
       visibility: hidden;
-      opacity: 0;
       transform-origin: top left;
       transform: scale(0);
       @include transition(transform);
@@ -136,23 +133,9 @@ nav.meniu {
     @include button-hover-effect;
   }
   
-  > ul > li:first-child > a:before {
-    font-family: "FontAwesome", serif;
-    content: "\f015";
-    margin-right: 8px;
-  }
-  
   ul ul li a {
     @include submenu-hover;
   }
-}
-
-$i: 1;
-@while $i <= $menu-items {
-  nav.meniu > ul > li:nth-child(#{$i}) > a::before {
-    transition-delay: 0.05s * $i;
-  }
-  $i: $i + 1;
 }
 
 .hamburger-menu {
