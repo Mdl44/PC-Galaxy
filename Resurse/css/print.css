@@ -1,4 +1,4 @@
-#link-top, img, video, iframe, figure, .google-map, .container-iframe, picture, .preview-container embed {
+#link-top, img, video, iframe, figure, .google-map, .container-iframe, picture, .preview-container embed, #quick-navigation, map, area {
     display: none;
 }
 
@@ -10,9 +10,15 @@
         background: white;
     }
     
-    a {
-        text-decoration: none;
-        color: black;
+    a, a:link, a:visited, a:hover, a:active,
+    main a, main a:not(nav a), .taburi-iframe a,
+    nav.meniu a, footer a {
+        color: black !important;
+        text-decoration: none !important;
+        text-shadow: none !important;
+        background-image: none !important;
+        background-color: transparent !important;
+        border-color: black !important;
     }
     
     .print-banner {

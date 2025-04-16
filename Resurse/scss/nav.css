@@ -21,6 +21,7 @@ nav.meniu {
   width: 100%;
   margin: 5px 0;
   padding-top: 5px;
+  /* hover submmeniu*/
 }
 nav.meniu ul {
   list-style-type: none; /*pentru bullets*/
@@ -90,6 +91,7 @@ nav.meniu > ul > li > a:hover::before {
   transform: scale(1);
 }
 nav.meniu ul ul li a:hover {
+  /* hover la submeniu*/
   background-color: var(--meniu-hover-overlay);
   color: var(--meniu-accent);
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(159, 151, 255, 0.8);

@@ -12,7 +12,7 @@ $hamburger-delay-base: 0.1s;
 $hamburger-delay-increment: 0.2s;
 
 #menu-toggle {
-  display: none;
+  display: none; 
 }
 
 @mixin transition($property: all, $time: $transition-base-time, $easing: ease-in-out) {
@@ -42,6 +42,7 @@ $hamburger-delay-increment: 0.2s;
 
 @mixin submenu-hover {
   &:hover {
+    /* hover la submeniu*/
     background-color: $hover-overlay-color;
     color: $menu-accent-color;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 
@@ -132,7 +133,7 @@ nav.meniu {
   > ul > li > a {
     @include button-hover-effect;
   }
-  
+  /* hover submmeniu*/
   ul ul li a {
     @include submenu-hover;
   }

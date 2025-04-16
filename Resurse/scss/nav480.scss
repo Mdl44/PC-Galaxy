@@ -207,6 +207,7 @@
         
         ul {
             ul {
+                /*submeniu*/
                 position: static;
                 width: 100%;
                 max-height: 0;
@@ -242,6 +243,7 @@
             }
             
             li:hover {
+                /* cand apas pe un submeniu*/
                 > ul {
                     max-height: 1000px;
                     visibility: visible;

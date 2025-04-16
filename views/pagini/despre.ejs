@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta name="keywords"
+        content="despre pc galaxy, istoric, certificari, parteneriate, experienta pc, showroom componente, asamblare pc">
+    <meta name="description"
+        content="Află povestea PC Galaxy - istoric, valori și misiune. Cu peste 10 ani de experiență, suntem lideri în furnizarea componentelor PC și sistemelor gaming personalizate în România.">
+    <%- include("../fragmente/head.ejs") %>
+</head>
+
+<body>
+    <%- include("../fragmente/header.ejs") %>
+    <main>
+        <div id="grid-pagina">
+            <!-- About Section -->
+            <section id="despre-pagina">
+                <h2>Despre PC Galaxy</h2>
+                
+                <article>
+                    <h3>Povestea noastră</h3>
+                    <blockquote cite="https://pcgalaxy.ro/about">
+                        <p>De peste 10 ani, PC Galaxy este alegerea numărul 1 pentru pasionații de tehnologie. Ne
+                            dedicăm oferirii celor mai performante componente, suport tehnic specializat și garanție extinsă
+                            pentru fiecare produs!</p>
+                    </blockquote>
+                    
+                    <p>Fondată în 2013, PC Galaxy a început ca un mic magazin local de componente PC, crescând treptat 
+                    până la a deveni unul dintre cei mai importanți furnizori de soluții hardware din România. Pasiunea 
+                    pentru tehnologie și dorința de a oferi clienților cele mai bune produse și servicii ne-au ghidat 
+                    în fiecare etapă a evoluției noastre.</p>
+                </article>
+
+                <article>
+                    <h3>De ce să alegeți PC Galaxy?</h3>
+                    <ol>
+                        <li>🏆 Experiență dovedită în asamblare PC cu peste 10.000 de sisteme livrate</li>
+                        <li>🔧 Suport tehnic specializat disponibil 24/7</li>
+                        <li>🛡️ Garanție extinsă pentru toate produsele</li>
+                        <li>🚚 Livrare rapidă în toată țara</li>
+                        <li>🏬 Cel mai mare showroom de componente din România</li>
+                        <li>🔄 Program buy-back pentru upgrade-uri</li>
+                    </ol>
+                </article>
+                
+                <figure class="about-image">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/Resurse/Imagini/despre/headquarter-large.jpg">
+                        <source media="(min-width: 480px)" srcset="/Resurse/Imagini/despre/headquarter-medium.jpg">
+                        <img src="/Resurse/Imagini/despre/headquarter-small.jpg" alt="Sediul PC Galaxy">
+                    </picture>
+                    <figcaption>Sediul nostru central din București - locul unde tehnologia prinde viață</figcaption>
+                </figure>
+
+                <section id="workshop-tour">
+                    <h3>Atelierul Nostru</h3>
+                    <p>Vă prezentăm atelierul unde experții noștri asamblează și repară calculatoarele PC Galaxy:</p>
+                    
+                    <div class="video-container">
+                        <video 
+                            controls 
+                            preload="metadata"
+                            poster="/Resurse/Imagini/workshop-poster.jpg"
+                            class="workshop-video">
+                            <source src="/Resurse/video/video_mp4.mp4" type="video/mp4">
+                            <source src="/Resurse/video/video_webm.webm" type="video/webm">
+                            <track 
+                                label="Română" 
+                                kind="subtitles" 
+                                srclang="ro" 
+                                src="/Resurse/video/subtitles/romana.vtt" 
+                                default>
+                            <track 
+                                label="English" 
+                                kind="subtitles" 
+                                srclang="en" 
+                                src="/Resurse/video/subtitles/engleza.vtt">
+                        </video>
+                    </div>
+                </section>
+
+                <article id="certificari">
+                    <h3>Certificări și Parteneriate</h3>
+                    <p>Calitatea serviciilor noastre este recunoscută prin parteneriatele și certificările obținute:</p>
+                    <ul>
+                        <li>🤝 Partener Oficial NVIDIA, AMD și Intel</li>
+                        <li>📜 Certificare ISO 9001 pentru management al calității</li>
+                        <li>🏆 Membru ARMO (Asociația Română a Magazinelor Online)</li>
+                        <li>🤝 Certificare Microsoft Partner</li>
+                    </ul>
+                </article>
+                
+                <article id="istoric">
+                    <h3>Istoria PC Galaxy</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="year">2013</span>
+                            <p>Fondarea PC Galaxy ca magazin local de componente PC în București</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2015</span>
+                            <p>Inaugurarea primului service autorizat și extinderea gamei de produse</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2017</span>
+                            <p>Lansarea magazinului online și începerea livrărilor la nivel național</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="year">2022</span>
+                            <p>Obținerea statutului de distribuitor autorizat pentru toate brandurile premium</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+    
+    <%- include("../fragmente/footer.ejs") %>
+    
+    <a href="#top" id="link-top" aria-label="Înapoi la începutul paginii">
+        <span>&#5123;</span>
+    </a>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+/* bonus aparitie*/
+@keyframes hamburgerAppear {
+  0% {
+    transform: scale(0) rotate(90deg);
+    opacity: 0;
+    background-color: transparent;
+  }
+  40% {
+    transform: scale(0.7) rotate(45deg);
+    opacity: 0.5;
+    background-color: #9f97ff;
+    width: 70%;
+  }
+  75% {
+    transform: scale(0.9) rotate(-15deg);
+    opacity: 0.8;
+    background-color: #6a4fd9;
+    width: 90%;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    background-color: var(--meniu-text);
+    width: 100%;
+  }
+}
+.hamburger-line {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--meniu-text);
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease-in-out !important;
+}
+.hamburger-line-top {
+  top: 0;
+}
+.hamburger-line-middle {
+  top: 11px;
+}
+.hamburger-line-bottom {
+  bottom: 0;
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    padding-bottom: 40px;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .hamburger-line {
+    animation: hamburgerAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .hamburger-line-top {
+    animation-delay: 0.1s;
+  }
+  .hamburger-line-middle {
+    animation-delay: 0.3s;
+  }
+  .hamburger-line-bottom {
+    animation-delay: 0.5s;
+  }
+  #menu-toggle:checked + .hamburger-menu .hamburger-line-top {
+    transform: translateY(11px) rotate(45deg) !important;
+    background-color: #ff9edc !important;
+    box-shadow: 0 0 8px rgba(159, 151, 255, 0.9) !important;
+  }
+  #menu-toggle:checked + .hamburger-menu .hamburger-line-middle {
+    opacity: 0 !important;
+    background-color: #ff9edc !important;
+    box-shadow: 0 0 8px rgba(159, 151, 255, 0.9) !important;
+  }
+  #menu-toggle:checked + .hamburger-menu .hamburger-line-bottom {
+    transform: translateY(-11px) rotate(-45deg) !important;
+    background-color: #ff9edc !important;
+    box-shadow: 0 0 8px rgba(159, 151, 255, 0.9) !important;
+  }
+  @keyframes menuReveal {
+    0% {
+      clip-path: polygon(0% 0%, 0% 0%, 10% 50%, 0% 100%, 0% 100%);
+      visibility: visible;
+    }
+    5% {
+      clip-path: polygon(0% 0%, 7% 0%, 17% 50%, 7% 100%, 0% 100%);
+    }
+    10% {
+      clip-path: polygon(0% 0%, 15% 0%, 25% 50%, 15% 100%, 0% 100%);
+    }
+    15% {
+      clip-path: polygon(0% 0%, 22% 0%, 32% 50%, 22% 100%, 0% 100%);
+    }
+    20% {
+      clip-path: polygon(0% 0%, 30% 0%, 40% 50%, 30% 100%, 0% 100%);
+    }
+    25% {
+      clip-path: polygon(0% 0%, 37% 0%, 47% 50%, 37% 100%, 0% 100%);
+    }
+    30% {
+      clip-path: polygon(0% 0%, 45% 0%, 55% 50%, 45% 100%, 0% 100%);
+    }
+    35% {
+      clip-path: polygon(0% 0%, 52% 0%, 62% 50%, 52% 100%, 0% 100%);
+    }
+    40% {
+      clip-path: polygon(0% 0%, 60% 0%, 70% 50%, 60% 100%, 0% 100%);
+    }
+    45% {
+      clip-path: polygon(0% 0%, 67% 0%, 77% 50%, 67% 100%, 0% 100%);
+    }
+    50% {
+      clip-path: polygon(0% 0%, 75% 0%, 85% 50%, 75% 100%, 0% 100%);
+    }
+    55% {
+      clip-path: polygon(0% 0%, 82% 0%, 92% 50%, 82% 100%, 0% 100%);
+    }
+    60% {
+      clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+    }
+    70% {
+      clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    }
+    80% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%);
+    }
+    90% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 0% 100%);
+    }
+    100% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+  nav.meniu > ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--submeniu-background);
+    flex-direction: column;
+    padding: 8px 0;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+  }
+  nav.meniu > ul > li > a {
+    padding: 6px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(159, 151, 255, 0.2);
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  nav.meniu > ul > li:first-child {
+    display: block;
+    text-align: center;
+  }
+  nav.meniu > ul > li:first-child > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6px 0;
+  }
+  nav.meniu > ul > li:first-child > a:before {
+    margin: 0 auto;
+    font-size: 1.2rem;
+    display: inline-block;
+    position: static;
+    transform: none;
+  }
+  nav.meniu ul ul {
+    /*submeniu*/
+    position: static;
+    width: 100%;
+    max-height: 0;
+    transition: max-height var(--transition-standard);
+    box-shadow: none;
+    background-color: rgba(26, 7, 105, 0.7);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  nav.meniu ul ul li {
+    width: 100%;
+    text-align: center;
+  }
+  nav.meniu ul ul li a {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+  nav.meniu ul ul ul li a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  nav.meniu ul li:hover {
+    /* cand apas pe un submeniu*/
+  }
+  nav.meniu ul li:hover > ul {
+    max-height: 1000px;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+  #menu-toggle:checked + .hamburger-menu + nav.meniu > ul {
+    animation: menuReveal 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    visibility: visible;
+  }
+}
