@@ -1,7 +1,96 @@
-@use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
-(
-    $primary: red,
-    $secondary:purple
-    
-)
+$primary: #3A0542;
+$secondary: #051F42;
+$dark: #260542;
+$info: #3a1f99;
+$light: #9f97ff;
+$danger: #ff5e5e;
+$warning: #ff9edc;
+$success: rgb(15, 153, 181);
 
+$font-family-sans-serif: "Libre Franklin", sans-serif;
+$headings-font-family: "Libre Baskerville", serif;
+$font-size-base: 1rem;
+$h1-font-size: 2.2rem;
+$h2-font-size: 1.8rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.2rem;
+$headings-color: #fff;
+
+$body-color: #fff;
+$body-bg: #051F42;
+$link-color: #c2c2fa;
+
+$border-radius: 0.5rem;
+$border-radius-lg: 1.875rem;
+$border-width: 0.1875rem;
+
+$spacer: 1.25rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+  xxl: 1320px
+);
+
+$box-shadow: 0 0 0.9375rem 0.375rem rgba(160, 151, 255, 0.425);
+$btn-border-width: 0.1875rem;
+
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+  $theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+  ),
+  $grid-breakpoints: $grid-breakpoints,
+  $container-max-widths: $container-max-widths
+);
+
+.theme-dark {
+  --bs-body-bg: #120543;
+  --bs-body-color: #fff;
+  --bs-primary: #3A0542;
+  --bs-secondary: #051F42;
+}
+
+.theme-accent {
+  --bs-body-bg: #3a1f99;
+  --bs-body-color: #fff;
+  --bs-primary: #9f97ff;
+  --bs-secondary: #6a4fd9;
+}
+
+@media screen and (max-width: 480px) {
+    nav.meniu > ul {
+      z-index: 1000;
+    }
+    
+    iframe, .container-iframe, .video-container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    #grid-galerie, .grid-section, .gallery-item {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hamburger-menu {
+      z-index: 1001;
+    }
+  }

@@ -1,10 +1,11 @@
-const express= require("express");
-const path = require("path");
-const fs = require("fs");
-const sharp = require("sharp");
-const sass = require("sass");
-const pg = require("pg");
+const express= require("express"); // server
+const path = require("path"); //path-uri de foldere
+const fs = require("fs"); // fisiere
+const sharp = require("sharp"); //imagini
+const sass = require("sass"); // pentru compilare SCSS in CSS
+const pg = require("pg"); //baza de date postgresql
 
+//baza de date 
 const Client=pg.Client;
 
 client=new Client({
@@ -24,6 +25,7 @@ client.query("select * from unnest(enum_range(null::categ_prajitura))", function
     console.log(err)    
     console.log(rezultat)
 })
+//
 
 app= express();
 
@@ -33,14 +35,16 @@ console.log(nrImpar)
 
 app.set("view engine", "ejs");
 
+//variabile globale
 obGlobal= {
     obErori:null,
-    obImagini:null,
-    folderScss: path.join(__dirname, "Resurse/scss"),
-    folderCss: path.join(__dirname,"Resurse/css"),
+    obimagini:null,
+    folderScss: path.join(__dirname, "resurse/scss"),
+    folderCss: path.join(__dirname,"resurse/css"),
     folderBackup: path.join(__dirname,"backup")
 }
 
+//creez fisierele pentru backup/temp
 vect_foldere=["temp","backup","temp1"]
 for(let folder of vect_foldere){
     let caleFolder= path.join(__dirname,folder)
@@ -64,22 +68,66 @@ function compileazaScss(caleScss, caleCss){
         caleCss=path.join(obGlobal.folderCss,caleCss )
     
 
-    let caleBackup=path.join(obGlobal.folderBackup, "Resurse/css");
+    let caleBackup=path.join(obGlobal.folderBackup, "resurse/css");
     if (!fs.existsSync(caleBackup)) {
         fs.mkdirSync(caleBackup,{recursive:true})
     }
     
     // la acest punct avem cai absolute in caleScss si  caleCss
-
+    //bonus timestamp
     let numeFisCss=path.basename(caleCss);
+    let numeFisFaraExt = numeFisCss.split(".")[0];
+    let extensie = numeFisCss.split(".")[1] || "css";
+    let timestamp = Date.now();
+    let numeFisBackup = `${numeFisFaraExt}_${timestamp}.${extensie}`;
+    
     if (fs.existsSync(caleCss)){
-        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/css",numeFisCss ))// +(new Date()).getTime()
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css", numeFisBackup));
     }
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
     //console.log("Compilare SCSS",rez);
 }
-//compileazaScss("a.scss");
+
+function compileazaSassGalerieAnimata(numImagini) {
+    
+    const sassTemplatePath = path.join(obGlobal.folderScss, 'galerie_animata.scss');
+    const sassTemplate = fs.readFileSync(sassTemplatePath, 'utf8');
+    
+    const sassContent = sassTemplate.replace('$numar-imagini: 12;', `$numar-imagini: ${numImagini};`);
+    
+    const tempSassPath = path.join(obGlobal.folderScss, 'galerie_animata-temp.scss');
+    fs.writeFileSync(tempSassPath, sassContent);
+    
+    const cssDest = path.join(obGlobal.folderCss, 'galerie_animata.css');
+    compileazaScss(tempSassPath, cssDest);
+    
+    try {
+      fs.unlinkSync(tempSassPath);
+    } catch (err) {
+      console.error("Error deleting temporary SASS file:", err);
+    }
+  }
+  
+  app.get("/galerie", function(req, res) {
+    let numImagini = Math.floor(Math.random() * 5) * 3 + 3;
+    if (numImagini > 15) numImagini = 15;
+    
+    compileazaSassGalerieAnimata(numImagini);
+    
+    const offsetImagini = Math.floor(Math.random() * (obGlobal.obimagini.imagini.length - numImagini));
+    
+    const imaginiSelectate = obGlobal.obimagini.imagini.slice(offsetImagini, offsetImagini + numImagini);
+    
+    res.render("pagini/galerie", {
+      ip: req.ip, 
+      imagini: obGlobal.obimagini.imagini,
+      imaginiAnimate: imaginiSelectate,
+      numarImaginiAnimate: numImagini
+    });
+  });
+
+
 vFisiere=fs.readdirSync(obGlobal.folderScss);
 for( let numeFis of vFisiere ){
     if (path.extname(numeFis)==".scss"){
@@ -100,7 +148,7 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
 
 
 function initErori(){
-    let continut = fs.readFileSync(path.join(__dirname,"Resurse/json/erori.json")).toString("utf-8");
+    let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
     
     obGlobal.obErori=JSON.parse(continut)
     
@@ -114,30 +162,39 @@ function initErori(){
 
 initErori()
 
-function initImagini(){
+function initimagini(){
     var continut= fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
 
-    obGlobal.obImagini=JSON.parse(continut);
-    let vImagini=obGlobal.obImagini.imagini;
+    obGlobal.obimagini=JSON.parse(continut);
+    let vimagini=obGlobal.obimagini.imagini;
 
-    let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
-    let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
-    if (!fs.existsSync(caleAbsMediu))
+    let caleAbs = path.join(__dirname, obGlobal.obimagini.cale_galerie);
+    let caleAbsMediu = path.join(__dirname, obGlobal.obimagini.cale_galerie, "mediu");
+    let caleAbsMic = path.join(__dirname, obGlobal.obimagini.cale_galerie, "mic");
+
+    if (!fs.existsSync(caleAbsMediu)) {
         fs.mkdirSync(caleAbsMediu);
-
-    //for (let i=0; i< vErori.length; i++ )
-    for (let imag of vImagini){
-        [numeFis, ext]=imag.fisier.split(".");
-        let caleFisAbs=path.join(caleAbs,imag.fisier);
-        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
-        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
-        imag.fisier_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeFis+".webp" )
-        imag.fisier=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier )
-
     }
-    console.log(obGlobal.obImagini)
+
+    if (!fs.existsSync(caleAbsMic)) {
+        fs.mkdirSync(caleAbsMic);
+    }
+
+    for (let imag of vimagini) {
+        [numeFis, ext] = imag.fisier.split(".");
+        let caleFisAbs = path.join(caleAbs, imag.fisier);
+        let caleFisMediuAbs = path.join(caleAbsMediu, numeFis + ".webp");
+        let caleFisMicAbs = path.join(caleAbsMic, numeFis + ".webp");
+        
+        sharp(caleFisAbs).resize(400).toFile(caleFisMediuAbs);
+        sharp(caleFisAbs).resize(200).toFile(caleFisMicAbs);
+        
+        imag.fisier_mediu = path.join("/", obGlobal.obimagini.cale_galerie, "mediu", numeFis + ".webp");
+        imag.fisier_mic = path.join("/", obGlobal.obimagini.cale_galerie, "mic", numeFis + ".webp");
+        imag.fisier = path.join("/", obGlobal.obimagini.cale_galerie, imag.fisier);
+    }
 }
-initImagini();
+initimagini();
 
 function afisareEroare(res, identificator, titlu, text, imagine){
     let eroare= obGlobal.obErori.info_erori.find(function(elem){ 
@@ -172,15 +229,36 @@ console.log("Folderul proiectului: ", __dirname);
 console.log("Cale fisier index.js: ", __filename);
 console.log("Folderul de lucru: ", process.cwd());
 
-app.use("/Resurse",express.static(path.join(__dirname,"Resurse")));
+app.use("/resurse",express.static(path.join(__dirname,"resurse")));
 app.use("/node_modules",express.static(path.join(__dirname,"node_modules")));
 app.get("/favicon.ico", function(req,res){
-    res.sendFile(path.join(__dirname, "Resurse/imagini/favicon/favicon.ico"))
+    res.sendFile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"))
 });
 
 app.get(["/", "/home", "/index"], function(req, res){
-    res.render("pagini/index",{ip:req.ip, imagini:obGlobal.obImagini.imagini});
+    res.render("pagini/index",{ip:req.ip, imagini:obGlobal.obimagini.imagini});
 });
+
+app.get("/cos", function(req, res){
+    res.render("pagini/cos");
+});
+
+app.get("/wishlist", function(req, res){
+    res.render("pagini/wishlist");
+});
+
+app.get("/informatii", function(req, res){
+    res.render("pagini/informatii");
+});
+
+app.get("/faq", function(req, res){
+    res.render("pagini/faq");
+});
+
+app.use(function(err, req, res, next) {
+    console.error(err);
+    afisareEroare(res, 404);
+  });
 
 app.get("/cerere", function(req, res){
     res.send("<p style = 'color:green;'> Bună ziua! </p>");
@@ -206,7 +284,7 @@ app.get("/abc", function(req, res, next){
 
 app.get("/produse", function(req, res){
     console.log(req.query)
-    var conditieQuery=""; // TO DO where din parametri
+    var conditieQuery="";
 
 
     queryOptiuni="select * from unnest(enum_range(null::categ_prajitura))"
@@ -228,7 +306,7 @@ app.get("/produse", function(req, res){
 })
 
 //new Regex("")
-app.get(/^\/Resurse\/[a-zA-Z0-9_\/]*$/,function(req,res,next){
+app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/,function(req,res,next){
     afisareEroare(res,403);
 });
 

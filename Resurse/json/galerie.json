@@ -1,42 +1,82 @@
-
 {
-	"cale_galerie":"Resurse/Imagini/galerie",
-	"imagini": [
-		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-
-		},
-		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
-		},
-		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată",
-
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
-		},
-		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
-		}
-	]
+    "cale_galerie":"resurse/imagini/galerie",
+    "imagini": [
+        {
+            "fisier":"graphics-card.png",
+            "descriere":"Placă video premium RTX 4090",
+            "continut_alternativ":"Imagine cu placă video high-end",
+            "intervale_zile":[["luni", "miercuri"], ["sambata", "duminica"]]
+        },
+        {
+            "fisier":"gaming-pc.png",
+            "descriere":"PC Gaming RGB Custom",
+            "continut_alternativ":"Imagine cu sistem PC gaming complet",
+            "intervale_zile":[["marti", "joi"], ["vineri", "vineri"]]
+        },
+        {
+            "fisier":"mechanical-keyboard.png",
+            "descriere":"Tastatură mecanică gaming",
+            "continut_alternativ":"Imagine cu tastatură mecanică RGB",
+            "intervale_zile":[["luni", "luni"], ["vineri", "duminica"]]
+        },
+        {
+            "fisier":"gaming-monitor.png",
+            "descriere":"Monitor gaming ultrawide",
+            "continut_alternativ":"Imagine cu monitor curbat pentru gaming",
+            "intervale_zile":[["marti", "joi"], ["sambata", "sambata"]]
+        },
+        {
+            "fisier":"gaming-mouse.png",
+            "descriere":"Mouse gaming profesional",
+            "continut_alternativ":"Imagine cu mouse gaming RGB",
+            "intervale_zile":[["luni", "miercuri"], ["duminica", "duminica"]]
+        },
+        {
+            "fisier":"cpu-processor.png",
+            "descriere":"Procesor AMD Ryzen 9",
+            "continut_alternativ":"Imagine cu procesor high-end",
+            "intervale_zile":[["joi", "vineri"], ["sambata", "duminica"]],
+            "atribuire": {
+                "autor": "AMD Official",
+                "site": "https://www.amd.com/",
+                "licenta": "CC-BY 4.0"
+            }
+        },
+        {
+            "fisier":"ram-memory.png",
+            "descriere":"Memorie RAM DDR5",
+            "continut_alternativ":"Imagine cu module RAM RGB",
+            "intervale_zile":[["marti", "miercuri"], ["sambata", "duminica"]]
+        },
+        {
+            "fisier":"ssd-storage.png",
+            "descriere":"SSD NVMe Ultra-rapid",
+            "continut_alternativ":"Imagine cu SSD NVMe",
+            "intervale_zile":[["luni", "marti"], ["joi", "vineri"]]
+        },
+        {
+            "fisier":"motherboard.png",
+            "descriere":"Placă de bază gaming",
+            "continut_alternativ":"Imagine cu placă de bază premium",
+            "intervale_zile":[["miercuri", "joi"], ["sambata", "duminica"]]
+        },
+        {
+            "fisier":"cooling-system.png",
+            "descriere":"Sistem de răcire cu lichid",
+            "continut_alternativ":"Imagine cu sistem răcire AIO",
+            "intervale_zile":[["luni", "miercuri"], ["vineri", "sambata"]]
+        },
+        {
+            "fisier":"gaming-headset.png",
+            "descriere":"Căști gaming surround",
+            "continut_alternativ":"Imagine cu căști gaming premium",
+            "intervale_zile":[["marti", "joi"], ["duminica", "duminica"]]
+        },
+        {
+            "fisier":"pc-case.png",
+            "descriere":"Carcasă PC gaming",
+            "continut_alternativ":"Imagine cu carcasă ATX premium",
+            "intervale_zile":[["luni", "joi"], ["vineri", "duminica"]]
+        }
+    ]
 }

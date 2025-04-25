@@ -1,4 +1,4 @@
-#menu-toggle {
+#menu-toggle { /* sa ascund checkbox-ul de la meniu */
   display: none;
 }
 
@@ -21,6 +21,7 @@ nav.meniu {
   width: 100%;
   margin: 5px 0;
   padding-top: 5px;
+  /*hover pentru meniul maree*/
   /* hover submmeniu*/
 }
 nav.meniu ul {
@@ -80,21 +81,21 @@ nav.meniu > ul > li > a::before {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; /*toata zona parintelui*/
   background-color: var(--meniu-hover-overlay);
-  transform: scale(0);
+  transform: scale(0); /*invizibil la inceput*/
   transition: transform 0.3s ease-in-out;
   z-index: -1;
   border-radius: 4px;
 }
 nav.meniu > ul > li > a:hover::before {
-  transform: scale(1);
+  transform: scale(1); /*la hover devine vizibil*/
 }
 nav.meniu ul ul li a:hover {
   /* hover la submeniu*/
   background-color: var(--meniu-hover-overlay);
   color: var(--meniu-accent);
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(159, 151, 255, 0.8);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.7), 0 0 3px rgba(159, 151, 255, 0.8); /*highlight*/
 }
 
 .hamburger-menu {

@@ -54,10 +54,12 @@
 @media screen and (max-width: 480px) {
     header {
         padding-bottom: 40px;
+        
     }
 
     .hamburger-menu {
         display: block;
+        z-index: 1001;
     }
 
     .hamburger-line {
@@ -178,7 +180,6 @@
                     justify-content: center;
                     align-items: center;
                     border-bottom: 1px solid rgba(159, 151, 255, 0.2);
-                    text-align: center;
                     font-size: 0.95rem;
                 }
                 
@@ -211,7 +212,7 @@
                 position: static;
                 width: 100%;
                 max-height: 0;
-                transition: max-height var(--transition-standard);
+                transition: max-height var(--transition);
                 box-shadow: none;
                 background-color: rgba(26, 7, 105, 0.7);
                 text-align: center;
@@ -241,9 +242,9 @@
                     }
                 }
             }
-            
+            /* cand apas pe un submeniu*/
             li:hover {
-                /* cand apas pe un submeniu*/
+                
                 > ul {
                     max-height: 1000px;
                     visibility: visible;

@@ -1,87 +1,381 @@
 <!DOCTYPE html>
-<html  lang="ro">
-    <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
-        <link rel="stylesheet" href="/Resurse/css/produse.css" type="text/css" />
-        <title>Cofetăria Dulcelind - home</title>
-        <%- include("../fragmente/head") %>     
-        <script type="text/javascript" src=/Resurse/js/produse.js></script>
-        <script type="text/javascript" src=/Resurse/js/produse-cos.js></script>
+<html lang="ro">
 
-    </head>
-    <body>
-    <header class="c1" id="titlu" >
-        <h1 style="color:red;">Cofetaria <span>Dulcelind</span></h1>
-        <%- include("../fragmente/header") %>
-    </header>
+<head>
+    <meta name="keywords"
+        content="componente pc, placi video gaming, procesoare intel amd, placi de baza, memorie ram ddr5, ssd nvme, surse alimentare pc, carcase pc, periferice gaming, monitoare, tastaturi, mouse gaming">
+    <meta name="description"
+        content="Catalog complet de componente PC, periferice gaming și sisteme complete PC Galaxy. Descoperiți procesoare, plăci video, memorii RAM, SSD-uri și periferice la prețuri competitive.">
+    <title></title>
+    <%- include("../fragmente/head.ejs") %>
+</head>
 
-    <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
-        <div> Calorii:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Dietetic (calorii &lt; 350)
-                <input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>
-            </label></p>
-            <p><label>Mediu (350 &le; calorii &lt; 700)
-                <input id="i_rad2"  name="gr_rad" value="350:700" type="radio"/>
-            </label>
-            <p><label>Ridicat caloric (700 &le; calorii)
-                <input id="i_rad3" name="gr_rad" value="700:1000000000" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
-        </div>
+<body>
+    <%- include("../fragmente/header.ejs") %>
+        <main>
+            <section id="produse">
+                <h2> Catalog Produse</h2>
+                <p>Explorează universul nostru de <b>componente</b> și <b>sisteme</b> atent selectate pentru tine:</p>
+                <div class="grid-container">
+                    <section id="pc">
+                        <h3> Sisteme Complete</h3>
+                        <p>Fiecare sistem este asamblat cu grijă pentru performanță maximă:</p>
+
+                        <section id="gaming">
+                            <h4> PC-uri Gaming - Domină în orice joc</h4>
+                            <p>Pregătit să domini competiția? Sistemele noastre <strong>gaming</strong> oferă:</p>
+                            <ul>
+                                <li>🚀 Performanță de top cu <strong>RTX 4000</strong> și <strong>RX 7000</strong></li>
+                                <li>💪 Procesoare multi-core pentru gaming și streaming</li>
+                                <li>⚡ RAM DDR5 ultra-rapid și SSD-uri PCIe 4.0</li>
+                                <li>❄️ Răcire optimizată pentru sesiuni intense</li>
+                                <li>✨ Setup RGB personalizabil</li>
+                            </ul>
+                        </section>
+
+                        <section id="office">
+                            <h4> Stații de Lucru Profesionale</h4>
+                            <p>Maximizează-ți productivitatea cu sistemele noastre <strong>office și
+                                    workstation</strong>:
+                            </p>
+                            <ul>
+                                <li>📊 Procesare multi-task eficientă</li>
+                                <li>🚀 SSD-uri NVMe pentru încărcare instant</li>
+                                <li>🔧 Configurații optimizate pentru aplicații profesionale</li>
+                                <li>🤫 Design silent pentru medii de lucru</li>
+                            </ul>
+                        </section>
+                    </section>
+
+                    <section id="componente">
+                        <h3>Componente</h3>
+                        <p>Alege dintre cele mai performante <strong>componente</strong> de la branduri de top:</p>
+
+                        <section id="procesoare">
+                            <h4>Procesoare</h4>
+                            <p>Explorează gama noastră de <strong>procesoare</strong> de ultimă generație:</p>
+                            <ul>
+                                <li>⚡ <strong>AMD Ryzen</strong> - Seria 7000 cu arhitectura Zen 4</li>
+                                <li>🔥 <strong>Intel Core</strong> - Generația a 14-a cu suport DDR5</li>
+                                <li>Procesoare specializate pentru <strong>gaming</strong> și
+                                    <strong>workstation</strong>
+                                </li>
+                                <li>Tehnologii avansate: <abbr
+                                        title="Peripheral Component Interconnect Express">PCIe</abbr>
+                                    5.0, DDR5</li>
+                            </ul>
+                            <p>Include garanție extinsă și suport pentru overclocking pe modelele deblocate.</p>
+                            <div class="responsive-table-container">
+                                <table class="responsive-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Procesor</th>
+                                            <th>Frecvență</th>
+                                            <th>Nuclee/Threads</th>
+                                            <th>TDP</th>
+                                            <th>Preț</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-label="Procesor">AMD Ryzen 9 7950X</td>
+                                            <td data-label="Frecvență">4.5-5.7 GHz</td>
+                                            <td data-label="Nuclee/Threads">16/32</td>
+                                            <td data-label="TDP">170W</td>
+                                            <td data-label="Preț">3,299 RON</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Procesor">Intel Core i9-13900K</td>
+                                            <td data-label="Frecvență">3.0-5.8 GHz</td>
+                                            <td data-label="Nuclee/Threads">24/32</td>
+                                            <td data-label="TDP">125W</td>
+                                            <td data-label="Preț">3,199 RON</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Procesor">AMD Ryzen 7 7700X</td>
+                                            <td data-label="Frecvență">4.5-5.4 GHz</td>
+                                            <td data-label="Nuclee/Threads">8/16</td>
+                                            <td data-label="TDP">105W</td>
+                                            <td data-label="Preț">1,899 RON</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Procesor">Intel Core i5-13600K</td>
+                                            <td data-label="Frecvență">3.5-5.1 GHz</td>
+                                            <td data-label="Nuclee/Threads">14/20</td>
+                                            <td data-label="TDP">125W</td>
+                                            <td data-label="Preț">1,799 RON</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="placi-baza">
+                            <h4>Plăci de bază</h4>
+                            <p>Descoperă plăcile de bază premium pentru sistemul tău:</p>
+                            <ul>
+                                <li>🎮 Modele ROG, AORUS și MEG pentru gaming extrem</li>
+                                <li>🎨 Plăci ProArt și Creator pentru workstation</li>
+                                <li>⚡ VRM robust pentru overclocking în siguranță</li>
+                                <li>🔌 Suport pentru memorii DDR5 până la 8000MHz</li>
+                            </ul>
+                        </section>
+
+                        <section id="placi-video">
+                            <h4>Plăci video</h4>
+                            <p>Cele mai noi plăci grafice pentru gaming și creație:</p>
+                            <ul>
+                                <li>🎮 NVIDIA RTX 4090, 4080 și 4070 pentru gaming și AI</li>
+                                <li>🔥 AMD RX 7900, 7800 și 7700 pentru performanță</li>
+                                <li>🖼️ DLSS 3.0 și FSR pentru gaming la rezoluție 4K</li>
+                                <li>✨ Suport pentru Ray Tracing și encoding video</li>
+                            </ul>
+                        </section>
+
+                        <section id="ram">
+                            <h4>Memorii RAM</h4>
+                            <p>Module de memorie optimizate pentru performanță:</p>
+                            <ul>
+                                <li>⚡ DDR5 cu frecvențe până la 7200MHz</li>
+                                <li>🔄 Kit-uri Dual Channel și Quad Channel</li>
+                                <li>🚀 Profiluri XMP pentru overclocking simplu</li>
+                                <li>✨ Design-uri cu RGB sincronizabil</li>
+                            </ul>
+                        </section>
+
+                        <section id="stocare">
+                            <h4>Soluții de Stocare</h4>
+                            <ul>
+                                <li>⚡ SSD-uri PCIe 4.0 cu viteze până la 7000MB/s</li>
+                                <li>💽 SSD-uri SATA pentru upgrade accesibil</li>
+                                <li>💾 HDD-uri de mare capacitate (până la 20TB)</li>
+                                <li>🔄 Soluții RAID pentru redundanță date</li>
+                            </ul>
+                        </section>
 
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
-        <label>Select simplu:
-            <select id="inp-categorie">
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                <% } %>
-            </select>
-        </label>
+                        <section id="surse">
+                            <h4>Surse de alimentare</h4>
+                            <p>Surse certificate 80 Plus pentru fiabilitate maximă:</p>
+                            <ul>
+                                <li>⭐ Modele 80 Plus Gold și Platinum</li>
+                                <li>⚡ Puteri între 500W și 1600W</li>
+                                <li>🔌 Cabluri modulare pentru cable management</li>
+                                <li>🛡️ Protecții multiple pentru siguranță</li>
+                            </ul>
+                            <div class="psu-calculator">
+                                <p>Formula recomandată pentru calculul puterii sursei (PSU):</p>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                    <mrow>
+                                        <msub>
+                                            <mi>P</mi>
+                                            <mtext>PSU</mtext>
+                                        </msub>
+                                        <mo>=</mo>
+                                        <mfenced>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>P</mi>
+                                                    <mtext>CPU</mtext>
+                                                </msub>
+                                                <mo>+</mo>
+                                                <msub>
+                                                    <mi>P</mi>
+                                                    <mtext>GPU</mtext>
+                                                </msub>
+                                                <mo>+</mo>
+                                                <mn>100</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>x</mo>
+                                        <mn>1.3</mn>
+                                    </mrow>
+                                </math>
+                                <p>Unde:</p>
+                                <ul>
+                                    <li>P<sub>PSU</sub> = Puterea recomandată a sursei (W)</li>
+                                    <li>P<sub>CPU</sub> = Consumul procesorului (TDP)</li>
+                                    <li>P<sub>GPU</sub> = Consumul plăcii video</li>
+                                    <li>100W = Consum de bază pentru alte componente</li>
+                                    <li>1.3 = Factor de siguranță (+30%)</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section id="carcase">
+                            <h4>Carcase PC</h4>
+                            <ul>
+                                <li>💨 Design-uri optimizate pentru airflow</li>
+                                <li>❄️ Suport pentru radiator până la 360mm</li>
+                                <li>🧹 Filtre de praf ușor de curățat</li>
+                                <li>🔌 Management modern al cablurilor</li>
+                            </ul>
+                        </section>
+                        <section id="coolere">
+                            <h4>Sisteme de răcire</h4>
+                            <ul>
+                                <li>💧 Răcire cu lichid AIO până la 360mm</li>
+                                <li>🗼 Coolere tower cu performanță ridicată</li>
+                                <li>🌀 Ventilatoare silențioase cu RGB</li>
+                                <li>❄️ Paste termice premium incluse</li>
+                            </ul>
+                        </section>
+                    </section>
 
-        <p>
-        <button id="filtrare">Filtreaza</button> 
+                    <section id="periferice">
+                        <h3>Periferice Gaming și Accesorii PC</h3>
+                        <p>Descoperă gama noastră completă de <strong>periferice gaming</strong> și <strong>accesorii
+                                PC</strong>. Oferim:</p>
+                        <ul>
+                            <li>⌨️ <strong>Tastaturi mecanice gaming</strong> pentru precizie și viteză</li>
+                            <li>🖱️ <strong>Mouse-uri gaming</strong> cu senzori de înaltă precizie</li>
+                            <li>🎮 <strong>Mousepad-uri gaming</strong> pentru control maxim</li>
+                            <li>🖥️ <strong>Monitoare gaming</strong> cu rată de refresh ridicată</li>
+                            <li>🎧 <strong>Căști gaming</strong> cu sunet surround pentru imersie totală</li>
+                        </ul>
 
-        <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
-        
-        </p>
-      
-        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
-  
-        <section id="produse">
+                        <section id="tastaturi">
+                            <h4>Tastaturi</h4>
+                            <p>Descoperă colecția noastră de <strong>tastaturi mecanice gaming</strong>:</p>
+                            <ul>
+                                <li>🔘 Switch-uri Cherry MX Red, Blue și Brown pentru preferințe diferite</li>
+                                <li>🌈 Iluminare RGB per-key programabilă</li>
+                                <li>🛡️ Construcție din aluminiu cu durabilitate ridicată</li>
+                                <li>📏 Modele TKL și full-size disponibile</li>
+                                <li>💾 Memorii integrate pentru profile și macro-uri</li>
+                                <li>⚡ Suport pentru anti-ghosting și N-key rollover</li>
+                            </ul>
+                        </section>
 
-            <h2>Produse</h2>
-            <div class="grid-produse">
-                <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
-                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                        <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="calorii">Calorii: <span class="val-calorii"><%- prod.calorii%></span></p>
-                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
-                        </div>
-                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
-                        <label class="selecteaza-cos">
-                            Selectează:<br/>
-                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
-                        </label>
-                    </article>
-                <% }%>
-            </div>
-        </section>
-    </main>
+                        <section id="mouse">
+                            <h4>Mouse</h4>
+                            <p>Alege din gama noastră de <strong>mouse-uri gaming</strong> profesionale:</p>
+                            <ul>
+                                <li>🎯 Senzori optici de până la 30000 DPI</li>
+                                <li>🔄 Switch-uri Omron cu durabilitate de 70 milioane de click-uri</li>
+                                <li>✋ Design ergonomic pentru sesiuni lungi de gaming</li>
+                                <li>⚖️ Greutate ajustabilă pentru control perfect</li>
+                                <li>💾 Memorie onboard pentru setări și macro-uri</li>
+                                <li>🛝 Picioare PTFE pentru alunecare perfectă</li>
+                            </ul>
+                        </section>
 
-    <%- include("../fragmente/footer") %>
-    </body>
+                        <section id="mousepad">
+                            <h4>Mousepad-uri Gaming</h4>
+                            <p>Descoperă colecția noastră de <strong>mousepad-uri gaming</strong> profesionale:</p>
+                            <ul>
+                                <li>🎯 Suprafețe optimizate pentru senzori optici și laser</li>
+                                <li>📏 Dimensiuni XL și XXL pentru setup-uri complete</li>
+                                <li>🌈 Modele cu iluminare RGB personalizabilă</li>
+                                <li>🧵 Materiale premium cu margini cusute</li>
+                                <li>🛑 Bază anti-alunecare din cauciuc natural</li>
+                                <li>💧 Variante impermeabile și ușor de curățat</li>
+                            </ul>
+                        </section>
+
+                        <section id="monitoare">
+                            <h4>Monitoare</h4>
+                            <p>Explorează selecția noastră de <strong>monitoare gaming</strong>:</p>
+                            <ul>
+                                <li>📺 Panouri IPS, VA și TN pentru nevoi diferite</li>
+                                <li>⚡ Rate de refresh de la 144Hz până la 360Hz</li>
+                                <li>🔄 Tehnologii G-Sync și FreeSync Premium Pro</li>
+                                <li>🖼️ Rezoluții 1440p și 4K cu HDR</li>
+                                <li>⏱️ Timp de răspuns de până la 0.5ms GtG</li>
+                                <li>🔌 Suport pentru HDMI 2.1 și DisplayPort 1.4</li>
+                            </ul>
+                        </section>
+
+                        <section id="casti">
+                            <h4>Căști</h4>
+                            <p>Descoperă gama completă de <strong>căști gaming</strong>:</p>
+                            <ul>
+                                <li>🔊 Sunet surround 7.1 pentru poziționare precisă</li>
+                                <li>🎛️ Drivere de 50mm cu magneți din neodim</li>
+                                <li>🎙️ Microfon detașabil cu anulare zgomot</li>
+                                <li>🧩 Pernuțe cu memory foam și material respirabil</li>
+                                <li>📱 Compatibilitate multi-platformă</li>
+                                <li>🏆 Certificare Discord și TeamSpeak</li>
+                            </ul>
+                        </section>
+                    </section>
+
+                    <section id="software">
+                        <h3>Software și Licențe</h3>
+                        <p>Oferim <strong>soluții software complete</strong> pentru sistemul tău:</p>
+                        <ul>
+                            <li>💻 <strong>Sisteme de operare</strong> Windows 10/11</li>
+                            <li>📊 <strong>Suite office</strong> pentru productivitate</li>
+                            <li>🛡️ <strong>Antivirus</strong> pentru protecție completă</li>
+                            <li>⚙️ <strong>Software specializat</strong> pentru gaming și productivitate</li>
+                        </ul>
+                        <h5>Beneficii incluse</h5>
+                        <ul>
+                            <li>✅ Activare și setare gratuită la livrare</li>
+                            <li>🆘 Suport tehnic dedicat 24/7</li>
+                            <li>🔄 Actualizări și upgrade-uri incluse</li>
+                            <li>📜 Garanție de autenticitate și conformitate</li>
+                        </ul>
+
+
+                        <section id="sisteme-operare">
+                            <h4>Sisteme de operare</h4>
+                            <p>Oferim <strong>licențe Windows</strong> originale pentru sistemul tău:</p>
+                            <ul>
+                                <li>🔑 Windows 11 Pro cu activare digitală instant</li>
+                                <li>⬆️ Windows 10 Pro cu upgrade gratuit la Windows 11</li>
+                                <li>⚙️ Suport pentru configurare și personalizare</li>
+                                <li>🔄 Actualizări automate și securitate avansată</li>
+                                <li>🎮 Compatibilitate DirectStorage pentru gaming</li>
+                                <li>🔐 Windows Hello și funcții biometrice</li>
+                            </ul>
+                        </section>
+
+                        <section id="licente">
+                            <h4>Licențe software</h4>
+                            <p>Descoperă gama noastră de <strong>licențe software</strong> pentru productivitate și
+                                securitate:
+                            </p>
+
+                            <section id="productivitate">
+                                <h5>Software Productivitate</h5>
+                                <ul>
+                                    <li>📊 Microsoft 365 cu aplicații complete Office</li>
+                                    <li>🎨 Adobe Creative Cloud pentru design</li>
+                                    <li>📐 AutoCAD pentru proiectare</li>
+                                    <li>👨‍💻 Suite complete pentru dezvoltare software</li>
+                                </ul>
+                            </section>
+
+                            <section id="securitate">
+                                <h5>Soluții Securitate</h5>
+                                <ul>
+                                    <li>🛡️ Antivirus premium cu protecție în timp real</li>
+                                    <li>🔒 VPN pentru conexiune securizată</li>
+                                    <li>☁️ Backup automat în cloud</li>
+                                    <li>🧱 Firewall avansat și anti-malware</li>
+                                </ul>
+                            </section>
+
+                            <section id="software-gaming">
+                                <h5>Software Gaming</h5>
+                                <ul>
+                                    <li>🎮 Game Pass PC cu acces la peste 100 jocuri</li>
+                                    <li>⚙️ Software optimizare gaming</li>
+                                    <li>📹 Utilitare pentru streaming și captură</li>
+                                    <li>💬 Discord Nitro pentru comunicare avansată</li>
+                                </ul>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <%- include("../fragmente/footer.ejs") %>
+
+        <a href="#top" id="link-top" aria-label="Înapoi la începutul paginii">
+            <span>&#5123;</span>
+        </a>
+</body>
+
 </html>

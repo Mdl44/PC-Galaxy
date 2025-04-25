@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta name="keywords"
+    content="galerie componente pc, imagini hardware, galerie pc galaxy, componente calculator, gaming pc, periferice">
+  <meta name="description"
+    content="Explorează galeria noastră de componente PC premium. Descoperă imagini de înaltă calitate cu procesoare, plăci video, tastaturi și alte produse din portofoliul PC Galaxy.">
+  <%- include("../fragmente/head.ejs") %>
+  <link rel="stylesheet" href="/resurse/css/galerie.css">
+  <title></title>
+</head>
+
+<body>
+
+  <div class="galerie-background"></div>
+
+  <%- include("../fragmente/header.ejs") %>
+
+  <main>
+    <%- include("../fragmente/galerie-statica.ejs") %>
+
+    <div class="container-galerie-animata">
+      <section class="galerie-animata">
+        <div class="imagini-container">
+          <% for (let i = 0; i < locals.numarImaginiAnimate; i++) { 
+                let imag = locals.imaginiAnimate[i];
+              %>
+          <img class="imagine" src="<%= imag.fisier %>"
+            alt="<%= imag.continut_alternativ || 'Imagine ' + imag.descriere %>" 
+            title="<%= imag.descriere %>"
+            data-descriere="<%= imag.descriere %>">
+          <% } %>
+        </div>
+        
+        <div class="caption-container">
+          <p id="imagine-descriere"></p>
+        </div>
+      </section>
+    </div>
+
+    <div class="efect-css-duotone" style="background-image: url('Resurse/imagini/setup-gaming.jpg');"
+      aria-label="Imagine cu efect duotone"></div>
+  </main>
+
+  <%- include("../fragmente/footer.ejs") %>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.galerie-animata .imagine');
+    const descriereElement = document.getElementById('imagine-descriere');
+    let currentIndex = 0;
+    const totalImages = images.length;
+    
+    updateDescription();
+    
+    const duration = 6;
+    setInterval(function() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateDescription();
+    }, duration * 1000);
+    
+    function updateDescription() {
+      descriereElement.textContent = images[currentIndex].dataset.descriere || '';
+    }
+  });
+</script>
+
+</body>
+
+</html>

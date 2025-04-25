@@ -50,6 +50,7 @@
   }
   .hamburger-menu {
     display: block;
+    z-index: 1001;
   }
   .hamburger-line {
     animation: hamburgerAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -151,7 +152,6 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid rgba(159, 151, 255, 0.2);
-    text-align: center;
     font-size: 0.95rem;
   }
   nav.meniu > ul > li:first-child {
@@ -172,12 +172,15 @@
     position: static;
     transform: none;
   }
+  nav.meniu ul {
+    /* cand apas pe un submeniu*/
+  }
   nav.meniu ul ul {
     /*submeniu*/
     position: static;
     width: 100%;
     max-height: 0;
-    transition: max-height var(--transition-standard);
+    transition: max-height var(--transition);
     box-shadow: none;
     background-color: rgba(26, 7, 105, 0.7);
     text-align: center;
@@ -199,9 +202,6 @@
   nav.meniu ul ul ul li a {
     padding-left: 0;
     padding-right: 0;
-  }
-  nav.meniu ul li:hover {
-    /* cand apas pe un submeniu*/
   }
   nav.meniu ul li:hover > ul {
     max-height: 1000px;

@@ -1,0 +1,72 @@
+<section id="galerie-statica">
+    <div id="grid-galerie">
+        <h2 class="gallery-title">Galeria PC Galaxy</h2>
+        <% 
+            const zileSaptamana = ["luni", "marti", "miercuri", "joi", "vineri", "sambata", "duminica"];
+            
+            let d = new Date();
+            let ziCurenta = zileSaptamana[d.getDay()];
+            
+            let imaginiPotrivite = [];
+            
+            for(let imag of locals.imagini) {
+                if(imag.intervale_zile) {
+                    for(let interval of imag.intervale_zile) {
+                        const ziStart = interval[0];
+                        const ziFinal = interval[1];
+                        
+                        const indexZiCurenta = zileSaptamana.indexOf(ziCurenta);
+                        const indexZiStart = zileSaptamana.indexOf(ziStart);
+                        const indexZiFinal = zileSaptamana.indexOf(ziFinal);
+                        
+                        if (indexZiStart <= indexZiFinal) {
+                            if (indexZiCurenta >= indexZiStart && indexZiCurenta <= indexZiFinal) {
+                                imaginiPotrivite.push(imag);
+                                break;
+                            }
+                        } else {
+                            if (indexZiCurenta >= indexZiStart || indexZiCurenta <= indexZiFinal) {
+                                imaginiPotrivite.push(imag);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (imaginiPotrivite.length % 2 !== 0) {
+                imaginiPotrivite.pop();
+            }
+        %>
+            
+        <% if (imaginiPotrivite.length === 0) { %>
+            <p class="no-images">Nu există imagini disponibile pentru astăzi (<%= ziCurenta %>).</p>
+        <% } %>
+        
+        <% for (let i = 0; i < imaginiPotrivite.length; i++) { 
+            let imag = imaginiPotrivite[i];
+        %>
+            <figure class="grid-item item-<%= i %>">
+                <picture>
+                    <source srcset="<%= imag.fisier_mic %>" media="(max-width: 480px)">
+                    <source srcset="<%= imag.fisier_mediu %>" media="(max-width: 1024px)">
+                    <img src="<%= imag.fisier %>" 
+                         alt="<%= imag.continut_alternativ || 'Imagine ' + imag.descriere %>"
+                         title="<%= imag.descriere %>">
+                </picture>
+                <figcaption>
+                    <%= imag.descriere %>
+                    <% if (imag.atribuire) { %>
+                        <span class="atribuire">
+                            © <%= imag.atribuire.autor %> - 
+                            <a href="<%= imag.atribuire.site %>" target="_blank">
+                                <%= imag.atribuire.site %>
+                            </a>
+                            (<%= imag.atribuire.licenta %>)
+                        </span>
+                    <% } %>
+                </figcaption>
+            </figure>
+        <% } %>
+    </div>
+</section>
