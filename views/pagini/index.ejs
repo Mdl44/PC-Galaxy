@@ -16,6 +16,9 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
 
         <%- include("../fragmente/galerie-statica.ejs") %>
 
+
+        
+
         <!------------------------------- Main Content Grid ------------------------------->
         <div id="grid-pagina">
             <!------------------------------- Home Section ------------------------------->
@@ -52,15 +55,16 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
                         <map name="quick-navigation-map">
                             <area shape="rect" coords="87,184,156,336" href="/produse/periferice/casti" alt="Căști"
                                 title="Vezi Căști">
-                            <area shape="rect" coords="160,72,457,298" href="/produse/periferice/monitoare" alt="Monitor"
-                                title="Vezi Monitoare">
-                            <area shape="rect" coords="159,338,415,409" href="/produse/periferice/tastaturi" alt="Tastatură"
-                                title="Vezi Tastaturi">
+                            <area shape="rect" coords="160,72,457,298" href="/produse/periferice/monitoare"
+                                alt="Monitor" title="Vezi Monitoare">
+                            <area shape="rect" coords="159,338,415,409" href="/produse/periferice/tastaturi"
+                                alt="Tastatură" title="Vezi Tastaturi">
                             <area shape="rect" coords="438,304,513,347" href="/produse/periferice/mouse" alt="Mouse"
                                 title="Vezi Mouse-uri">
-                            <area shape="poly" coords="476,299,529,369,601,354,523,293" href="/produse/periferice/mousepad"
-                                alt="Mousepad" title="Vezi Mousepad-uri">
-                            <area shape="rect" coords="495,55,721,284" href="/produse/pc/gaming" alt="PC" title="Vezi PC-uri">
+                            <area shape="poly" coords="476,299,529,369,601,354,523,293"
+                                href="/produse/periferice/mousepad" alt="Mousepad" title="Vezi Mousepad-uri">
+                            <area shape="rect" coords="495,55,721,284" href="/produse/pc/gaming" alt="PC"
+                                title="Vezi PC-uri">
                         </map>
                         <figcaption>
                             Click pe componente pentru a naviga la secțiunea dorită
@@ -85,6 +89,67 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
                         </section>
                     </div>
                 </div>
+
+                <% if (locals.oferte && oferte.length > 0) { %>
+                <% let oferta = oferte[0]; %>
+                <% let acum = new Date(); %>
+                <% let dataFinalizare = new Date(oferta["data-finalizare"]); %>
+                <% if (dataFinalizare > acum) { %>
+                <section id="oferta-activa" class="oferta-container">
+                    <div id="oferta" class="oferta">
+                        <div class="oferta-header">
+                            <span class="emoji">🔥</span>
+                            <h2>Ofertă Specială Activă!</h2>
+                            <span class="emoji">🔥</span>
+                        </div>
+                        <div class="oferta-content">
+                            <p><strong>Categoria:</strong> <span
+                                    class="highlight-categoria"><%= formatareText(oferta.categorie) %></span></p>
+                            <p><strong>Reducere:</strong> <span
+                                    class="highlight-reducere">-<%= oferta.reducere %>%</span></p>
+                            <p><strong>Valabilă de la:</strong>
+                                <%= new Date(oferta["data-incepere"]).toLocaleString("ro-RO") %></p>
+                            <p><strong>Se încheie la:</strong>
+                                <%= new Date(oferta["data-finalizare"]).toLocaleString("ro-RO") %></p>
+                            <div class="timer-container">
+                                <p><strong>Timp rămas:</strong></p>
+                                <p id="timer" class="timer" data-end-time="<%= oferta['data-finalizare'] %>">
+                                    Se calculează...
+                                </p>
+                            </div>
+                            <div class="oferta-actions">
+                                <a href="/produse?categorie=<%= oferta.categorie %>" class="btn-oferta">
+                                    🛒 Vezi Produsele cu Reducere
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <% } else { %>
+                <section id="oferta-expirata" class="oferta-container">
+                    <div class="oferta oferta-expirata">
+                        <div class="oferta-header">
+                            <span class="emoji">⏰</span>
+                            <h2>Oferta a expirat</h2>
+                        </div>
+                        <p>Oferta pentru categoria <strong><%= formatareText(oferta.categorie) %></strong> cu reducere
+                            de <strong><%= oferta.reducere %>%</strong> a expirat.</p>
+                        <p>O nouă ofertă va fi generată în curând!</p>
+                    </div>
+                </section>
+                <% } %>
+                <% } else { %>
+                <section id="no-oferta" class="oferta-container">
+                    <div class="oferta oferta-indisponibila">
+                        <div class="oferta-header">
+                            <span class="emoji">⌛</span>
+                            <h2>Se pregătește o ofertă</h2>
+                        </div>
+                        <p>Momentan nu există oferte active.</p>
+                        <p>Reveniți în curând pentru oferte speciale!</p>
+                    </div>
+                </section>
+                <% } %>
 
                 <!------------------------------- Special Offers Details Section ------------------------------->
                 <section id="detalii-oferte">
@@ -142,22 +207,23 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
                     <p>Descoperă cele mai recente <b>produse</b> adăugate în catalogul nostru:</p>
                     <div class="noutati-container">
                         <% if(locals.produse_noi && produse_noi.length > 0) { %>
-                            <% for(let prod of produse_noi) { %>
-                                <article class="produs-nou">
-                                    <h4><a href="/produs/<%= prod.id %>"><%= prod.nume %></a></h4>
-                                    <figure>
-                                        <img src="<%= prod.imagine %>" alt="<%= prod.nume %>">
-                                        <figcaption>
-                                            <%= prod.descriere.length > 100 ? prod.descriere.substring(0, 100) + '...' : prod.descriere %>
-                                            <br>
-                                            <strong>Preț: <%= prod.pret %> RON</strong>
-                                            <span class="data-adaugare">Adăugat: <%= new Date(prod.data_adaugare).toLocaleDateString('ro-RO') %></span>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            <% } %>
+                        <% for(let prod of produse_noi) { %>
+                        <article class="produs-nou">
+                            <h4><a href="/produs/<%= prod.id %>"><%= prod.nume %></a></h4>
+                            <figure>
+                                <img src="<%= prod.imagine %>" alt="<%= prod.nume %>">
+                                <figcaption>
+                                    <%= prod.descriere.length > 100 ? prod.descriere.substring(0, 100) + '...' : prod.descriere %>
+                                    <br>
+                                    <strong>Preț: <%= prod.pret %> RON</strong>
+                                    <span class="data-adaugare">Adăugat:
+                                        <%= new Date(prod.data_adaugare).toLocaleDateString('ro-RO') %></span>
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <% } %>
                         <% } else { %>
-                            <p>Nu există produse noi disponibile momentan.</p>
+                        <p>Nu există produse noi disponibile momentan.</p>
                         <% } %>
                     </div>
                 </section>
@@ -482,6 +548,57 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
     <a href="#top" id="link-top" aria-label="Înapoi la începutul paginii">
         <span>&#5123;</span>
     </a>
-</body>
+<script src="/resurse/js/timer-oferte.js"></script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifică dacă există oferte active
+    const timerElement = document.getElementById("timer");
+    if (timerElement) {
+        const dataFinalizare = timerElement.getAttribute("data-end-time");
+        if (dataFinalizare) {
+            const timer = new TimerOferte();
+            timer.start(dataFinalizare);
+        }
+    }
+});
+</script>
+
+<style>
+@keyframes urgentPulse {
+    0% { 
+        transform: scale(1); 
+        text-shadow: 0 0 5px #ff4757; 
+    }
+    100% { 
+        transform: scale(1.1); 
+        text-shadow: 0 0 15px #ff4757, 0 0 25px #ff4757; 
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.timer.urgent {
+    animation: urgentPulse 0.5s ease-in-out infinite alternate !important;
+}
+
+@media screen and (max-width: 480px) {
+    .timer.urgent {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .timer.urgent {
+        animation: none !important;
+        color: #ff4757 !important;
+        font-weight: bold !important;
+    }
+}
+</style>
+
+</body>
 </html>

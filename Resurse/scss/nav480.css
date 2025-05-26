@@ -24,6 +24,29 @@
     width: 100%;
   }
 }
+.hamburger-menu {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.hamburger-line-top {
+  animation-delay: 0.1s;
+}
+
+.hamburger-line-middle {
+  animation-delay: 0.3s;
+}
+
+.hamburger-line-bottom {
+  animation-delay: 0.5s;
+}
+
 .hamburger-line {
   display: block;
   height: 3px;
@@ -63,6 +86,9 @@
   }
   .hamburger-line-bottom {
     animation-delay: 0.5s;
+  }
+  #menu-toggle:checked + .hamburger-menu .hamburger-line {
+    /* x */
   }
   #menu-toggle:checked + .hamburger-menu .hamburger-line-top {
     transform: translateY(11px) rotate(45deg) !important;
@@ -204,7 +230,7 @@
     padding-right: 0;
   }
   nav.meniu ul li:hover > ul {
-    max-height: 1000px;
+    max-height: 1000px; /* sa se duca textul in jos oricat de mult as extinde submeniurile */
     visibility: visible;
     opacity: 1;
     transform: none;

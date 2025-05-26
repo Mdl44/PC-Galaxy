@@ -18,11 +18,13 @@ client = new Client({
     port: 5432
 })
 
-client.connect()
-
 app = express(); // obiect server express
 
 app.set("view engine", "ejs"); //ejs ca template 
+
+const T = 2;
+const T2 = 5;
+const caleFisierOferte = path.join(__dirname, "resurse/json/oferte.json");
 
 //variabile globale
 obGlobal = {
@@ -31,8 +33,145 @@ obGlobal = {
     folderScss: path.join(__dirname, "resurse/scss"),
     folderCss: path.join(__dirname, "resurse/css"),
     folderBackup: path.join(__dirname, "backup"),
-    optiuniMeniu: null
+    optiuniMeniu: null,
+    categorii: [],
+    oferte: []
 }
+
+function incarcaCategorii() {
+    const queryCategorii = "SELECT unnest(enum_range(NULL::categoria_principala)) AS categorie";
+    client.query(queryCategorii, function (err, rezCategorii) {
+        if (err) {
+            console.log("Eroare la încărcarea categoriilor pentru oferte:", err);
+            obGlobal.categorii = [];
+        } else {
+            obGlobal.categorii = rezCategorii.rows.map(row => row.categorie);
+            console.log("Categorii încărcate pentru oferte:", obGlobal.categorii);
+        }
+    });
+}
+
+function genereazaOferta() {
+    console.log("=== Generare nouă ofertă ===");
+    console.log("Categorii disponibile:", obGlobal.categorii);
+    
+    if (!obGlobal.categorii || obGlobal.categorii.length === 0) {
+        console.warn("Nu există categorii în obGlobal. Se încearcă reîncărcarea...");
+        incarcaCategorii();
+        return;
+    }
+
+    let oferteJson;
+    
+    try {
+        const continutFisier = fs.readFileSync(caleFisierOferte, 'utf8');
+        oferteJson = JSON.parse(continutFisier);
+    } catch (e) {
+        console.warn("Fișierul oferte.json nu există sau este corupt. Se va crea unul nou.");
+        oferteJson = { oferte: [] };
+    }
+
+    if (!oferteJson.oferte) {
+        oferteJson.oferte = [];
+    }
+
+    let ultimaCategorie = oferteJson.oferte.length > 0 ? oferteJson.oferte[0].categorie : null;
+    let categoriiDisponibile = obGlobal.categorii.filter(c => c !== ultimaCategorie);
+
+    if (categoriiDisponibile.length === 0) {
+        console.warn("Nu există categorii diferite de ultima ofertă. Se permite repetarea.");
+        categoriiDisponibile = obGlobal.categorii;
+    }
+
+    const categorieAleasa = categoriiDisponibile[Math.floor(Math.random() * categoriiDisponibile.length)];
+
+    const reduceri = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+    const reducere = reduceri[Math.floor(Math.random() * reduceri.length)];
+
+    const dataIncepere = new Date();
+    const dataFinalizare = new Date(dataIncepere.getTime() + T * 60000);
+
+    const ofertaNoua = {
+        categorie: categorieAleasa,
+        reducere: reducere,
+        "data-incepere": dataIncepere.toISOString(),
+        "data-finalizare": dataFinalizare.toISOString()
+    };
+
+    oferteJson.oferte.unshift(ofertaNoua);
+
+    const limitaEliminare = new Date(Date.now() - T2 * 60000);
+    const oferteleInitiale = oferteJson.oferte.length;
+    
+    oferteJson.oferte = oferteJson.oferte.filter(oferta => {
+        const dataFinalizareOferta = new Date(oferta["data-finalizare"]);
+        return dataFinalizareOferta > limitaEliminare;
+    });
+
+    const oferteleEliminateCount = oferteleInitiale - oferteJson.oferte.length;
+    if (oferteleEliminateCount > 0) {
+        console.log(`Eliminate ${oferteleEliminateCount} oferte vechi`);
+    }
+
+    try {
+        fs.writeFileSync(caleFisierOferte, JSON.stringify(oferteJson, null, 2));
+        obGlobal.oferte = oferteJson.oferte;
+        
+        console.log("Ofertă generată cu succes:", {
+            categorie: ofertaNoua.categorie,
+            reducere: ofertaNoua.reducere + "%",
+            dataIncepere: dataIncepere.toLocaleString('ro-RO'),
+            dataFinalizare: dataFinalizare.toLocaleString('ro-RO')
+        });
+        console.log(`Total oferte active: ${oferteJson.oferte.length}`);
+    } catch (error) {
+        console.error("Eroare la salvarea fișierului oferte.json:", error);
+    }
+}
+
+function incarcaOferte() {
+    try {
+        const continutFisier = fs.readFileSync(caleFisierOferte, 'utf8');
+        const oferteJson = JSON.parse(continutFisier);
+        obGlobal.oferte = oferteJson.oferte || [];
+        console.log(`Încărcate ${obGlobal.oferte.length} oferte din fișier`);
+    } catch (e) {
+        console.warn("Nu s-au putut încărca ofertele existente. Se va începe cu listă goală.");
+        obGlobal.oferte = [];
+    }
+}
+
+function initializareOferte() {
+    const directorJson = path.dirname(caleFisierOferte);
+    if (!fs.existsSync(directorJson)) {
+        fs.mkdirSync(directorJson, { recursive: true });
+    }
+
+    incarcaCategorii();
+    
+    incarcaOferte();
+    
+    setTimeout(() => {
+        if (!obGlobal.oferte || obGlobal.oferte.length === 0) {
+            console.log("Nu există oferte active. Se generează prima ofertă...");
+            genereazaOferta();
+        }
+    }, 2000);
+    
+    setInterval(() => {
+        console.log(`\n[${new Date().toLocaleString('ro-RO')}] Generare automată ofertă...`);
+        genereazaOferta();
+    }, T * 60000);
+    
+    console.log(`Sistem de oferte inițializat. Interval generare: ${T} minute, Păstrare oferte: ${T2} minute`);
+}
+
+client.connect().then(() => {
+    console.log("Conectat la baza de date");
+    initializareOferte();
+}).catch(err => {
+    console.error("Eroare conectare baza de date:", err);
+});
 
 function formatareText(text) {
     return text.replace(/_/g, ' ')
@@ -50,6 +189,7 @@ app.use(function (req, res, next) {
             res.locals.categoriiPrincipale = [];
             res.locals.subcategorii = [];
             res.locals.mapareSubcategorii = {};
+            res.locals.oferte = [];
             return next();
         }
 
@@ -57,6 +197,7 @@ app.use(function (req, res, next) {
             categ: row.categorie
         }));
 
+        res.locals.oferte = obGlobal.oferte || [];
 
         const querySubcategorii = "SELECT unnest(enum_range(NULL::subcategorie_produs)) AS subcategorie";
         client.query(querySubcategorii, function (err, rezSubcat) {

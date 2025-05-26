@@ -2,7 +2,7 @@
   margin: 3rem auto;
   max-width: 800px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .container-galerie-animata {
     display: none;
   }
@@ -12,10 +12,8 @@
   position: relative;
   width: 100%;
   height: 400px;
-  overflow: hidden;
   border: 15px solid transparent;
-  border-image: url("/resurse/imagini/border_pattern.png") 30 stretch;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  border-image: url("/resurse/imagini/border_pattern2.png") 30;
 }
 .galerie-animata .caption-container {
   position: absolute;
@@ -27,9 +25,6 @@
   text-align: center;
   padding: 1rem 0;
   z-index: 100;
-}
-.galerie-animata .caption-container p {
-  margin: 0;
 }
 .galerie-animata:hover .imagine {
   animation-play-state: paused;
@@ -47,64 +42,59 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 1;
 }
 .imagine:nth-child(1) {
   z-index: 1;
-  animation: imagine-anim-1 72s infinite ease-in-out;
+  animation: imagine-anim-1 60s infinite ease-in-out;
 }
 .imagine:nth-child(2) {
   z-index: 2;
-  animation: imagine-anim-2 72s infinite ease-in-out;
+  animation: imagine-anim-2 60s infinite ease-in-out;
 }
 .imagine:nth-child(3) {
   z-index: 3;
-  animation: imagine-anim-3 72s infinite ease-in-out;
+  animation: imagine-anim-3 60s infinite ease-in-out;
 }
 .imagine:nth-child(4) {
   z-index: 4;
-  animation: imagine-anim-4 72s infinite ease-in-out;
+  animation: imagine-anim-4 60s infinite ease-in-out;
 }
 .imagine:nth-child(5) {
   z-index: 5;
-  animation: imagine-anim-5 72s infinite ease-in-out;
+  animation: imagine-anim-5 60s infinite ease-in-out;
 }
 .imagine:nth-child(6) {
   z-index: 6;
-  animation: imagine-anim-6 72s infinite ease-in-out;
+  animation: imagine-anim-6 60s infinite ease-in-out;
 }
 .imagine:nth-child(7) {
   z-index: 7;
-  animation: imagine-anim-7 72s infinite ease-in-out;
+  animation: imagine-anim-7 60s infinite ease-in-out;
 }
 .imagine:nth-child(8) {
   z-index: 8;
-  animation: imagine-anim-8 72s infinite ease-in-out;
+  animation: imagine-anim-8 60s infinite ease-in-out;
 }
 .imagine:nth-child(9) {
   z-index: 9;
-  animation: imagine-anim-9 72s infinite ease-in-out;
+  animation: imagine-anim-9 60s infinite ease-in-out;
 }
 .imagine:nth-child(10) {
   z-index: 10;
-  animation: imagine-anim-10 72s infinite ease-in-out;
+  animation: imagine-anim-10 60s infinite ease-in-out;
 }
 .imagine:nth-child(11) {
   z-index: 11;
-  animation: imagine-anim-11 72s infinite ease-in-out;
+  animation: imagine-anim-11 60s infinite ease-in-out;
 }
 .imagine:nth-child(12) {
   z-index: 12;
-  animation: imagine-anim-12 72s infinite ease-in-out;
+  animation: imagine-anim-12 60s infinite ease-in-out;
 }
 
 @keyframes imagine-anim-1 {
   0%, 0% {
     clip-path: inset(0 50% 0 50%);
-  }
-  5% {
-    clip-path: inset(0 0 0 0);
   }
   8.3333333333%, 100% {
     clip-path: inset(0 0 0 0);
@@ -114,9 +104,6 @@
   0%, 8.3333333333% {
     clip-path: inset(0 50% 0 50%);
   }
-  13.3333333333% {
-    clip-path: inset(0 0 0 0);
-  }
   16.6666666667%, 100% {
     clip-path: inset(0 0 0 0);
   }
@@ -124,9 +111,6 @@
 @keyframes imagine-anim-3 {
   0%, 16.6666666667% {
     clip-path: inset(0 50% 0 50%);
-  }
-  21.6666666667% {
-    clip-path: inset(0 0 0 0);
   }
   25%, 100% {
     clip-path: inset(0 0 0 0);
@@ -136,9 +120,6 @@
   0%, 25% {
     clip-path: inset(0 50% 0 50%);
   }
-  30% {
-    clip-path: inset(0 0 0 0);
-  }
   33.3333333333%, 100% {
     clip-path: inset(0 0 0 0);
   }
@@ -146,9 +127,6 @@
 @keyframes imagine-anim-5 {
   0%, 33.3333333333% {
     clip-path: inset(0 50% 0 50%);
-  }
-  38.3333333333% {
-    clip-path: inset(0 0 0 0);
   }
   41.6666666667%, 100% {
     clip-path: inset(0 0 0 0);
@@ -158,9 +136,6 @@
   0%, 41.6666666667% {
     clip-path: inset(0 50% 0 50%);
   }
-  46.6666666667% {
-    clip-path: inset(0 0 0 0);
-  }
   50%, 100% {
     clip-path: inset(0 0 0 0);
   }
@@ -168,9 +143,6 @@
 @keyframes imagine-anim-7 {
   0%, 50% {
     clip-path: inset(0 50% 0 50%);
-  }
-  55% {
-    clip-path: inset(0 0 0 0);
   }
   58.3333333333%, 100% {
     clip-path: inset(0 0 0 0);
@@ -180,9 +152,6 @@
   0%, 58.3333333333% {
     clip-path: inset(0 50% 0 50%);
   }
-  63.3333333333% {
-    clip-path: inset(0 0 0 0);
-  }
   66.6666666667%, 100% {
     clip-path: inset(0 0 0 0);
   }
@@ -190,9 +159,6 @@
 @keyframes imagine-anim-9 {
   0%, 66.6666666667% {
     clip-path: inset(0 50% 0 50%);
-  }
-  71.6666666667% {
-    clip-path: inset(0 0 0 0);
   }
   75%, 100% {
     clip-path: inset(0 0 0 0);
@@ -202,9 +168,6 @@
   0%, 75% {
     clip-path: inset(0 50% 0 50%);
   }
-  80% {
-    clip-path: inset(0 0 0 0);
-  }
   83.3333333333%, 100% {
     clip-path: inset(0 0 0 0);
   }
@@ -213,9 +176,6 @@
   0%, 83.3333333333% {
     clip-path: inset(0 50% 0 50%);
   }
-  88.3333333333% {
-    clip-path: inset(0 0 0 0);
-  }
   91.6666666667%, 100% {
     clip-path: inset(0 0 0 0);
   }
@@ -223,9 +183,6 @@
 @keyframes imagine-anim-12 {
   0%, 91.6666666667% {
     clip-path: inset(0 50% 0 50%);
-  }
-  96.6666666667% {
-    clip-path: inset(0 0 0 0);
   }
   100%, 100% {
     clip-path: inset(0 0 0 0);
