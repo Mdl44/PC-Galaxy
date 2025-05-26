@@ -2071,3 +2071,99 @@ INSERT INTO produse (
         'Platforme: Desktop, Web, Mobile'
     ]
 );
+
+CREATE TABLE IF NOT EXISTS seturi (
+    id SERIAL PRIMARY KEY,
+    nume_set VARCHAR(100) UNIQUE NOT NULL,
+    descriere_set TEXT
+);
+
+CREATE TABLE IF NOT EXISTS asociere_set (
+    id SERIAL PRIMARY KEY,
+    id_set INTEGER REFERENCES seturi(id) ON DELETE CASCADE,
+    id_produs INTEGER REFERENCES produse(id) ON DELETE CASCADE,
+    UNIQUE(id_set, id_produs)
+);
+
+INSERT INTO seturi (nume_set, descriere_set) VALUES
+('Gaming Beast RTX 5090', 'Configurația supremă pentru gaming 8K și ray-tracing avansat. Include cel mai puternic procesor Intel și placa video RTX 5090 pentru performanțe fără compromisuri.'),
+('Mid-Range Gaming Rig', 'Sistemul perfect pentru gaming 1440p fluid. Combinația ideală între performanță și preț pentru majoritatea jocurilor moderne la setări înalte.'),
+('Budget Gaming Setup', 'Kit complet de gaming entry-level cu raport calitate-preț excelent. Perfect pentru începători care vor să intre în lumea gaming-ului PC fără să spargă banca.'),
+('Productivity Workstation', 'Configurația perfectă pentru creatori de conținut și profesioniști. Procesor multi-core puternic, RAM abundent și stocare rapidă pentru workflow-uri intensive.'),
+('Silent Office Build', 'Sistemul ideal pentru birou - silențios, eficient și fiabil. Optimizat pentru productivitate și multitasking fără zgomot deranjant.'),
+('RGB Gaming Battlestation', 'Setup-ul complet pentru entuziaștii RGB cu toate componentele sincronizate. Performanță ridicată cu iluminare spectaculoasă pentru experiența gaming ultimă.'),
+('Compact Mini-ITX Power', 'Putere maximă într-un format compact. Perfect pentru spații reduse fără compromisuri de performanță - ideal pentru dormitor sau apartamente mici.');
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(1, 14), -- Core i9-14900K
+(1, 22), -- ROG MAXIMUS Z790 HERO  
+(1, 26), -- GeForce RTX 5090
+(1, 34), -- Dominator Platinum RGB 32GB DDR5 7200MHz
+(1, 36), -- Samsung 980 PRO 2TB
+(1, 42), -- ROG Thor 1200P2
+(1, 47), -- PC-O11 Dynamic Evo
+(1, 53); -- Kraken Z73 RGB
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(2, 12), -- Core i5-14600K
+(2, 24), -- MAG B760 TOMAHAWK WIFI
+(2, 29), -- GeForce RTX 4070 Ti SUPER
+(2, 32), -- Fury Beast 32GB DDR5 5200MHz
+(2, 37), -- WD SN850X 1TB
+(2, 40), -- Pure Power 11 FM 750W
+(2, 45), -- 4000D Airflow
+(2, 50); -- Pure Rock 2
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(3, 10), -- Core i3-14100F
+(3, 30), -- GeForce RTX 4060 Ti DUAL OC
+(3, 31), -- Fury Beast 32GB DDR4 3200MHz
+(3, 38), -- Kingston NV2 1TB
+(3, 39), -- System Power 9 600W
+(3, 55), -- G413 TKL SE
+(3, 58), -- G305 LIGHTSPEED
+(3, 62); -- G24F 2
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(4, 19), -- Ryzen 9 7950X
+(4, 20), -- ROG CROSSHAIR X670E HERO
+(4, 33), -- Ripjaws S5 32GB DDR5 6000MHz
+(4, 36), -- Samsung 980 PRO 2TB
+(4, 40), -- Seagate Barracuda 4TB
+(4, 41), -- RM850x (2023)
+(4, 46), -- H7 Flow
+(4, 51), -- Dark Rock Pro 4
+(4, 67); -- MX Master 3S
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(5, 11), -- Core i5-13400F  
+(5, 31), -- Fury Beast 32GB DDR4 3200MHz
+(5, 39), -- Samsung 870 EVO 1TB SATA
+(5, 41), -- System Power 9 600W (ID corect)
+(5, 50), -- Pure Rock 2
+(5, 58), -- MX Keys S
+(5, 66), -- M110 Silent
+(5, 61); -- V24i-10
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(6, 13), -- Core i7-14700K
+(6, 23), -- MEG Z790 ACE
+(6, 28), -- GeForce RTX 5080 GAMING X TRIO
+(6, 34), -- Dominator Platinum RGB 32GB DDR5 7200MHz
+(6, 36), -- Samsung 980 PRO 2TB
+(6, 42), -- ROG Thor 1200P2
+(6, 47), -- PC-O11 Dynamic Evo
+(6, 52), -- Kraken X53 RGB
+(6, 57), -- ROG Azoth
+(6, 60), -- Viper V2 Pro
+(6, 74); -- MM700 RGB
+
+INSERT INTO asociere_set (id_set, id_produs) VALUES
+(7, 16), -- Ryzen 7 7700X
+(7, 30), -- GeForce RTX 4060 Ti DUAL OC
+(7, 32), -- Fury Beast 32GB DDR5 5200MHz
+(7, 37), -- WD SN850X 1TB
+(7, 40), -- Pure Power 11 FM 750W
+(7, 48), -- NR200P
+(7, 50), -- Pure Rock 2
+(7, 55); -- G413 TKL SE

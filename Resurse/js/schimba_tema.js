@@ -12,7 +12,6 @@ window.addEventListener("DOMContentLoaded", function() {
                 document.body.classList.add(selectedTheme);
             }
             
-            // Salvăm în localStorage
             if (selectedTheme === 'default') {
                 localStorage.removeItem('tema');
             } else {

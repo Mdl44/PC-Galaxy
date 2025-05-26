@@ -1,28 +1,22 @@
 {
   "oferte": [
     {
-      "categorie": "periferice_gaming",
-      "reducere": 40,
-      "data-incepere": "2025-05-26T16:11:20.507Z",
-      "data-finalizare": "2025-05-26T16:13:20.507Z"
+      "categorie": "software_licente",
+      "reducere": 50,
+      "data-incepere": "2025-05-26T17:40:02.010Z",
+      "data-finalizare": "2025-05-26T17:42:02.010Z"
     },
     {
-      "categorie": "componente_hardware",
-      "reducere": 45,
-      "data-incepere": "2025-05-26T16:09:18.553Z",
-      "data-finalizare": "2025-05-26T16:11:18.553Z"
+      "categorie": "periferice_gaming",
+      "reducere": 40,
+      "data-incepere": "2025-05-26T17:36:30.507Z",
+      "data-finalizare": "2025-05-26T17:38:30.507Z"
     },
     {
       "categorie": "sisteme_complete",
-      "reducere": 10,
-      "data-incepere": "2025-05-26T16:07:16.844Z",
-      "data-finalizare": "2025-05-26T16:09:16.844Z"
-    },
-    {
-      "categorie": "componente_hardware",
-      "reducere": 10,
-      "data-incepere": "2025-05-26T16:05:14.916Z",
-      "data-finalizare": "2025-05-26T16:07:14.916Z"
+      "reducere": 35,
+      "data-incepere": "2025-05-26T17:34:28.722Z",
+      "data-finalizare": "2025-05-26T17:36:28.722Z"
     }
   ]
 }

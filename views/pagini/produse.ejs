@@ -241,30 +241,34 @@
 
             <% if(locals.produse && produse.length > 0) { %>
             <% for(let prod of produse) { 
-    // Verifică dacă există oferte pentru categoria produsului
     const oferteProd = locals.oferte.filter(o => {
         const categorieOferta = o.categorie.toLowerCase().replace(/_/g, ' ');
         const categorieProd = prod.categorie.toLowerCase().replace(/_/g, ' ');
         return categorieOferta === categorieProd;
     });
     
-    // Calculează reducerea totală (sumează toate ofertele active pentru categoria)
     const reducereTotala = oferteProd.reduce((total, o) => {
         const dataFinalizare = new Date(o["data-finalizare"]);
         const acum = new Date();
-        // Aplică reducerea doar dacă oferta este încă activă
         return dataFinalizare > acum ? total + o.reducere : total;
     }, 0);
     
-    const reducereAplicata = Math.min(reducereTotala, 50); // Maxim 50% reducere
+    const reducereAplicata = Math.min(reducereTotala, 50);
     const pretNou = Math.round(prod.pret * (1 - reducereAplicata / 100));
     const areOferta = reducereAplicata > 0;
+    const esteCelMaiIeftin = locals.produseIeftineSet && locals.produseIeftineSet.has(prod.id);
 %>
 
             <article id="ar_ent_<%= prod.id %>"
                 class="produs-item <%= prod.categorie.replace(/\s+/g, '') %> <%= areOferta ? 'produs-cu-oferta' : '' %>">
                 <h4>
                     <a href="/produs/<%= prod.id %>"><%= prod.nume %></a>
+                    <% if(esteCelMaiIeftin) { %>
+                    <span class="badge-cel-mai-ieftin">
+                        💰 CEL MAI IEFTIN DIN CATEGORIE!
+                    </span>
+                    <% } %>
+                    </a>
                     <% if(areOferta) { %>
                     <span class="badge-oferta-title">
                         🔥 -<%= reducereAplicata %>%
@@ -278,6 +282,9 @@
                             <%= formatareText(prod.categorie) %>
                             <% if(areOferta) { %>
                             <span class="categorie-oferta">📢 OFERTĂ ACTIVĂ</span>
+                            <% } %>
+                            <% if(esteCelMaiIeftin) { %>
+                            <span class="categorie-cel-mai-ieftin">🏆 BEST PRICE</span>
                             <% } %>
                         </div>
 
@@ -303,7 +310,12 @@
                                             <%= Math.round((prod.pret - pretNou) * 100) / 100 %> RON</span>
                                     </span>
                                     <% } else { %>
-                                    <span class="pret-normal"><%= prod.pret %> RON</span>
+                                    <span class="pret-normal <%= esteCelMaiIeftin ? 'pret-cel-mai-ieftin' : '' %>">
+                                        <%= prod.pret %> RON
+                                        <% if(esteCelMaiIeftin) { %>
+                                        <small class="text-cel-mai-ieftin-pret">Cel mai mic preț!</small>
+                                        <% } %>
+                                    </span>
                                     <% } %>
                                 </span>
                             </div>

@@ -1,5 +1,3 @@
-// Acest fișier va conține logica pentru timer-ul de oferte
-
 class TimerOferte {
     constructor() {
         this.interval = null;
@@ -71,41 +69,34 @@ class TimerOferte {
         const hrs = Math.floor(diff / (1000 * 60 * 60));
 
         if (this.timerEl) {
-            // Resetează toate clasele
             this.timerEl.classList.remove("urgent", "warning");
             this.timerEl.style.color = '';
             this.timerEl.style.fontSize = '';
             this.timerEl.style.animation = '';
             
             if (diff > 10000) {
-                // Normal countdown
                 this.timerEl.textContent = `${hrs}h ${min}m ${sec}s`;
             } else if (diff > 0) {
-                // ULTIMELE 10 SECUNDE - efecte speciale
                 this.timerEl.classList.add("urgent");
                 this.timerEl.textContent = `🚨 ${sec}s 🚨`;
                 this.timerEl.style.color = '#ff4757';
                 this.timerEl.style.fontSize = '1.8rem';
                 this.timerEl.style.fontWeight = 'bold';
                 this.timerEl.style.animation = 'urgentPulse 0.5s ease-in-out infinite alternate';
-                
-                // Sunet la fiecare secundă
+
                 this.playTick();
                 
-                // Schimbă culoarea întregii oferte
                 const ofertaDiv = document.querySelector('.oferta');
                 if (ofertaDiv) {
                     ofertaDiv.style.borderColor = '#ff4757';
                     ofertaDiv.style.boxShadow = '0 0 20px rgba(255, 71, 87, 0.6)';
                 }
             } else {
-                // EXPIRAT
                 this.timerEl.textContent = "⏰ EXPIRAT!";
                 this.timerEl.style.color = '#ff6b6b';
                 this.playAlarm();
                 clearInterval(this.interval);
                 
-                // Încarcă oferta nouă după 3 secunde
                 setTimeout(() => this.incarcaOfertaNoua(), 3000);
             }
         }
@@ -141,16 +132,8 @@ class TimerOferte {
         
         if (this.timerEl) {
             this.interval = setInterval(() => this.updateTimer(), 1000);
-            this.updateTimer(); // Apel imediat
+            this.updateTimer();
         }
-
-        // Oprește sunetele cu ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.audioContext = null;
-                console.log('Sunetele au fost dezactivate');
-            }
-        });
     }
 
     stop() {
@@ -161,5 +144,4 @@ class TimerOferte {
     }
 }
 
-// Export pentru utilizare globală
 window.TimerOferte = TimerOferte;

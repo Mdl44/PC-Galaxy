@@ -508,99 +508,195 @@ app.get("/produse", function (req, res) {
             res.locals.pretMax = rezMinMax.rows[0].pret_max || 10000;
         }
 
-        const queryOptiuni = "SELECT unnest(enum_range(NULL::categoria_principala)) AS categ";
+        const queryProduseIeftineSubcategorii = `
+            SELECT DISTINCT ON (subcategorie) 
+                id, subcategorie, pret, nume
+            FROM produse 
+            WHERE pret IS NOT NULL AND subcategorie IS NOT NULL
+            ORDER BY subcategorie, pret ASC, id ASC
+        `;
 
-        client.query(queryOptiuni, function (err, rezOptiuni) {
+        client.query(queryProduseIeftineSubcategorii, function (err, rezProduseIeftineSubcat) {
             if (err) {
-                console.log("Eroare categorii:", err);
-                res.locals.optiuni = [];
+                console.error("Eroare la query produse ieftine pe subcategorii:", err);
+                res.locals.produseIeftineSet = new Set();
             } else {
-                res.locals.optiuni = rezOptiuni.rows.map(row => ({
-                    categ: row.categorie
-                }));
+                const produseIeftineSet = new Set();
+                for (let prod of rezProduseIeftineSubcat.rows) {
+                    produseIeftineSet.add(prod.id);
+                }
+                res.locals.produseIeftineSet = produseIeftineSet;
+                
+                console.log("Produse cele mai ieftine din fiecare subcategorie:", 
+                    rezProduseIeftineSubcat.rows.map(p => `${p.nume} (${p.subcategorie}) - ${p.pret} RON`));
             }
 
-            const queryCaracteristici = `
-    SELECT DISTINCT unnest(string_to_array(
-        CASE 
-            WHEN specificatii_tehnice ~ '^{.*}$' 
-            THEN translate(specificatii_tehnice, '{}\"', '')
-            ELSE specificatii_tehnice 
-        END, ','
-    )) as caracteristica 
-    FROM produse 
-    WHERE specificatii_tehnice IS NOT NULL 
-    ORDER BY caracteristica`;
+            const queryOptiuni = "SELECT unnest(enum_range(NULL::categoria_principala)) AS categ";
 
-            client.query(queryCaracteristici, function (err, rezCaract) {
+            client.query(queryOptiuni, function (err, rezOptiuni) {
                 if (err) {
-                    res.locals.caracteristiciDisponibile = [];
+                    console.log("Eroare categorii:", err);
+                    res.locals.optiuni = [];
                 } else {
-                    res.locals.caracteristiciDisponibile = rezCaract.rows.map(row =>
-                        row.caracteristica.trim().toLowerCase()
-                    ).filter(c => c.length > 0);
+                    res.locals.optiuni = rezOptiuni.rows.map(row => ({
+                        categ: row.categorie
+                    }));
                 }
 
-                const queryBranduri = "SELECT DISTINCT brand FROM produse WHERE brand IS NOT NULL ORDER BY brand";
+                const queryCaracteristici = `
+                    SELECT DISTINCT unnest(string_to_array(
+                        CASE 
+                            WHEN specificatii_tehnice ~ '^{.*}$' 
+                            THEN translate(specificatii_tehnice, '{}\"', '')
+                            ELSE specificatii_tehnice 
+                        END, ','
+                    )) as caracteristica 
+                    FROM produse 
+                    WHERE specificatii_tehnice IS NOT NULL 
+                    ORDER BY caracteristica`;
 
-                client.query(queryBranduri, function (err, rezBranduri) {
+                client.query(queryCaracteristici, function (err, rezCaract) {
                     if (err) {
-                        res.locals.branduri = [];
-                        res.locals.branduriDatalist = [];
+                        res.locals.caracteristiciDisponibile = [];
                     } else {
-                        res.locals.branduri = rezBranduri.rows;
-                        res.locals.branduriDatalist = res.locals.branduri;
+                        res.locals.caracteristiciDisponibile = rezCaract.rows.map(row =>
+                            row.caracteristica.trim().toLowerCase()
+                        ).filter(c => c.length > 0);
                     }
 
-                    const querySubcategorii = "SELECT DISTINCT subcategorie FROM produse WHERE subcategorie IS NOT NULL ORDER BY subcategorie";
+                    const queryBranduri = "SELECT DISTINCT brand FROM produse WHERE brand IS NOT NULL ORDER BY brand";
 
-                    client.query(querySubcategorii, function (err, rezSubcat) {
+                    client.query(queryBranduri, function (err, rezBranduri) {
                         if (err) {
-                            res.locals.subcategoriiDisponibile = [];
+                            res.locals.branduri = [];
+                            res.locals.branduriDatalist = [];
                         } else {
-                            res.locals.subcategoriiDisponibile = rezSubcat.rows.map(row => row.subcategorie);
+                            res.locals.branduri = rezBranduri.rows;
+                            res.locals.branduriDatalist = res.locals.branduri;
                         }
 
-                        let queryProduse = `SELECT * FROM produse ${conditieQuery} ORDER BY id`;
+                        const querySubcategorii = "SELECT DISTINCT subcategorie FROM produse WHERE subcategorie IS NOT NULL ORDER BY subcategorie";
 
-                        client.query(queryProduse, paramQuery, function (err, rez) {
+                        client.query(querySubcategorii, function (err, rezSubcat) {
                             if (err) {
-                                console.log("Eroare la query produse:", err);
-                                afisareEroare(res, 500, "Eroare bază de date", "Nu s-au putut încărca produsele.");
+                                res.locals.subcategoriiDisponibile = [];
                             } else {
-                                res.render("pagini/produse", {
-                                    produse: rez.rows,
-                                    optiuni: rezOptiuni.rows,
-                                    branduri: rezBranduri.rows.map(row => ({
-                                        brand: row.brand
-                                    }))
-                                });
+                                res.locals.subcategoriiDisponibile = rezSubcat.rows.map(row => row.subcategorie);
                             }
+
+                            let queryProduse = `SELECT * FROM produse ${conditieQuery} ORDER BY id`;
+
+                            client.query(queryProduse, paramQuery, function (err, rez) {
+                                if (err) {
+                                    console.log("Eroare la query produse:", err);
+                                    afisareEroare(res, 500, "Eroare bază de date", "Nu s-au putut încărca produsele.");
+                                } else {
+                                    res.render("pagini/produse", {
+                                        produse: rez.rows,
+                                        optiuni: rezOptiuni.rows,
+                                        branduri: rezBranduri.rows.map(row => ({
+                                            brand: row.brand
+                                        }))
+                                    });
+                                }
+                            });
                         });
                     });
                 });
-
             });
         });
     });
 });
 
+app.get("/seturi", function(req, res) {
+    const querySeturi = `
+        SELECT 
+            s.id, 
+            s.nume_set, 
+            s.descriere_set, 
+            json_agg(json_build_object(
+                'id', p.id,
+                'nume', p.nume,
+                'imagine', p.imagine,
+                'pret', p.pret,
+                'brand', p.brand,
+                'subcategorie', p.subcategorie
+            )) AS produse
+        FROM seturi s
+        JOIN asociere_set a ON s.id = a.id_set
+        JOIN produse p ON a.id_produs = p.id
+        GROUP BY s.id, s.nume_set, s.descriere_set
+        ORDER BY s.id`;
+    
+    client.query(querySeturi, function(err, rezultat) {
+        if (err) {
+            console.error("Eroare la query seturi: ", err);
+            afisareEroare(res, 500, "Eroare bază de date", "Nu s-au putut încărca seturile.");
+        } else {
+            console.log("Seturi încărcate:", rezultat.rows);
+            res.render("pagini/seturi", {
+                seturi: rezultat.rows,
+                ip: req.ip
+            });
+        }
+    });
+});
 
-app.get("/produs/:id", (req, res) => {
-    const idProdus = req.params.id;
 
-    const queryProdus = `SELECT * FROM produse WHERE id = $1`;
+app.get("/produs/:id", function(req, res) {
+    let idProdus = parseInt(req.params.id);
 
-    client.query(queryProdus, [idProdus], (err, rezProdus) => {
-        if (err || rezProdus.rows.length === 0) {
-            afisareEroare(res, 404, "Produs inexistent", "Produsul căutat nu există.");
+    const queryProdus = "SELECT * FROM produse WHERE id = $1";
+    
+    client.query(queryProdus, [idProdus], function(err, rez) {
+        if (err) {
+            console.error("Eroare la încărcarea produsului:", err);
+            afisareEroare(res, 500, "Eroare bază de date", "Nu s-a putut încărca produsul.");
             return;
         }
-
-        const produs = rezProdus.rows[0];
-
-        res.render("pagini/produs", {
-            produs: produs
+        
+        if (rez.rows.length === 0) {
+            afisareEroare(res, 404, "Produs negăsit", "Produsul solicitat nu există.");
+            return;
+        }
+        
+        const querySeturiCuProdus = `
+            SELECT 
+                s.id,
+                s.nume_set,
+                s.descriere_set,
+                json_agg(json_build_object(
+                    'id', p.id,
+                    'nume', p.nume,
+                    'imagine', p.imagine,
+                    'pret', p.pret,
+                    'brand', p.brand,
+                    'subcategorie', p.subcategorie
+                )) AS produse
+            FROM seturi s
+            JOIN asociere_set a1 ON s.id = a1.id_set
+            JOIN asociere_set a2 ON s.id = a2.id_set
+            JOIN produse p ON a2.id_produs = p.id
+            WHERE a1.id_produs = $1
+            GROUP BY s.id, s.nume_set, s.descriere_set
+            ORDER BY s.id`;
+        
+        client.query(querySeturiCuProdus, [idProdus], function(errSeturi, rezSeturi) {
+            if (errSeturi) {
+                console.error("Eroare la încărcarea seturilor:", errSeturi);
+                res.render("pagini/produs", {
+                    produs: rez.rows[0],
+                    seturi_cu_produs: [],
+                    ip: req.ip
+                });
+            } else {
+                console.log("Seturi cu produsul", idProdus, ":", rezSeturi.rows);
+                res.render("pagini/produs", {
+                    produs: rez.rows[0],
+                    seturi_cu_produs: rezSeturi.rows,
+                    ip: req.ip
+                });
+            }
         });
     });
 });
