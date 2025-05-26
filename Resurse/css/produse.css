@@ -1,81 +1,182 @@
-
-
-main{
-    --padd-main:1rem;
-    padding-left:var(--padd-main);
-    padding-right:var(--padd-main);
+.produs-item {
+    border: 1px solid var(--color-accent-medium);
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    background-color: var(--color-main);
 }
 
-.grid-produse{
-    display:grid;
+.produs-item h4 {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-hyperlink);
+    border-bottom: 1px solid var(--color-accent-medium);
+    padding-bottom: var(--space-xs);
+}
+
+.produs-container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap:1rem;
-}
-.grid-produse .produs{
-    border-radius: 2rem;
-    box-shadow: 0px 0px 0.8rem 0.3rem grey;
-    overflow: hidden;
+    gap: var(--space-lg);
 }
 
-.grid-produse .produs h3{
-    background-color: var(--culoare-roz-inchis);
-    text-align: center;
-    margin-top: 0;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+.coloana-stanga {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
-.grid-produse .produs h3 a{
-    color:black;
-}
-.grid-produse .produs h3 a:hover{
-    color:white;
-}
-.grid-produse .produs figure{
+.categorie-entitate {
+    background-color: var(--color-accent);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    font-weight: bold;
     text-align: center;
 }
-.grid-produse .produs figure img{
-    border:1px solid grey
-}
-.grid-produse .produs .info-prod{
-    display:flex;
-    background-color: var(--cl-marcare);
-}
-.grid-produse .produs .info-prod p{
-    width:30%;
-    text-align:center;
-    font-weight:bold;
+
+.imagine-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-grid);
+    border-radius: var(--border-radius);
+    padding: var(--space-sm);
+    min-height: 320px;
 }
 
-.grid-produse .produs p.categorie{
-
-    text-align:center;
-    font-weight:bold;
+.imagine-produs {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
 }
 
-.info-produse{
-    background-color: var(--cl-marcare);
-    padding:0.2rem;
-    box-shadow: 0px 0px 0.5rem 0.15rem grey;
+.descriere-entitate {
+    background-color: var(--color-grid);
+    padding: var(--space-sm);
+    border-radius: var(--border-radius);
+    text-align: justify;
+    line-height: 1.5;
+    margin: 0;
 }
 
-.produs{
-    position: relative;
-}
-.selecteaza-cos{
-    display: inline-block;
-    background-color: var(--culoare-mov);
-    position:absolute;
-    bottom:0.5rem;
-    right:0.5rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    padding:0.3rem;
-    border:1px solid transparent;
+/* A doua coloană */
+.coloana-dreapta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
 }
 
-.selecteaza-cos:hover{
-    background-color: var(--cl-marcare);
+.caracteristica {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xs);
+    background-color: var(--color-grid);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-accent-medium);
+}
+
+.nume-caracteristica {
+    font-weight: bold;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.valoare-caracteristica {
+    color: var(--color-text);
+    text-align: right;
+    flex: 1;
+    margin-left: var(--space-sm);
+}
+
+.select-for-calc {
+    margin-top: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+@media (max-width: 1024px) {
+    .produs-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
     
-    border:1px solid  var(--culoare-mov);
+    .imagine-container {
+        min-height: 250px;
+    }
+    
+    .imagine-produs {
+        max-height: 220px;
+    }
+    
+    .caracteristica {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .nume-caracteristica {
+        margin-bottom: var(--space-xs);
+    }
+    
+    .valoare-caracteristica {
+        text-align: left;
+        margin-left: 0;
+    }
+}
+
+#inp-nume,
+#inp-brand-datalist,
+#inp-descriere,
+.form-control,
+.form-select {
+    background-color: var(--color-main) !important;
+    color: var(--color-text) !important;
+    border: 1px solid var(--color-accent-medium) !important;
+}
+
+#inp-nume:focus,
+#inp-brand-datalist:focus,
+#inp-descriere:focus,
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--color-main) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-accent) !important;
+}
+
+#inp-nume::placeholder,
+#inp-brand-datalist::placeholder,
+#inp-descriere::placeholder {
+    color: var(--color-text-secondary) !important;
+    opacity: 0.7;
+}
+
+#mesaj-produse-goale {
+    background-color: var(--color-grid);
+    color: var(--color-text);
+    border: 2px solid var(--color-accent-medium);
+    border-radius: var(--border-radius, 0.5rem);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+#mesaj-produse-goale h4 {
+    color: var(--color-accent-contrast);
+    margin-bottom: 1rem;
+}
+
+#mesaj-produse-goale i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
 }

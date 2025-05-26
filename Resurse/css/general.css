@@ -65,12 +65,6 @@ html {
     --meniu-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
     overflow-x: hidden;
@@ -131,6 +125,7 @@ small {
 
 
 /* ----------------------------------------------Link-uri--------------------------------------------*/
+/*etapa 4 link-uri*/
 a {
     color: var(--text_hyperlink);
     text-decoration: none;
@@ -142,7 +137,7 @@ a:visited {
     color: var(--color-link-visited);
 }
 
-a[href^="http"]::before {
+a[href^="http"]::before { /*externe*/
     content: "⮳";
     font-size: 1.5em;
     margin-right: 0.3em;
@@ -368,7 +363,7 @@ footer {
 
 .compact-list {
     padding-left: 1.125rem;
-    list-style-type: none;
+    list-style-type: none; /* elimina marcatorii */
 }
 
 .rating {
@@ -486,7 +481,7 @@ object {
     max-width: 50rem;
     height: 28.125rem;
 }
-
+/* etapa 4 video */
 .tutorial-video,
 .workshop-video {
     width: 100%;
@@ -516,7 +511,7 @@ object {
     min-width: 100%;
     min-height: 100%;
 }
-
+/* etapa 4 video - subtitrari */
 ::cue {
     background-color: rgba(255, 255, 255, 0.3);
     color: #333;
@@ -868,7 +863,7 @@ footer .google-map {
         width: 100%;
         min-width: 600px;
     }
-
+/* etapa 4 video */
     .tutorial-video,
     .workshop-video {
         min-width: 0;
@@ -956,7 +951,7 @@ footer .google-map {
         height: auto;
         margin: 0 auto;
     }
-
+/* etapa 4 video */
     .tutorial-video,
     .workshop-video {
         max-width: 300px;
@@ -996,27 +991,6 @@ footer .google-map {
 #server-info,
 #tutoriale-resurse,
 #despre-pagina,
-#workshop-tour,
-#header,
-#footer,
-#informatii {
-    padding: 0.625rem;
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    box-sizing: border-box;
-}
-
-#acasa,
-#product-comparison,
-#events-calendar,
-#industry-news,
-#online-users,
-#user-statistics,
-#server-info,
-#tutoriale-resurse,
-#despre-pagina,
 #informatii,
 #wishlist,
 #produse,
@@ -1029,7 +1003,7 @@ footer .google-map {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
-
+/* bonusuri etapa 5*/
 .efect-css-duotone {
     position: relative;
     background-size: cover;
@@ -1360,4 +1334,150 @@ table.responsive-table tbody tr:hover {
         display: table;
         clear: both;
     }
+}
+
+#hr-footer {
+    position: relative;
+    border: 5px double rgb(255, 255, 255);
+    border-radius: 25px;
+    border-top:transparent;
+    height: 20px;
+    margin:0;
+    overflow: visible;
+  }
+  
+ #hr-footer::after {
+    content: "";
+    position: absolute;
+    
+    border: 5px double rgb(255, 255, 255);
+    border-bottom: transparent;
+    border-radius: 25px;
+    height: 20px;
+    top : 19px;
+    margin: 0;
+    padding: 0;
+    left: -5px;
+    width: calc(100% + 10px);
+  }
+
+  .produs-nou {
+    background: linear-gradient(to bottom, rgba(26, 7, 105, 0.8), rgba(58, 31, 153, 0.6));
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    height: 100%;
+    overflow: hidden;
+}
+
+.produs-nou:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(159, 151, 255, 0.4);
+}
+
+.produs-nou h4 {
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.produs-nou h4 a {
+    color: var(--color-text-hyperlink);
+    text-decoration: none;
+}
+
+.produs-nou figure {
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.produs-nou figure img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+}
+
+.produs-nou figcaption {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+}
+
+.produs-nou .data-adaugare {
+    display: block;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+body.light #grid-galerie,
+body.light .grid-section {
+    background-color: var(--grid-gallery-bg, #d8d5f2) !important;
+}
+
+body.light .despre-pagina .content-over-video {
+    background-color: var(--despre-content-bg, rgba(224, 222, 238, 0.9)) !important;
+}
+
+body.light .filtrare-container {
+    background-color: var(--grid-gallery-bg, #d8d5f2) !important;
+    box-shadow: 0 0 15px rgba(106, 40, 169, 0.2) !important;
+    border-color: rgba(106, 40, 169, 0.3) !important;
+}
+
+body.light .grid-produse .produs {
+    background-color: var(--grid-gallery-bg, #d8d5f2) !important;
+    box-shadow: 0 4px 12px rgba(106, 40, 169, 0.15) !important;
+    border-color: rgba(106, 40, 169, 0.2) !important;
+}
+
+body.light .grid-produse .produs:hover {
+    box-shadow: 0 8px 20px rgba(106, 40, 169, 0.25) !important;
+    transform: translateY(-5px);
+}
+
+body.light .grid-produse .produs h3 {
+    background: linear-gradient(to right, rgba(106, 40, 169, 0.8), rgba(123, 104, 238, 0.7)) !important;
+    color: white !important;
+}
+
+body.light .grid-produse .produs-col2 span,
+body.light .grid-produse .brand,
+body.light .grid-produse .produs-col2 .brand {
+    color: #333 !important;
+}
+
+body.light .selecteaza-cos {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+}
+
+body.light .selecteaza-cos:hover {
+    background-color: var(--color-secondary) !important;
+}
+
+
+body.light .filtrare-container .btn-outline-primary,
+body.light .filtrare-container .btn-outline-info {
+    border-color: var(--color-primary) !important;
+    color: var(--color-primary) !important;
+}
+
+body.light .filtrare-container .btn-outline-primary:hover,
+body.light .filtrare-container .btn-outline-info:hover {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+}
+
+body.light .filtrare-container .btn-check:checked + .btn-outline-primary,
+body.light .filtrare-container .btn-check:checked + .btn-outline-info {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+}
+
+.dropdown-menu .dropdown-item {
+    text-transform: capitalize;
+    font-weight: 500;
 }

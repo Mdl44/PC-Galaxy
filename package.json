@@ -1,0 +1,34 @@
+{
+  "name": "pc-galaxy",
+  "version": "1.0.0",
+  "description": "PC Galaxy, magazin online de sisteme si componente PC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mdl44/PC-Galaxy.git"
+  },
+  "keywords": [
+    "PC",
+    "componente",
+    "periferice",
+    "magazin",
+    "online"
+  ],
+  "author": "Mocanu Mădălin-Eduard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mdl44/PC-Galaxy/issues"
+  },
+  "homepage": "https://github.com/Mdl44/PC-Galaxy#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "pg": "^8.14.1",
+    "sass": "^1.86.3",
+    "sharp": "^0.34.0"
+  }
+}

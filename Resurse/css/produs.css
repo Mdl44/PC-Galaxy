@@ -1,41 +1,288 @@
-h2{
-    padding:0.4rem;
-}
-#art-produs{
-    margin:0 auto;
-    width:70%;
-    max-width:700px;
-    background-color: var(--cl-light-t);
-    box-shadow: 0px 0px 10px 5px grey;
-    padding:0.4rem;
+:root {
+    --border-product: 2px solid var(--color-accent-light);
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --border-radius: 0.75rem;
 }
 
-#art-produs p{
-    margin:0;
-    padding:0.4rem;
-    font-weight:bold;
-    font-size:1.1rem;
+.container-prod {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md);
 }
 
-#art-produs p span{
-    font-weight: normal;
+#art-produs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "header header"
+        "image details"
+        "actions actions";
+    gap: var(--space-lg);
+    background-color: var(--color-main);
+    border: 1px solid var(--color-accent-medium);
+    border-radius: var(--border-radius);
+    padding: var(--space-lg);
+    box-shadow: var(--box-shadow);
+    color: var(--color-text);
 }
-#art-produs p:nth-of-type(even){
-    background-color: var(--culoare-roz-inchis);
-}
-#art-produs p:nth-of-type(odd){
-    background-color: var(--cl-marcare);
-}
-.imag-produs{
+
+#art-produs h1 {
+    grid-area: header;
     text-align: center;
+    margin: 0 0 var(--space-md) 0;
+    padding: var(--space-sm);
+    background-color: var(--color-header);
+    border-radius: var(--border-radius);
+    color: var(--color-text-hyperlink);
+    font-size: 2rem;
+    border-bottom: 2px solid var(--color-accent-light);
 }
-.imag-produs img{
-    width:50%;
-    height:auto;
+
+.imag-produs {
+    grid-area: image;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-grid);
+    border-radius: var(--border-radius);
+    padding: var(--space-sm);
+    border: 1px solid var(--color-accent-medium);
+    min-height: 200px;
+    max-height: 400px;
+    margin: 0;
 }
-@media screen and (max-width: 700px){
-    #art-produs{
-        margin:0 auto;
-        width:95%;
+
+.imag-produs img {
+    width: 100%;
+    height: 100%;
+}
+
+.detalii {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.detalii > p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
+    margin: 0;
+    background-color: var(--color-grid);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-accent-medium);
+    min-height: 2.5rem;
+}
+
+.detalii > p strong {
+    color: var(--color-text);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-right: var(--space-sm);
+}
+
+.detalii > p span {
+    color: var(--color-accent-light);
+    font-weight: 500;
+    text-align: right;
+}
+
+.detalii > p:has(.pret) {
+    background: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent));
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: 2px solid var(--color-accent-light);
+    box-shadow: 0 0 15px rgba(var(--color-accent), 0.4);
+}
+
+.detalii > p:has(.pret) .pret {
+    color: var(--color-accent-contrast);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    font-size: 1.5rem;
+}
+
+.stoc {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
+}
+
+.detalii > p:has(.descriere) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    line-height: 1.5;
+    min-height: auto;
+}
+
+.detalii > p:has(.descriere) strong {
+    margin-bottom: var(--space-xs);
+}
+
+.detalii > p:has(.descriere) .descriere {
+    text-align: justify;
+    width: 100%;
+}
+
+.specificatii-detaliate,
+.specificatii-generale {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--color-header);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-accent-medium);
+}
+
+.specificatii-detaliate h3,
+.specificatii-generale h3 {
+    color: var(--color-text-hyperlink);
+    margin: 0 0 var(--space-sm) 0;
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--color-accent-medium);
+    padding-bottom: var(--space-xs);
+}
+
+.specificatii-detaliate p {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xs);
+    margin: var(--space-xs) 0;
+    background-color: var(--color-main);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-accent-medium);
+}
+
+.specificatii-generale ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.specificatii-generale li {
+    padding: var(--space-xs);
+    margin: var(--space-xs) 0;
+    background-color: var(--color-main);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-accent-medium);
+    color: var(--color-text);
+}
+
+.actiuni-produs {
+    grid-area: actions;
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--space-md);
+}
+
+.adauga-cos,
+.btn-inapoi {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 200px;
+}
+
+.adauga-cos {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent-light);
+}
+
+.adauga-cos:hover {
+    background-color: var(--color-accent-light);
+    color: var(--color-body-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--color-accent), 0.4);
+}
+
+.btn-inapoi {
+    background-color: var(--color-grid);
+    color: var(--color-text);
+    border-color: var(--color-accent-medium);
+}
+
+.btn-inapoi:hover {
+    background-color: var(--color-header);
+    color: var(--color-text-hyperlink);
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 1024px) {
+    #art-produs {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "image"
+            "details"
+            "actions";
+        gap: var(--space-md);
     }
+    
+    .imag-produs {
+        min-height: 300px;
+    }
+    
+    .actiuni-produs {
+        flex-direction: column;
+    }
+    
+    .adauga-cos,
+    .btn-inapoi {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .container-prod {
+        padding: var(--space-sm);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .detalii > p {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .detalii > p strong {
+        margin-bottom: var(--space-xs);
+        margin-right: 0;
+    }
+    
+    .detalii > p span {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .specificatii-detaliate p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.stoc:contains("În stoc") {
+    background-color: #28a745;
+    color: white;
+}
+
+.stoc:contains("Stoc limitat") {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.stoc:contains("La comandă") {
+    background-color: #dc3545;
+    color: white;
 }

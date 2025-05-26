@@ -50,17 +50,17 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
                         <img src="/resurse/imagini/imagine_harta.png" alt="Setup PC" usemap="#quick-navigation-map"
                             width="766" height="430">
                         <map name="quick-navigation-map">
-                            <area shape="rect" coords="87,184,156,336" href="/produse#casti" alt="Căști"
+                            <area shape="rect" coords="87,184,156,336" href="/produse/periferice/casti" alt="Căști"
                                 title="Vezi Căști">
-                            <area shape="rect" coords="160,72,457,298" href="/produse#monitoare" alt="Monitor"
+                            <area shape="rect" coords="160,72,457,298" href="/produse/periferice/monitoare" alt="Monitor"
                                 title="Vezi Monitoare">
-                            <area shape="rect" coords="159,338,415,409" href="/produse#tastaturi" alt="Tastatură"
+                            <area shape="rect" coords="159,338,415,409" href="/produse/periferice/tastaturi" alt="Tastatură"
                                 title="Vezi Tastaturi">
-                            <area shape="rect" coords="438,304,513,347" href="/produse#mouse" alt="Mouse"
+                            <area shape="rect" coords="438,304,513,347" href="/produse/periferice/mouse" alt="Mouse"
                                 title="Vezi Mouse-uri">
-                            <area shape="poly" coords="476,299,529,369,601,354,523,293" href="/produse#mousepad"
+                            <area shape="poly" coords="476,299,529,369,601,354,523,293" href="/produse/periferice/mousepad"
                                 alt="Mousepad" title="Vezi Mousepad-uri">
-                            <area shape="rect" coords="495,55,721,284" href="/produse#pc" alt="PC" title="Vezi PC-uri">
+                            <area shape="rect" coords="495,55,721,284" href="/produse/pc/gaming" alt="PC" title="Vezi PC-uri">
                         </map>
                         <figcaption>
                             Click pe componente pentru a naviga la secțiunea dorită
@@ -139,31 +139,26 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
                 <!------------------------------- News Section ------------------------------->
                 <section id="noutati">
                     <h3>Noutăți</h3>
-                    <p>Descoperiți cele mai noi <b>produse</b> și <b>componente</b> lansate pe piață.</p>
+                    <p>Descoperă cele mai recente <b>produse</b> adăugate în catalogul nostru:</p>
                     <div class="noutati-container">
-                        <article class="produs-nou">
-                            <h4>PC Gaming High-End AMD Ryzen 9</h4>
-                            <figure>
-                                <picture>
-                                    <img src="/resurse/imagini/pc1_noutati_placeholder.jpg"
-                                        alt="PC Gaming High-End AMD">
-                                </picture>
-                                <figcaption>PC Gaming High-End AMD Ryzen 9 - Puterea supremă pentru gaming și streaming:
-                                    64GB DDR5, RTX 5090 și 2TB SSD pentru viteze uimitoare.</figcaption>
-                            </figure>
-                        </article>
-
-                        <article class="produs-nou">
-                            <h4>PC Gaming High-End AMD Ryzen 7</h4>
-                            <figure>
-                                <picture>
-                                    <img src="/resurse/imagini/pc2_noutati_placeholder.jpg"
-                                        alt="PC Gaming High-End AMD 2">
-                                </picture>
-                                <figcaption>AMD Ryzen 7 9800X3D 4.7GHz, 32GB DDR5, 2TB SSD, RTX 5080 16GB GDDR7
-                                </figcaption>
-                            </figure>
-                        </article>
+                        <% if(locals.produse_noi && produse_noi.length > 0) { %>
+                            <% for(let prod of produse_noi) { %>
+                                <article class="produs-nou">
+                                    <h4><a href="/produs/<%= prod.id %>"><%= prod.nume %></a></h4>
+                                    <figure>
+                                        <img src="<%= prod.imagine %>" alt="<%= prod.nume %>">
+                                        <figcaption>
+                                            <%= prod.descriere.length > 100 ? prod.descriere.substring(0, 100) + '...' : prod.descriere %>
+                                            <br>
+                                            <strong>Preț: <%= prod.pret %> RON</strong>
+                                            <span class="data-adaugare">Adăugat: <%= new Date(prod.data_adaugare).toLocaleDateString('ro-RO') %></span>
+                                        </figcaption>
+                                    </figure>
+                                </article>
+                            <% } %>
+                        <% } else { %>
+                            <p>Nu există produse noi disponibile momentan.</p>
+                        <% } %>
                     </div>
                 </section>
 
@@ -395,6 +390,7 @@ pc galaxy, accesorii pc, produse populare, noutati, periferice, hardware, licent
                     <div class="user"><span class="avatar">👨</span> PCBuilder99</div>
                     <div class="user-more">+ încă 234 utilizatori</div>
                 </div>
+
             </section>
 
             <!------------------------------- User Statistics Section ------------------------------->

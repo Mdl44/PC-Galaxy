@@ -46,6 +46,23 @@ $container-max-widths: (
 $box-shadow: 0 0 0.9375rem 0.375rem rgba(160, 151, 255, 0.425);
 $btn-border-width: 0.1875rem;
 
+$form-range-thumb-width: 1.5rem;
+$form-range-thumb-height: $form-range-thumb-width;
+$form-range-thumb-bg: $light;
+$form-range-thumb-border: 0;
+$form-range-thumb-border-radius: 50%;
+$form-range-thumb-box-shadow: 0 0 0.25rem rgba($primary, 0.5);
+$form-range-thumb-focus-box-shadow: 0 0 0 0.25rem rgba($light, 0.4);
+$form-range-thumb-active-bg: lighten($light, 10%);
+$form-range-thumb-transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+
+$form-range-track-width: 100%;
+$form-range-track-height: 0.5rem;
+$form-range-track-cursor: pointer;
+$form-range-track-bg: rgba($info, 0.3);
+$form-range-track-border-radius: $border-radius;
+$form-range-track-box-shadow: inset 0 0.1rem 0.25rem rgba(0, 0, 0, 0.1);
+
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
   $theme-colors: (
     "primary": $primary,
@@ -94,3 +111,171 @@ $btn-border-width: 0.1875rem;
       z-index: 1001;
     }
   }
+
+.btn-responsive-text {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.btn .bi {
+  margin-right: 0.25rem;
+  
+  @media screen and (max-width: 480px) {
+    margin-right: 0;
+  }
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: $info;
+  opacity: 0.8;
+}
+
+.form-floating > .form-control.is-invalid ~ label {
+  color: $danger;
+}
+
+.btn-check:checked + .btn-outline-primary,
+.btn-check:checked + .btn-outline-secondary,
+.btn-check:checked + .btn-outline-info {
+  font-weight: 500;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .btn-check + .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+.filtrare-container {
+  background-color: rgba($dark, 0.2);
+  padding: 1.5rem;
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+}
+
+.form-control, .form-select {
+  background-color: rgba($light, 0.1);
+  border-color: rgba($light, 0.3);
+  color: $body-color;
+  
+  &:focus {
+    background-color: rgba($light, 0.15);
+    border-color: $primary;
+    box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
+  }
+}
+
+#inp-caracteristici-excluse {
+  min-height: 8rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-text {
+  color: rgba($light, 0.8) !important;
+}
+
+.btn-outline-primary {
+  color: $light;
+  border-color: $light;
+  
+  &:hover {
+    background-color: $primary;
+    border-color: $primary;
+    color: white;
+  }
+}
+
+.btn-outline-secondary,
+.btn-outline-info {
+  color: $light;
+  border-color: $light;
+  
+  &:hover {
+    color: white;
+  }
+}
+
+.invalid-feedback {
+  color: $warning;
+}
+
+.form-select option {
+  background-color: $dark;
+  color: $light;
+}
+
+.btn-check:checked + .btn-outline-primary {
+  background-color: $light;
+  border-color: $light;
+  color: $dark;
+}
+
+textarea#inp-descriere.form-control {
+  color: white !important;
+}
+
+.form-floating > label {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+}
+
+.form-floating > .form-control:focus ~ label{
+  color: $light !important;
+  opacity: 1;
+}
+
+.theme-switcher {
+  position: relative;
+  margin: 0;
+  
+  .btn.dropdown-toggle {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--meniu-text, $body-color);
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    z-index: 2;
+    background-color: transparent !important;
+    border: none !important;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--meniu-hover-overlay, rgba($light, 0.15));
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+      z-index: -1;
+      border-radius: 4px;
+    }
+    
+    &:hover::before {
+      transform: scale(1);
+    }
+    
+    &:focus, &:active {
+      box-shadow: none !important;
+      background-color: transparent !important;
+    }
+  }
+
+}

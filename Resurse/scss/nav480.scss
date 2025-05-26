@@ -1,3 +1,7 @@
+$hamburger-lines: 3;
+$hamburger-delay-base: 0.1s;
+$hamburger-delay-increment: 0.2s;
+
 /* bonus aparitie*/
 @keyframes hamburgerAppear {
     0% {
@@ -27,6 +31,32 @@
         width: 100%;
     }
 }
+
+.hamburger-menu {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 200;
+  }
+  
+  @for $i from 1 through $hamburger-lines {
+    $position: "";
+    @if $i == 1 {
+      $position: "top";
+    } @else if $i == 2 {
+      $position: "middle";
+    } @else if $i == 3 {
+      $position: "bottom";
+    }
+    
+    .hamburger-line-#{$position} {
+      animation-delay: $hamburger-delay-base + ($hamburger-delay-increment * ($i - 1));
+    }
+  }
 
 .hamburger-line {
     display: block;
@@ -83,6 +113,7 @@
 
     #menu-toggle:checked + .hamburger-menu {
         .hamburger-line {
+            /* x */
             &-top {
                 transform: translateY(11px) rotate(45deg) !important;
                 background-color: #ff9edc !important;
@@ -246,7 +277,7 @@
             li:hover {
                 
                 > ul {
-                    max-height: 1000px;
+                    max-height: 1000px; /* sa se duca textul in jos oricat de mult as extinde submeniurile */
                     visibility: visible;
                     opacity: 1;
                     transform: none;

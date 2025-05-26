@@ -39,7 +39,7 @@
       </section>
     </div>
 
-    <div class="efect-css-duotone" style="background-image: url('Resurse/imagini/setup-gaming.jpg');"
+    <div class="efect-css-duotone" style="background-image: url('resurse/imagini/setup-gaming.jpg');"
       aria-label="Imagine cu efect duotone"></div>
   </main>
 
@@ -49,16 +49,43 @@
   document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('.galerie-animata .imagine');
     const descriereElement = document.getElementById('imagine-descriere');
+    const imaginiContainer = document.querySelector('.imagini-container');
     let currentIndex = 0;
     const totalImages = images.length;
+    const duration = 5000;
+    
+    let timeRemaining = duration;
+    let lastTimestamp = 0;
+    let animationId = null;
+    let isPaused = false;
     
     updateDescription();
     
-    const duration = 6;
-    setInterval(function() {
-      currentIndex = (currentIndex + 1) % totalImages;
-      updateDescription();
-    }, duration * 1000);
+    requestAnimationFrame(animate);
+    imaginiContainer.addEventListener('mouseenter', function() {
+      isPaused = true;
+    });
+    
+    imaginiContainer.addEventListener('mouseleave', function() {
+      isPaused = false;
+      lastTimestamp = performance.now();
+    });
+    
+    function animate(timestamp) {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      if (!isPaused) {
+        const elapsed = timestamp - lastTimestamp;
+        timeRemaining -= elapsed;
+        
+        if (timeRemaining <= 0) {
+          currentIndex = (currentIndex + 1) % totalImages;
+          updateDescription();
+          timeRemaining = duration;
+        }
+      }
+      lastTimestamp = timestamp;
+      animationId = requestAnimationFrame(animate);
+    }
     
     function updateDescription() {
       descriereElement.textContent = images[currentIndex].dataset.descriere || '';

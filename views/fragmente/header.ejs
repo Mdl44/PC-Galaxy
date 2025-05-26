@@ -1,4 +1,5 @@
 <!------------------------------- Navigation ------------------------------->
+<script src="/resurse/js/tema.js"></script>
 <header>
     <h1>PC Galaxy</h1>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -18,39 +19,29 @@
             </li>
             <li><a href="/produse">Catalog Produse</a>
                 <ul>
-                    <li><a href="/produse#pc">PC-uri</a>
-                        <ul>
-                            <li><a href="/produse#gaming">Gaming</a></li>
-                            <li><a href="/produse#office">Office</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/produse#componente">Componente</a>
-                        <ul>
-                            <li><a href="/produse#procesoare">Procesoare</a></li>
-                            <li><a href="/produse#placi-baza">Plăci de Bază</a></li>
-                            <li><a href="/produse#placi-video">Plăci Video</a></li>
-                            <li><a href="/produse#ram">RAM</a></li>
-                            <li><a href="/produse#stocare">Stocare</a></li>
-                            <li><a href="/produse#surse">Surse</a></li>
-                            <li><a href="/produse#carcase">Carcase</a></li>
-                            <li><a href="/produse#coolere">Coolere</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/produse#periferice">Periferice</a>
-                        <ul>
-                            <li><a href="/produse#tastaturi">Tastaturi</a></li>
-                            <li><a href="/produse#mouse">Mouse</a></li>
-                            <li><a href="/produse#mousepad">Mousepad</a></li>
-                            <li><a href="/produse#monitoare">Monitoare</a></li>
-                            <li><a href="/produse#casti">Căști</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/produse#software">Software</a>
-                        <ul>
-                            <li><a href="/produse#sisteme-operare">Sisteme de Operare</a></li>
-                            <li><a href="/produse#licente">Licențe software</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/produse">Toate produsele</a></li>
+                    
+                    <% if(locals.categoriiPrincipale && categoriiPrincipale.length > 0) { %>
+                        <% for (let categorieObj of categoriiPrincipale) { %>
+                            <li class="categorie-principala">
+                                <a href="/produse?categorie=<%= categorieObj.categ %>">
+                                    <%= formatareText(categorieObj.categ) %>
+                                </a>
+                                
+                                <% if(locals.mapareSubcategorii && mapareSubcategorii[categorieObj.categ]) { %>
+                                    <ul class="submeniu-subcategorii">
+                                        <% for (let subcat of mapareSubcategorii[categorieObj.categ]) { %>
+                                            <li>
+                                                <a href="/produse?categorie=<%= categorieObj.categ %>&subcategorie=<%= subcat %>">
+                                                    <%= formatareText(subcat) %>
+                                                </a>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                <% } %>
+                            </li>
+                        <% } %>
+                    <% } %>
                 </ul>
             </li>
             <li><a href="/home#tutoriale-resurse">Tutoriale și resurse</a>
@@ -68,6 +59,23 @@
                 </ul>
             </li>
             <li><a href="/galerie">Galerie</a></li>
+            <li>
+                <a href="#" id="themeLink">
+                    <i class="bi bi-palette-fill"></i>
+                    <span class="ms-2 d-none d-md-inline">Temă</span>
+                </a>
+                <ul>
+                    <li><a class="theme-option" data-theme="default" href="#">
+                            <i class="bi bi-circle-half me-2"></i>🌗 Implicită</a>
+                    </li>
+                    <li><a class="theme-option" data-theme="light" href="#">
+                            <i class="bi bi-sun-fill me-2"></i>☀️ Light</a>
+                    </li>
+                    <li><a class="theme-option" data-theme="dark" href="#">
+                            <i class="bi bi-moon-stars-fill me-2"></i>🌙 Dark</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>

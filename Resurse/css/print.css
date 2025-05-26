@@ -4,7 +4,7 @@
 
 @media print {
     html, body {
-        width: 210mm;
+        width: 210mm; /*latime pag A4 */
         overflow: visible !important;
         color: black;
         background: white;
@@ -12,7 +12,7 @@
     
     a, a:link, a:visited, a:hover, a:active,
     main a, main a:not(nav a), .taburi-iframe a,
-    nav.meniu a, footer a {
+    nav.meniu a, footer a { /* toate tipurile de link */
         color: black !important;
         text-decoration: none !important;
         text-shadow: none !important;
@@ -33,7 +33,7 @@
     }
     
     h1 {
-        page-break-after: always;
+        page-break-after: always; /*page break pentru fiecare titlu */
         margin-top: 50%;
         text-align: center;
     }
@@ -63,12 +63,12 @@
     }
     
     footer {
-        page-break-before: always;
+        page-break-before: always; /* footerul incepe pe o pag noua*/
     }
     
     body::after {
         content: "Mocanu\AMădălin-Eduard";
-        white-space: pre;
+        white-space: pre; /* pe 2 randuri */
         position: fixed;
         top: 50%;
         left: 50%;
@@ -82,7 +82,7 @@
         color: rgba(0, 0, 0, 0.3);
         font-size: 24pt;
         font-weight: bold;
-        z-index: -1;
+        z-index: -1; /* in spatele continutlui*/
     }
     
     * {
@@ -96,7 +96,7 @@
     margin-top: 2cm;
     counter-increment: page;
 }
-
+/* formatare "carte"*/
 @page:left {
     margin-left: 2cm;
     margin-right: 1cm;

@@ -1,39 +1,167 @@
 <!DOCTYPE html>
-<html  lang="ro">
-    <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
-        
-        <title>Cofetăria Dulcelind - home</title>
-        <%- include("../fragmente/head") %>     
-        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="c1" id="titlu" >
-            <h1 style="color:red;">Cofetaria <span>Dulcelind</span></h1>
-            <%- include("../fragmente/nav") %>
-        </header>
-    <main>
+<html lang="ro">
+
+<head>
+    <meta name="keywords"
+        content="<%= locals.produs.nume %>, <%= locals.produs.categorie %>, detalii produs, componente pc, pc galaxy">
+    <meta name="description" content="<%= locals.produs.descriere %>">
+    <title><%= locals.produs.nume %> | PC Galaxy</title>
+    <%- include("../fragmente/head.ejs") %>
+    <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <%- include("../fragmente/header.ejs") %>
+    
+    <main class="container-prod">
         <section>
-            <h2>Pagină produs</h2>
-                <article id="art-produs">
-                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
-                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
-                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
-                    <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>
-                    <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>
-                    <p>Gramaj: <span class="gramaj"><%- locals.prod.gramaj %> </span></p>
-                    <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
-                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.pt_diabetici %> </span></p>
-                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
-                    <figure class="imag-produs">
-                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
-                    </figure>    
-                </article>
-            
+            <article id="art-produs">
+                <h1><%= locals.produs.nume %></h1>
+                
+                <figure class="imag-produs">
+                    <img src="<%= locals.produs.imagine %>" alt="Imagine <%= locals.produs.nume %>" class="produs-img">
+                </figure>
+
+                <div class="detalii">
+                    <p><strong>Brand:</strong> <span class="brand"><%= locals.produs.brand %></span></p>
+                    <p><strong>Categorie:</strong> <span class="categorie"><%= locals.produs.categorie.replace(/_/g, ' ') %></span></p>
+                    <% if(locals.produs.subcategorie) { %>
+                    <p><strong>Subcategorie:</strong> <span class="subcategorie"><%= locals.produs.subcategorie.replace(/_/g, ' ') %></span></p>
+                    <% } %>
+                    <p><strong>Preț:</strong> <span class="pret"><%= locals.produs.pret %> RON</span></p>
+                    <p><strong>Disponibilitate:</strong> <span class="stoc"><%= locals.produs.stoc_status %> (<%= locals.produs.stoc %> buc)</span></p>
+                    <p><strong>Culoare:</strong> <span class="culoare"><%= locals.produs.culoare || 'N/A' %></span></p>
+                    <p><strong>Descriere:</strong> <span class="descriere"><%= locals.produs.descriere %></span></p>
+                    <p><strong>Data adăugare:</strong> <span class="data"><%= new Date(locals.produs.data_adaugare).toLocaleDateString('ro-RO') %></span></p>
+                    
+                    <% if(locals.produs.garantie_luni) { %>
+                    <p><strong>Garanție:</strong> <span class="garantie"><%= locals.produs.garantie_luni %> luni</span></p>
+                    <% } %>
+                    
+                    <% if(locals.produs.categorie === 'procesoare') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.socket) { %><p><strong>Socket:</strong> <%= locals.produs.socket %></p><% } %>
+                        <% if(locals.produs.frecventa) { %><p><strong>Frecvență:</strong> <%= locals.produs.frecventa %> GHz</p><% } %>
+                        <% if(locals.produs.nuclee) { %><p><strong>Nuclee:</strong> <%= locals.produs.nuclee %></p><% } %>
+                        <% if(locals.produs.cache) { %><p><strong>Cache:</strong> <%= locals.produs.cache %></p><% } %>
+                        <% if(locals.produs.tdp) { %><p><strong>TDP:</strong> <%= locals.produs.tdp %> W</p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'placi_video') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.memorie_video) { %><p><strong>Memorie video:</strong> <%= locals.produs.memorie_video %></p><% } %>
+                        <% if(locals.produs.tip_memorie) { %><p><strong>Tip memorie:</strong> <%= locals.produs.tip_memorie %></p><% } %>
+                        <% if(locals.produs.interfata) { %><p><strong>Interfață:</strong> <%= locals.produs.interfata %></p><% } %>
+                        <% if(locals.produs.consum_energie) { %><p><strong>Consum:</strong> <%= locals.produs.consum_energie %> W</p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'memorie_ram') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.capacitate) { %><p><strong>Capacitate:</strong> <%= locals.produs.capacitate %></p><% } %>
+                        <% if(locals.produs.frecventa_ram) { %><p><strong>Frecvență:</strong> <%= locals.produs.frecventa_ram %> MHz</p><% } %>
+                        <% if(locals.produs.tip_ram) { %><p><strong>Tip:</strong> <%= locals.produs.tip_ram %></p><% } %>
+                        <% if(locals.produs.latenta) { %><p><strong>Latență:</strong> <%= locals.produs.latenta %></p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'stocare') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.capacitate_stocare) { %><p><strong>Capacitate:</strong> <%= locals.produs.capacitate_stocare %></p><% } %>
+                        <% if(locals.produs.tip_stocare) { %><p><strong>Tip:</strong> <%= locals.produs.tip_stocare %></p><% } %>
+                        <% if(locals.produs.interfata_stocare) { %><p><strong>Interfață:</strong> <%= locals.produs.interfata_stocare %></p><% } %>
+                        <% if(locals.produs.viteza_citire) { %><p><strong>Viteză citire:</strong> <%= locals.produs.viteza_citire %> MB/s</p><% } %>
+                        <% if(locals.produs.viteza_scriere) { %><p><strong>Viteză scriere:</strong> <%= locals.produs.viteza_scriere %> MB/s</p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'placi_de_baza') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.socket_mb) { %><p><strong>Socket:</strong> <%= locals.produs.socket_mb %></p><% } %>
+                        <% if(locals.produs.chipset) { %><p><strong>Chipset:</strong> <%= locals.produs.chipset %></p><% } %>
+                        <% if(locals.produs.sloturi_ram) { %><p><strong>Sloturi RAM:</strong> <%= locals.produs.sloturi_ram %></p><% } %>
+                        <% if(locals.produs.ram_maxima) { %><p><strong>RAM maximă:</strong> <%= locals.produs.ram_maxima %> GB</p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'surse') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.putere) { %><p><strong>Putere:</strong> <%= locals.produs.putere %> W</p><% } %>
+                        <% if(locals.produs.eficienta) { %><p><strong>Eficiență:</strong> <%= locals.produs.eficienta %></p><% } %>
+                        <% if(locals.produs.certificare) { %><p><strong>Certificare:</strong> <%= locals.produs.certificare %></p><% } %>
+                        <% if(locals.produs.modular) { %><p><strong>Modular:</strong> <%= locals.produs.modular ? 'Da' : 'Nu' %></p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'carcase') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.tip_carcasa) { %><p><strong>Tip:</strong> <%= locals.produs.tip_carcasa %></p><% } %>
+                        <% if(locals.produs.material) { %><p><strong>Material:</strong> <%= locals.produs.material %></p><% } %>
+                        <% if(locals.produs.dimensiuni) { %><p><strong>Dimensiuni:</strong> <%= locals.produs.dimensiuni %></p><% } %>
+                        <% if(locals.produs.ventilatoare_incluse) { %><p><strong>Ventilatoare incluse:</strong> <%= locals.produs.ventilatoare_incluse %></p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'coolere') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.tip_cooler) { %><p><strong>Tip:</strong> <%= locals.produs.tip_cooler %></p><% } %>
+                        <% if(locals.produs.socket_compatibil) { %><p><strong>Socket compatibil:</strong> <%= locals.produs.socket_compatibil %></p><% } %>
+                        <% if(locals.produs.rpm_max) { %><p><strong>RPM maxim:</strong> <%= locals.produs.rpm_max %></p><% } %>
+                        <% if(locals.produs.nivel_zgomot) { %><p><strong>Nivel zgomot:</strong> <%= locals.produs.nivel_zgomot %> dB</p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'monitoare') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.diagonala) { %><p><strong>Diagonală:</strong> <%= locals.produs.diagonala %>"</p><% } %>
+                        <% if(locals.produs.rezolutie) { %><p><strong>Rezoluție:</strong> <%= locals.produs.rezolutie %></p><% } %>
+                        <% if(locals.produs.rata_refresh) { %><p><strong>Rată refresh:</strong> <%= locals.produs.rata_refresh %> Hz</p><% } %>
+                        <% if(locals.produs.timp_raspuns) { %><p><strong>Timp răspuns:</strong> <%= locals.produs.timp_raspuns %> ms</p><% } %>
+                        <% if(locals.produs.tip_panel) { %><p><strong>Tip panel:</strong> <%= locals.produs.tip_panel %></p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.categorie === 'periferice') { %>
+                    <div class="specificatii-detaliate">
+                        <h3>Specificații tehnice</h3>
+                        <% if(locals.produs.tip_periferic) { %><p><strong>Tip:</strong> <%= locals.produs.tip_periferic %></p><% } %>
+                        <% if(locals.produs.conectivitate) { %><p><strong>Conectivitate:</strong> <%= locals.produs.conectivitate %></p><% } %>
+                        <% if(locals.produs.iluminare_rgb) { %><p><strong>Iluminare RGB:</strong> <%= locals.produs.iluminare_rgb ? 'Da' : 'Nu' %></p><% } %>
+                        <% if(locals.produs.wireless) { %><p><strong>Wireless:</strong> <%= locals.produs.wireless ? 'Da' : 'Nu' %></p><% } %>
+                    </div>
+                    <% } %>
+
+                    <% if(locals.produs.specificatii_tehnice && locals.produs.specificatii_tehnice.length > 0) { %>
+                    <div class="specificatii-generale">
+                        <h3>Specificații suplimentare</h3>
+                        <ul>
+                            <% for(let spec of locals.produs.specificatii_tehnice) { %>
+                            <li><%= spec %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <% } %>
+                </div>
+
+                <div class="actiuni-produs">
+                    <a href="#" class="adauga-cos btn-primary" data-id="<%= locals.produs.id %>">Adaugă în coș</a>
+                    <a href="/produse" class="btn-inapoi">&larr; Înapoi la produse</a>
+                </div>
+            </article>
         </section>
     </main>
+    
+    <%- include("../fragmente/footer.ejs") %>
+</body>
 
-    <%- include("../fragmente/footer") %>
-    </body>
 </html>
